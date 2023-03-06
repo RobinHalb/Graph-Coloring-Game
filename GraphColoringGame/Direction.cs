@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GraphColoringGame
 {
-    public enum Direction
+    public enum Direction : int
     {
         Left = 0,
         Right = 1,

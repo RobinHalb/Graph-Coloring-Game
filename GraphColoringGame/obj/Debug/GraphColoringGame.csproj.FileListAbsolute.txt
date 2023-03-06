@@ -1,0 +1,5 @@
+C:\Users\halbr\OneDrive\Desktop\6. Semester\Bachelorprojekt\GraphColoringGame\GraphColoringGame\obj\Debug\GraphColoringGame.csproj.AssemblyReference.cache
+C:\Users\halbr\OneDrive\Desktop\6. Semester\Bachelorprojekt\GraphColoringGame\GraphColoringGame\obj\Debug\GraphColoringGame.csproj.SuggestedBindingRedirects.cache
+C:\Users\halbr\OneDrive\Desktop\6. Semester\Bachelorprojekt\GraphColoringGame\GraphColoringGame\obj\Debug\GraphColoringGame.Properties.Resources.resources
+C:\Users\halbr\OneDrive\Desktop\6. Semester\Bachelorprojekt\GraphColoringGame\GraphColoringGame\obj\Debug\GraphColoringGame.csproj.GenerateResource.cache
+C:\Users\halbr\OneDrive\Desktop\6. Semester\Bachelorprojekt\GraphColoringGame\GraphColoringGame\obj\Debug\GraphColoringGame.csproj.CoreCompileInputs.cache

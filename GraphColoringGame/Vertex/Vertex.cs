@@ -10,17 +10,32 @@ namespace GraphColoringGame
     public class Vertex
     {
         public readonly int id;
-        public Color? color;
-        public bool isDangerous { get; private set; }
-        public List<Color> availableColors { get; private set; }
-        public Dictionary<Direction, Vertex> uncoloredNeighbours { get; private set; }
-        public Dictionary<Direction, Vertex> coloredNeighbours { get; private set; }
+        public Color color = Color.None;
+        public bool isColored => color != Color.None;
+        public Vertex[] neighbours = new Vertex[8];
 
-        public Vertex(int id)
+        private int uncoloredCount => neighbours.Count(n => !n.isColored);
+
+        private List<Color> _availableColors;
+        public List<Color> availableColors => UpdateAvailable();
+
+        public bool isDangerous => uncoloredCount >= availableColors.Count;
+        //public Dictionary<Direction, Vertex> uncoloredNeighbours { get; private set; }
+        //public Dictionary<Direction, Vertex> coloredNeighbours { get; private set; }
+
+        public Vertex(int id, List<Color> availableColors)
         {
             this.id = id;
+            _availableColors = availableColors;
         }
 
+        private List<Color> UpdateAvailable()
+        {
+            _availableColors.RemoveAll(c => neighbours.Any(n => n.color == c));
+            return _availableColors;
+        }
+
+        /*
         public void Color(Color color)
         {
             if (this.color == null && availableColors.Contains(color))
@@ -45,6 +60,7 @@ namespace GraphColoringGame
             uncoloredNeighbours.Remove(dir);
             isDangerous = uncoloredNeighbours.Count >= availableColors.Count;
         }
+        */
 
     }
 }
