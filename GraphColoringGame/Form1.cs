@@ -16,5 +16,10 @@ namespace GraphColoringGame
         {
             InitializeComponent();
         }
+
+        private void vertexButton1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

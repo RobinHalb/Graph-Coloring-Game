@@ -1,44 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GraphColoringGame.Levels.Level_1
 {
-    public class Level1Graph : LevelGraph
+    public class Level1Graph
     {
-        private List<Color> colors = new List<Color>() { Color.Red, Color.Blue };
-        
-
-        public override Graph CreateGraph()
+        public Graph createGraph()
         {
-            var vertices = CreateVertices();
-            return new Graph(3, 1, vertices);
-        }
-
-        protected override Dictionary<int, Vertex> CreateVertices()
-        {
-            /*
-             * Create vertices
-             */
-            var vertices = new Dictionary<int, Vertex>()
-            {
-                {1, new Vertex(1, colors)},
-                {2, new Vertex(2, colors)},
-                {3, new Vertex(3, colors)},
+            var builder = new GraphBuilder(new List<Color>() { Color.Red, Color.Blue });
+            Coord[] coords = { 
+                new Coord(0, 0), 
+                new Coord(1, 0), 
+                new Coord(2, 0) 
             };
+            builder.addVertexMany(coords);
 
+            (Coord,Coord)[] connections = {
+                (coords[0], coords[1]),
+                (coords[1], coords[2])
+            };
+            builder.connectVerticesMany(connections);
 
-            /*
-             * Connect vertices
-             */
-            Connect(1, 2, Direction.Right);
-            Connect(2, 3, Direction.Right);
-            
-
-            return vertices;
+            return builder.build();
         }
-      
     }
 }

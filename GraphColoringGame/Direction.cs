@@ -35,5 +35,21 @@ namespace GraphColoringGame
                 default: return dir;
             }
         }
+
+        public static Coord MoveCoord(this Direction dir, Coord coords)
+        {
+            switch (dir)
+            {
+                case Direction.Left: return new Coord(coords.Item1-1, coords.Item2);
+                case Direction.Right: return new Coord(coords.Item1+1, coords.Item2);
+                case Direction.Up: return new Coord(coords.Item1, coords.Item2-1);
+                case Direction.Down: return new Coord(coords.Item1, coords.Item2+1);
+                case Direction.UpLeft: return new Coord(coords.Item1-1, coords.Item2-1);
+                case Direction.UpRight: return new Coord(coords.Item1+1, coords.Item2-1);
+                case Direction.DownLeft: return new Coord(coords.Item1-1, coords.Item2+1);
+                case Direction.DownRight: return new Coord(coords.Item1+1, coords.Item2+1);
+                default: return coords;
+            }
+        }
     }
 }

@@ -9,7 +9,8 @@ namespace GraphColoringGame
 {
     public class Vertex
     {
-        public readonly int id;
+        //public readonly int id;
+        public readonly Coord coord;
         public Color color = Color.None;
         public bool isColored => color != Color.None;
         public Vertex[] neighbours = new Vertex[8];
@@ -22,10 +23,15 @@ namespace GraphColoringGame
         public bool isDangerous => uncoloredCount >= availableColors.Count;
         //public Dictionary<Direction, Vertex> uncoloredNeighbours { get; private set; }
         //public Dictionary<Direction, Vertex> coloredNeighbours { get; private set; }
-
+        /*
         public Vertex(int id, List<Color> availableColors)
         {
             this.id = id;
+            _availableColors = availableColors;
+        }*/
+        public Vertex(Coord coord, List<Color> availableColors)
+        {
+            this.coord = coord;
             _availableColors = availableColors;
         }
 

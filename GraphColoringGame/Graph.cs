@@ -9,44 +9,37 @@ namespace GraphColoringGame
 {
     public class Graph
     {
+        public readonly int xMin, xMax, yMin, yMax;
         public readonly int width;
         public readonly int height;
 
-        private Dictionary<int, Vertex> vertices;
+        private Dictionary<Coord, Vertex> _vertices;
         private List<Vertex> _dangerousVertices;
         public List<Vertex> dangerousVertices => UpdateDangerous();
         // Coords mapped to vertices
 
         //private Dictionary<int, int[]> neighbours;
 
-        public Graph(int width, int height, Dictionary<int, Vertex> vertices) 
+        public Graph(int xMin, int xMax, int yMin, int yMax, Dictionary<Coord, Vertex> vertices) 
         {
-            this.width = width;
-            this.height = height;
-            this.vertices = vertices;
+            this.xMin = xMin;
+            this.xMax = xMax;
+            this.yMin = yMin;
+            this.yMax = yMax;
+            this.width = xMax - xMin;
+            this.height = yMax - yMin;
+            _vertices = vertices;
             _dangerousVertices = vertices.Values.Where(v => v.isDangerous).ToList();
         }
 
-        public void Color(int id, Color color)
+        public bool Color(Coord coord, Color color)
         {
-            if (vertices.TryGetValue(id, out var v))
+            if (_vertices.TryGetValue(coord, out var v))
             {
                 v.color = color;
-                //var nb = neighbours[id];
-                /*
-                for (int i = 0; i < nb.Length; id++)
-                {
-                    if (nb[i] != 0)
-                    {
-                        Update(nb[i], color);
-                    }
-                }
-                foreach (int nid in neighbours[id])
-                {
-                    if (nid != 0) Update(nid, color);
-                }
-                */
+                return true;
             }
+            return false;
         }
 
         private List<Vertex> UpdateDangerous()
