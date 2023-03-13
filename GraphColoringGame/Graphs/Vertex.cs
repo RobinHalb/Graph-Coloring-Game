@@ -12,23 +12,18 @@ namespace GraphColoringGame.Graphs
         public readonly Coord coord;
         public Color color = Color.None;
         public bool isColored => color != Color.None;
-        public Vertex[] neighbours = new Vertex[8];
-        public IEnumerable<Direction> directions() => neighbours.Select<Vertex, int?>((v, i) => v != null ? i : null).Where(d => d != null).Cast<Direction>();
+        public Dictionary<Direction,Vertex> neighbours = new Dictionary<Direction,Vertex>();
+        //public Vertex[] neighbours = new Vertex[8];
+        //public IEnumerable<Direction> directions() => neighbours.Select<Vertex, int?>((v, i) => v != null ? i : null).Where(d => d != null).Cast<Direction>();
+        public IEnumerable<Direction> directions => neighbours.Keys;
 
-        private int uncoloredCount => neighbours.Count(n => !n?.isColored ?? true);
+        private int uncoloredCount => neighbours.Count(n => n.Value.isColored);
 
         private List<Color> _availableColors;
-        public List<Color> availableColors => UpdateAvailable();
+        public List<Color> availableColors { get => UpdateAvailable(); private set => _availableColors = value; }
 
         public bool isDangerous => uncoloredCount >= availableColors.Count;
-        //public Dictionary<Direction, Vertex> uncoloredNeighbours { get; private set; }
-        //public Dictionary<Direction, Vertex> coloredNeighbours { get; private set; }
-        /*
-        public Vertex(int id, List<Color> availableColors)
-        {
-            this.id = id;
-            _availableColors = availableColors;
-        }*/
+
         public Vertex(Coord coord, List<Color> availableColors)
         {
             this.coord = coord;
@@ -37,35 +32,8 @@ namespace GraphColoringGame.Graphs
 
         private List<Color> UpdateAvailable()
         {
-            _availableColors.RemoveAll(c => neighbours.Any(n => n?.color == c));
+            _availableColors.RemoveAll(c => neighbours.Any(n => n.Value.color == c));
             return _availableColors;
         }
-
-        /*
-        public void Color(Color color)
-        {
-            if (this.color == null && availableColors.Contains(color))
-            {
-                this.color = color;
-                availableColors.Remove(color);
-                foreach (KeyValuePair<Direction,Vertex> neighbour in uncoloredNeighbours)
-                {
-                    neighbour.Value.Update(neighbour.Key.Opposite());
-                }
-            }
-        }
-
-        public void Update(Direction dir) 
-        { 
-            if (uncoloredNeighbours.TryGetValue(dir, out var neighbour) &&
-                availableColors.Contains((Color)neighbour.color))
-            {
-                availableColors.Remove((Color)neighbour.color);
-            }
-            coloredNeighbours.Add(dir, neighbour);
-            uncoloredNeighbours.Remove(dir);
-            isDangerous = uncoloredNeighbours.Count >= availableColors.Count;
-        }
-        */
     }
 }

@@ -15,7 +15,7 @@ namespace GraphColoringGame.Graphs
 
         private Dictionary<Coord, Vertex> _vertices;
         public IEnumerable<Coord> coords => _vertices.Keys;
-        public IEnumerable<(Coord, IEnumerable<Direction>)> connections => _vertices.Select(e => (e.Key, e.Value.directions()));
+        public IEnumerable<(Coord, IEnumerable<Direction>)> connections => _vertices.Select(e => (e.Key, e.Value.directions));
         private List<Vertex> _dangerousVertices;
         public List<Vertex> dangerousVertices => updateDangerous();
 
