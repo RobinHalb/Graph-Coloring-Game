@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 
 namespace GraphColoringGame.Graphs
 {
@@ -16,7 +17,9 @@ namespace GraphColoringGame.Graphs
         public IEnumerable<Coord> coords => _vertices.Keys;
         public IEnumerable<(Coord, IEnumerable<Direction>)> connections => _vertices.Select(e => (e.Key, e.Value.directions()));
         private List<Vertex> _dangerousVertices;
-        public List<Vertex> dangerousVertices => UpdateDangerous();
+        public List<Vertex> dangerousVertices => updateDangerous();
+
+        
         // Coords mapped to vertices
 
         //private Dictionary<int, int[]> neighbours;
@@ -33,7 +36,14 @@ namespace GraphColoringGame.Graphs
             _dangerousVertices = vertices.Values.Where(v => v.isDangerous).ToList();
         }
 
-        public bool Color(Coord coord, Color color)
+        public Color getVertexColor(Coord coord)
+        {
+            var res = _vertices.TryGetValue(coord, out var v);
+            if (res) return v.color;
+            return Color.None;
+        }
+
+        public bool colorVertex(Coord coord, Color color)
         {
             if (_vertices.TryGetValue(coord, out var v))
             {
@@ -43,7 +53,7 @@ namespace GraphColoringGame.Graphs
             return false;
         }
 
-        private List<Vertex> UpdateDangerous()
+        private List<Vertex> updateDangerous()
         {
             _dangerousVertices.RemoveAll(v => !v.isDangerous);
             return _dangerousVertices;

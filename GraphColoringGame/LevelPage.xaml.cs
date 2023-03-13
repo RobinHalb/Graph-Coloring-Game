@@ -33,6 +33,7 @@ namespace GraphColoringGame
             InitializeComponent();
             _graph = graph;
             _graphGrid = new GraphGrid(30);
+
             for (int i = 0; i < _graph.width; i++) graphGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = _graphGrid.gridLength });
             for (int i = 0; i < _graph.height; i++) graphGrid.RowDefinitions.Add(new RowDefinition() { Height = _graphGrid.gridLength });
             foreach (var set in graph.connections) addVertex(set, graph.xMin, graph.yMin);
@@ -41,6 +42,7 @@ namespace GraphColoringGame
         private void addVertex((Coord coord,IEnumerable<Direction> directions) e, int xMin, int yMin)
         {
             var button = new Button() { Uid = toUid(e.coord), Style = FindResource("RoundButton") as Style, Height = _graphGrid.vertexSize, Width = _graphGrid.vertexSize };
+            button.Background = _graph.getVertexColor(e.coord).asBrush();
             button.Click += Vertex_Click;
             var x = e.coord.Item1 - xMin;
             var y = e.coord.Item2 - yMin;
@@ -71,8 +73,12 @@ namespace GraphColoringGame
         private void Vertex_Click(object sender, RoutedEventArgs e)
         {
             var b = sender as Button;
-            b.Background = _selectedColor.asBrush();
-            b.IsEnabled = false;
+            var coord = coords[b.Uid];
+            if (_graph.colorVertex(coord, _selectedColor))
+            {
+                b.Background = _graph.getVertexColor(coord).asBrush();
+                b.IsEnabled = false;
+            }
         }
     }
 }

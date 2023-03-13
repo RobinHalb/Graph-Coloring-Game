@@ -13,14 +13,8 @@ namespace GraphColoringGame.Graphs
         public Color color = Color.None;
         public bool isColored => color != Color.None;
         public Vertex[] neighbours = new Vertex[8];
-        public IEnumerable<Direction> directions() {
-            var dirs = new List<Direction>();
-            for (int i = 0; i < 8; i++) if (neighbours[i] != null) dirs.Add((Direction)i);
-            //var a = neighbours.Select<Vertex, int?>((v, i) => v != null ? i : null);
-            //var b = a.Where(d => d != null);
-            //var c = b.Cast<Direction>();
-            return dirs;
-        }
+        public IEnumerable<Direction> directions() => neighbours.Select<Vertex, int?>((v, i) => v != null ? i : null).Where(d => d != null).Cast<Direction>();
+
         private int uncoloredCount => neighbours.Count(n => !n?.isColored ?? true);
 
         private List<Color> _availableColors;
