@@ -45,7 +45,7 @@ namespace GraphColoringGame.Graphs
 
         public bool colorVertex(Coord coord, Color color)
         {
-            if (_vertices.TryGetValue(coord, out var v))
+            if (_vertices.TryGetValue(coord, out var v) && v.availableColors.Contains(color))
             {
                 v.color = color;
                 return true;
