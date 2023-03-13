@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\halbr\OneDrive\Desktop\6. Semester\Bachelorprojekt\WPF\GraphColoringGame\GraphColoringGame\App.xaml
-41287393745
+51712977006
 
-16512387279
+17-1883171087
 194-2004305220
-ExplanationPage.xaml;GraphResources.xaml;LevelPage.xaml;MainWindow.xaml;
+ColorPicker.xaml;ExplanationPage.xaml;GraphPage.xaml;GraphResources.xaml;MainWindow.xaml;
 
 False
 

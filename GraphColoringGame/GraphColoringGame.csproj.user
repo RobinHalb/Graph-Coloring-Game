@@ -10,7 +10,7 @@
     <Compile Update="ExplanationPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="LevelPage.xaml.cs">
+    <Compile Update="GraphPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -21,7 +21,7 @@
     <Page Update="GraphResources.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="LevelPage.xaml">
+    <Page Update="GraphPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

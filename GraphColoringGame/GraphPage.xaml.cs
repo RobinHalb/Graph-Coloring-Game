@@ -20,7 +20,7 @@ namespace GraphColoringGame
     /// <summary>
     /// Interaction logic for LevelPage.xaml
     /// </summary>
-    public partial class LevelPage : Page
+    public partial class GraphPage : Page
     {
         private Graph _graph;
         private GraphGrid _graphGrid;
@@ -28,7 +28,7 @@ namespace GraphColoringGame
         private Dictionary<string,Button> buttons = new Dictionary<string,Button>();
         private Dictionary<string,Coord> coords = new Dictionary<string, Coord>();
 
-        public LevelPage(Graph graph)
+        public GraphPage(Graph graph)
         {
             InitializeComponent();
             _graph = graph;

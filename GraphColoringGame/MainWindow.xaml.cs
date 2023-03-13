@@ -26,26 +26,26 @@ namespace GraphColoringGame
         public MainWindow()
         {
             InitializeComponent();
-            var graphPage = new LevelPage(new Level1Graph().createGraph());
+            var graphPage = new GraphPage(new Level1Graph().createGraph());
             GraphFrame.Content = graphPage;
         }
 
         public void changeLevel()
         {
-            LevelPage graphPage;
+            GraphPage graphPage;
             switch (l)
             {
                 case 1:
                     l = 2;
-                    graphPage = new LevelPage(new Level2Graph().createGraph());
+                    graphPage = new GraphPage(new Level2Graph().createGraph());
                     break;
                 case 2:
                     l = 3;
-                    graphPage = new LevelPage(new Level3Graph().createGraph());
+                    graphPage = new GraphPage(new Level3Graph().createGraph());
                     break;
                 default:
                     l = 1;
-                    graphPage = new LevelPage(new Level1Graph().createGraph());
+                    graphPage = new GraphPage(new Level1Graph().createGraph());
                     break;
             }
             GraphFrame.Content = graphPage;

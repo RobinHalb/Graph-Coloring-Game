@@ -69,7 +69,7 @@ namespace GraphColoringGame {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/GraphColoringGame;component/levelpage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/GraphColoringGame;V1.0.0.0;component/levelpage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\LevelPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
