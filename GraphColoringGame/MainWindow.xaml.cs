@@ -27,7 +27,8 @@ namespace GraphColoringGame
         {
             InitializeComponent();
             var graphPage = new LevelPage(new Level1Graph().createGraph());
-            GraphFrame.Content = graphPage;
+            var colorPicker = new ColorPicker(new List<Graphs.Color>() {Graphs.Color.Red, Graphs.Color.Blue });
+            GraphFrame.Content = colorPicker;
         }
 
         public void changeLevel()

@@ -23,6 +23,7 @@ namespace GraphColoringGame
     {
         private double _gridSize;
         private double _vertexSize => _gridSize / 2;
+        public Graphs.Color activeColor = Graphs.Color.None;
         public LevelPage(Graph graph)
         {
             InitializeComponent();
