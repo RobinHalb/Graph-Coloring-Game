@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,107 +22,56 @@ namespace GraphColoringGame
     /// </summary>
     public partial class LevelPage : Page
     {
-        private double _gridSize;
-        private double _vertexSize => _gridSize / 2;
+        private Graph _graph;
+        private GraphGrid _graphGrid;
+        private Graphs.Color _selectedColor = Graphs.Color.Red;
+        private Dictionary<string,Button> buttons = new Dictionary<string,Button>();
+        private Dictionary<string,Coord> coords = new Dictionary<string, Coord>();
+
         public LevelPage(Graph graph)
         {
             InitializeComponent();
-            _gridSize = 30;
-            var size = new GridLength(_gridSize);
-            addColumns(graph.width, size);
-            addRows(graph.height, size);
-            foreach (var set in graph.connections) addButton(set, graph.xMin, graph.yMin);
+            _graph = graph;
+            _graphGrid = new GraphGrid(30);
+            for (int i = 0; i < _graph.width; i++) graphGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = _graphGrid.gridLength });
+            for (int i = 0; i < _graph.height; i++) graphGrid.RowDefinitions.Add(new RowDefinition() { Height = _graphGrid.gridLength });
+            foreach (var set in graph.connections) addVertex(set, graph.xMin, graph.yMin);
         }
 
-        private void addColumns(int cols, GridLength size)
+        private void addVertex((Coord coord,IEnumerable<Direction> directions) e, int xMin, int yMin)
         {
-            for (int i = 0; i < cols; i++) graphGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = size });
-        }
-        private void addRows(int rows, GridLength size)
-        {
-            for (int i = 0; i < rows; i++) graphGrid.RowDefinitions.Add(new RowDefinition() { Height = size });
-        }
-
-        private void addButton((Coord coord,IEnumerable<Direction> directions) e, int xMin, int yMin)
-        {
-            var button = new Button() { Uid = $"{e.coord.Item1},{e.coord.Item2}", Style = FindResource("RoundButton") as Style, Height = _vertexSize, Width = _vertexSize };
-            button.Click += Button_Click;
+            var button = new Button() { Uid = toUid(e.coord), Style = FindResource("RoundButton") as Style, Height = _graphGrid.vertexSize, Width = _graphGrid.vertexSize };
+            button.Click += Vertex_Click;
             var x = e.coord.Item1 - xMin;
             var y = e.coord.Item2 - yMin;
-
-            var space = (_gridSize - _vertexSize) / 2;
-            var corner = (Math.Sqrt(Math.Pow(_gridSize,2.0) * 2) - _vertexSize) / 2;
-
             
+            // Add connecting lines to graph
             foreach (var dir in e.directions)
             {
-                var line = new Line() { Stroke = new SolidColorBrush() { Color = Colors.Black }, StrokeThickness = 1 };
+                var line = _graphGrid.getLine(dir);
                 Grid.SetColumn(line, x);
                 Grid.SetRow(line, y);
-
-                switch (dir)
-                {
-                    case Direction.Left:
-                        line.X1 = 0;
-                        line.X2 = line.X1 + space;
-                        line.Y1 = _gridSize / 2;
-                        line.Y2 = line.Y1;
-                        break;
-                    case Direction.Right:
-                        line.X1 = _gridSize;
-                        line.X2 = line.X1 - space;
-                        line.Y1 = _gridSize / 2;
-                        line.Y2 = line.Y1;
-                        break;
-                    case Direction.Up:
-                        line.X1 = _gridSize / 2;
-                        line.X2 = line.X1;
-                        line.Y1 = 0;
-                        line.Y2 = line.Y1 + space;
-                        break;
-                    case Direction.Down:
-                        line.X1 = _gridSize / 2;
-                        line.X2 = line.X1;
-                        line.Y1 = _gridSize;
-                        line.Y2 = line.Y1 - space;
-                        break;
-                    case Direction.UpLeft:
-                        line.X1 = 0;
-                        line.X2 = line.X1 + corner;
-                        line.Y1 = 0;
-                        line.Y2 = line.Y1 + corner;
-                        break;
-                    case Direction.UpRight:
-                        line.X1 = _gridSize;
-                        line.X2 = line.X1 - corner;
-                        line.Y1 = 0;
-                        line.Y2 = line.Y1 + corner;
-                        break;
-                    case Direction.DownLeft:
-                        line.X1 = 0;
-                        line.X2 = line.X1 + corner;
-                        line.Y1 = _gridSize;
-                        line.Y2 = line.Y1 - corner;
-                        break;
-                    case Direction.DownRight:
-                        line.X1 = _gridSize;
-                        line.X2 = line.X1 - corner;
-                        line.Y1 = _gridSize;
-                        line.Y2 = line.Y1 - corner;
-                        break;
-                }
                 graphGrid.Children.Add(line);
             }
             
+            // Add vertex to graph
             Grid.SetColumn(button, e.coord.Item1-xMin);
             Grid.SetRow(button, e.coord.Item2-yMin);
             graphGrid.Children.Add(button);
+
+            buttons.Add(button.Uid, button);
+            coords.Add(button.Uid, e.coord);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        /*
+         * toUid - create vertex uid from coordinates.
+         */
+        private string toUid(Coord coord) => $"{coord.Item1},{coord.Item2}";
+
+        private void Vertex_Click(object sender, RoutedEventArgs e)
         {
             var b = sender as Button;
-            b.Background = FindResource("Color.Red") as SolidColorBrush;
+            b.Background = _selectedColor.asBrush();
             b.IsEnabled = false;
         }
     }
