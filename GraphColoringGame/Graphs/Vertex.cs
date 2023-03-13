@@ -17,7 +17,7 @@ namespace GraphColoringGame.Graphs
         //public IEnumerable<Direction> directions() => neighbours.Select<Vertex, int?>((v, i) => v != null ? i : null).Where(d => d != null).Cast<Direction>();
         public IEnumerable<Direction> directions => neighbours.Keys;
 
-        private int uncoloredCount => neighbours.Count(n => n.Value.isColored);
+        private int uncoloredCount => neighbours.Count(n => !n.Value.isColored);
 
         private List<Color> _availableColors;
         public List<Color> availableColors { get => UpdateAvailable(); private set => _availableColors = value; }
