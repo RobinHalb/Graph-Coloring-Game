@@ -581,3 +581,17 @@ FodyWeavers.xsd
 # Additional files built by Visual Studio
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio,csharp
+
+*.v2
+.vs/GraphColoringGame/v17/.suo
+.vs/GraphColoringGame/DesignTimeBuild/.dtbcache.v2
+.vs/GraphColoringGame/v17/.suo
+GraphColoringGame/obj/Debug/net6.0-windows/App.g.i.cs
+GraphColoringGame/obj/Debug/net6.0-windows/apphost.exe
+GraphColoringGame/obj/Debug/net6.0-windows/ExplanationPage.g.i.cs
+GraphColoringGame/obj/Debug/net6.0-windows/GeneratedInternalTypeHelper.g.i.cs
+GraphColoringGame/obj/Debug/net6.0-windows/GraphColoringGame.assets.cache
+GraphColoringGame/obj/Debug/net6.0-windows/GraphColoringGame.csproj.AssemblyReference.cache
+GraphColoringGame/obj/Debug/net6.0-windows/GraphColoringGame.GeneratedMSBuildEditorConfig.editorconfig
+GraphColoringGame/obj/Debug/net6.0-windows/GraphColoringGame_MarkupCompile.i.cache
+GraphColoringGame/obj/Debug/net6.0-windows/MainWindow.g.i.cs
