@@ -19,12 +19,14 @@ namespace GraphColoringGame.Graphs
         private List<Vertex> _dangerousVertices;
         public List<Vertex> dangerousVertices => updateDangerous();
 
+        public readonly List<Color> colors;
+
         
         // Coords mapped to vertices
 
         //private Dictionary<int, int[]> neighbours;
 
-        public Graph(int xMin, int xMax, int yMin, int yMax, Dictionary<Coord, Vertex> vertices)
+        public Graph(int xMin, int xMax, int yMin, int yMax, Dictionary<Coord, Vertex> vertices, List<Color> colors)
         {
             this.xMin = xMin;
             this.xMax = xMax;
@@ -32,6 +34,7 @@ namespace GraphColoringGame.Graphs
             this.yMax = yMax;
             this.width = xMax - xMin + 1;
             this.height = yMax - yMin + 1;
+            this.colors = colors;
             _vertices = vertices;
             _dangerousVertices = vertices.Values.Where(v => v.isDangerous).ToList();
         }

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\halbr\\OneDrive\\Desktop\\6. Semester\\Bachelorprojekt\\WPF\\GraphColoringGame\\GraphColoringGame\\GraphColoringGame.csproj": {}
+    "E:\\Csb_programming\\Bach\\GraphColoringGame\\GraphColoringGame.csproj": {}
   },
   "projects": {
-    "C:\\Users\\halbr\\OneDrive\\Desktop\\6. Semester\\Bachelorprojekt\\WPF\\GraphColoringGame\\GraphColoringGame\\GraphColoringGame.csproj": {
+    "E:\\Csb_programming\\Bach\\GraphColoringGame\\GraphColoringGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\halbr\\OneDrive\\Desktop\\6. Semester\\Bachelorprojekt\\WPF\\GraphColoringGame\\GraphColoringGame\\GraphColoringGame.csproj",
+        "projectUniqueName": "E:\\Csb_programming\\Bach\\GraphColoringGame\\GraphColoringGame.csproj",
         "projectName": "GraphColoringGame",
-        "projectPath": "C:\\Users\\halbr\\OneDrive\\Desktop\\6. Semester\\Bachelorprojekt\\WPF\\GraphColoringGame\\GraphColoringGame\\GraphColoringGame.csproj",
-        "packagesPath": "C:\\Users\\halbr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\halbr\\OneDrive\\Desktop\\6. Semester\\Bachelorprojekt\\WPF\\GraphColoringGame\\GraphColoringGame\\obj\\",
+        "projectPath": "E:\\Csb_programming\\Bach\\GraphColoringGame\\GraphColoringGame.csproj",
+        "packagesPath": "C:\\Users\\Stribe\\.nuget\\packages\\",
+        "outputPath": "E:\\Csb_programming\\Bach\\GraphColoringGame\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\halbr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Stribe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -25,8 +25,7 @@
           "net6.0-windows"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
         },
         "frameworks": {
           "net6.0-windows7.0": {
@@ -62,7 +61,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

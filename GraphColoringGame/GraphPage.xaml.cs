@@ -24,19 +24,23 @@ namespace GraphColoringGame
     {
         private Graph _graph;
         private GraphGrid _graphGrid;
-        private Graphs.Color _selectedColor = Graphs.Color.Red;
+        private ColorPicker _colorPicker;
+        private Graphs.Color _selectedColor = Graphs.Color.None;
         private Dictionary<string,Button> buttons = new Dictionary<string,Button>();
         private Dictionary<string,Coord> coords = new Dictionary<string, Coord>();
+        
 
         public GraphPage(Graph graph)
         {
             InitializeComponent();
             _graph = graph;
             _graphGrid = new GraphGrid(30);
+            _colorPicker = new ColorPicker(_graph.colors);
 
             for (int i = 0; i < _graph.width; i++) graphGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = _graphGrid.gridLength });
             for (int i = 0; i < _graph.height; i++) graphGrid.RowDefinitions.Add(new RowDefinition() { Height = _graphGrid.gridLength });
             foreach (var set in graph.connections) addVertex(set, graph.xMin, graph.yMin);
+            addColorPicker(_graph.colors);
         }
 
         private void addVertex((Coord coord,IEnumerable<Direction> directions) e, int xMin, int yMin)
@@ -65,6 +69,18 @@ namespace GraphColoringGame
             coords.Add(button.Uid, e.coord);
         }
 
+        private void addColorPicker(List<Graphs.Color> colors) 
+        {
+            var gridy = new GridLength(15);
+            graphGrid.RowDefinitions.Add(new RowDefinition() { Height = gridy });
+            graphGrid.RowDefinitions.Add(new RowDefinition() { Height = gridy });
+            
+            Grid.SetColumn(_colorPicker, 0);
+            Grid.SetRow(_colorPicker, graphGrid.RowDefinitions.Count-1);
+            graphGrid.Children.Add(_colorPicker);
+            
+        }
+
         /*
          * toUid - create vertex uid from coordinates.
          */
@@ -74,10 +90,15 @@ namespace GraphColoringGame
         {
             var b = sender as Button;
             var coord = coords[b.Uid];
-            if (_graph.colorVertex(coord, _selectedColor))
+            if (_selectedColor != _colorPicker.getCurrentColor()) _selectedColor = _colorPicker.getCurrentColor();
+
+            if (_selectedColor != Graphs.Color.None)
             {
-                b.Background = _graph.getVertexColor(coord).asBrush();
-                b.IsEnabled = false;
+                if (_graph.colorVertex(coord, _selectedColor))
+                {
+                    b.Background = _graph.getVertexColor(coord).asBrush();
+                    b.IsEnabled = false;
+                }
             }
         }
     }

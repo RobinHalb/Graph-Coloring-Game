@@ -22,7 +22,7 @@ namespace GraphColoringGame
     {
         private List<Graphs.Color> _colors;
         private int _widthHeight;
-        public Graphs.Color currentSelectColor = Graphs.Color.None;
+        private Graphs.Color _currentSelectColor = Graphs.Color.None;
         public ColorPicker(List<Graphs.Color> colors)
         {
             InitializeComponent();
@@ -30,9 +30,14 @@ namespace GraphColoringGame
             _widthHeight = 40;
             for (int i = 0; i < _colors.Count(); i++) addColorButton(_colors[i], i);
             addColumns(2, new GridLength(pixels: 40));
-            addRows(1, new GridLength(pixels: 50));
+            addRows(1, new GridLength(pixels: 40));
 
 
+        }
+
+        public Graphs.Color getCurrentColor() 
+        {
+            return _currentSelectColor;
         }
         private void addColumns(int cols, GridLength size)
         {
@@ -46,9 +51,10 @@ namespace GraphColoringGame
         // adds a Button to the ColorPicker with color corresponding to the Color enum from Graphs
         private void addColorButton(Graphs.Color color, int index)
         {
-            var Cbutton = new CButton(color) { Uid = $"{color}_btn", Height = _widthHeight, Width = 50, };
+            var Cbutton = new CButton(color) { Uid = $"{color}_btn", Height = _widthHeight, Width = 50 };
 
             colorButton(Cbutton, color);
+            Cbutton.Margin = new Thickness(0,0,3,0);
             Cbutton.Click += RedColor_Click;
             Grid.SetColumn(Cbutton, index);
             ColorPickerGrid.Children.Add(Cbutton);
@@ -78,14 +84,12 @@ namespace GraphColoringGame
         {
             // Change color emun
             var cB = sender as CButton;
-            // Get the color of the button and change the global one.
-            // current selectedColor = cB.ColorV;
-            currentSelectColor = cB.ColorV;
-            MessageBoxButton button = MessageBoxButton.YesNoCancel;
+            _currentSelectColor = cB.ColorV;
+            MessageBoxButton button = MessageBoxButton.YesNo;
             MessageBoxImage icon = MessageBoxImage.Warning;
             MessageBoxResult result;
             result = MessageBox.Show($"Color of Button: {cB?.ColorV}", "testing", button, icon, MessageBoxResult.Yes);
-
+            
 
         }
     }
