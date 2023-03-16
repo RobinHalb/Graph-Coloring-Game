@@ -5,25 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GraphColoringGame"
         mc:Ignorable="d"
-        Title="RuleWindow" Height="150" Width="250">
+        Title="Rules" Height="250" Width="350">
     <Grid Name="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="4*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <Grid Name ="TextIconGrid" Grid.Row="0" HorizontalAlignment="Center" Margin="0,10,0,0">
-            <TextBlock Name="textBlock1" TextWrapping="Wrap" FontSize="9">
-    <Bold>Welcome to the Graph Coloring Game</Bold> <LineBreak/><LineBreak/>
-                
-  and is geared specifically at integrating <Italic>small</Italic> portions
-  of flow content into a UI.
+        <Grid Name ="TextIconGrid" Grid.Row="0" HorizontalAlignment="Center" Margin="5">
+            <ScrollViewer>
+            <TextBlock Name="textBlock1" TextWrapping="WrapWithOverflow" FontSize="12">
+    <Bold>Welcome to the Graph Coloring Game!</Bold> <LineBreak/><LineBreak/>
+                The rules are as followed: <LineBreak/>
+                You are playing as Player 1. <LineBreak/> 
+                You start coloring a vertex, then the turn switches to the opponent. <LineBreak/>
+                Your objective is to color every vertex in graph such that two adjacent vertices do not have the same color. <LineBreak/>
+                If a vertex has no legal color available, it is uncolorable and you lose the game. <LineBreak/>
+                There are 2-4 available colors per level, which is specified by the selected level <LineBreak/>
             </TextBlock>
+            </ScrollViewer>
         </Grid>
         <Grid Name ="ButtonGrid"   Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Button Name="TestButton" Grid.Column="0" Height="20" Width="40"/>
+            <Button Name="TestButton" Grid.Column="0" Height="20" Width="40" Click="TestButton_Click" Content="Ok"/>
         </Grid>
     </Grid>
 </Window>
