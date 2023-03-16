@@ -22,33 +22,22 @@ namespace GraphColoringGame
     /// </summary>
     public partial class MainWindow : Window
     {
-        int l = 1;
+        private LevelSelectPage _levelSelectPage;
         public MainWindow()
         {
             InitializeComponent();
-            var graphPage = new GraphPage(new Level1Graph().createGraph());
-            GraphFrame.Content = graphPage;
+            _levelSelectPage = new LevelSelectPage();
+            MainFrame.Content = _levelSelectPage;
         }
 
-        public void changeLevel()
+        public void openLevel(ILevel level)
         {
-            GraphPage graphPage;
-            switch (l)
-            {
-                case 1:
-                    l = 2;
-                    graphPage = new GraphPage(new Level2Graph().createGraph());
-                    break;
-                case 2:
-                    l = 3;
-                    graphPage = new GraphPage(new Level3Graph().createGraph());
-                    break;
-                default:
-                    l = 1;
-                    graphPage = new GraphPage(new Level1Graph().createGraph());
-                    break;
-            }
-            GraphFrame.Content = graphPage;
+            MainFrame.Content = new LevelPage(level);
+        }
+
+        public void openLevelSelect()
+        {
+            MainFrame.Content = _levelSelectPage;
         }
     }
 }

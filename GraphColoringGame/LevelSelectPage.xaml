@@ -1,0 +1,36 @@
+﻿<Page x:Class="GraphColoringGame.LevelSelectPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GraphColoringGame"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="LevelSelectPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="Gray">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">CHOOSE A LEVEL</TextBlock>
+            <Button Grid.Column="1" Content="Rules" Height="30" Width="70" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+
+        <ScrollViewer Grid.Row="1">
+            <Grid Name="LevelGrid">
+            </Grid>
+        </ScrollViewer>
+
+        <Grid Grid.Row="2" Background="Gray">
+            
+        </Grid>
+    </Grid>
+</Page>

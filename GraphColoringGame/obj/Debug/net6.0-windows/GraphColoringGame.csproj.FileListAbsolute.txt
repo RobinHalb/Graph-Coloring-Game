@@ -28,3 +28,7 @@ C:\Users\halbr\OneDrive\Desktop\6. Semester\Bachelorprojekt\WPF\GraphColoringGam
 C:\Users\halbr\OneDrive\Desktop\6. Semester\Bachelorprojekt\WPF\GraphColoringGame\GraphColoringGame\obj\Debug\net6.0-windows\ColorPicker.baml
 C:\Users\halbr\OneDrive\Desktop\6. Semester\Bachelorprojekt\WPF\GraphColoringGame\GraphColoringGame\obj\Debug\net6.0-windows\GraphPage.g.cs
 C:\Users\halbr\OneDrive\Desktop\6. Semester\Bachelorprojekt\WPF\GraphColoringGame\GraphColoringGame\obj\Debug\net6.0-windows\GraphPage.baml
+C:\Users\halbr\OneDrive\Desktop\6. Semester\Bachelorprojekt\WPF\GraphColoringGame\GraphColoringGame\obj\Debug\net6.0-windows\LevelPage.g.cs
+C:\Users\halbr\OneDrive\Desktop\6. Semester\Bachelorprojekt\WPF\GraphColoringGame\GraphColoringGame\obj\Debug\net6.0-windows\LevelSelectPage.g.cs
+C:\Users\halbr\OneDrive\Desktop\6. Semester\Bachelorprojekt\WPF\GraphColoringGame\GraphColoringGame\obj\Debug\net6.0-windows\LevelPage.baml
+C:\Users\halbr\OneDrive\Desktop\6. Semester\Bachelorprojekt\WPF\GraphColoringGame\GraphColoringGame\obj\Debug\net6.0-windows\LevelSelectPage.baml

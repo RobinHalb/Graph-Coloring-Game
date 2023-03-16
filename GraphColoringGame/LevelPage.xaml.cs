@@ -1,6 +1,8 @@
-﻿using System;
+﻿using GraphColoringGame.Levels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -16,19 +18,20 @@ using System.Windows.Shapes;
 namespace GraphColoringGame
 {
     /// <summary>
-    /// Interaction logic for ExplanationPage.xaml
+    /// Interaction logic for LevelPage.xaml
     /// </summary>
-    public partial class ExplanationPage : Page
+    public partial class LevelPage : Page
     {
-        public ExplanationPage()
+        public LevelPage(ILevel level)
         {
             InitializeComponent();
+            var graphPage = new GraphPage(level.graph);
+            GraphFrame.Content = graphPage;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ReturnButton_Click(object sender, RoutedEventArgs e)
         {
-            //(Application.Current.MainWindow as MainWindow)?.changeLevel();
-            //(Parent as MainWindow)?.changeLevel();
+            (Application.Current.MainWindow as MainWindow)?.openLevelSelect();
         }
     }
 }

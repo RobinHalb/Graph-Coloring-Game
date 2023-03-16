@@ -32,7 +32,7 @@ namespace GraphColoringGame
         {
             InitializeComponent();
             _graph = graph;
-            _graphGrid = new GraphGrid(30);
+            _graphGrid = new GraphGrid(40);
 
             for (int i = 0; i < _graph.width; i++) graphGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = _graphGrid.gridLength });
             for (int i = 0; i < _graph.height; i++) graphGrid.RowDefinitions.Add(new RowDefinition() { Height = _graphGrid.gridLength });

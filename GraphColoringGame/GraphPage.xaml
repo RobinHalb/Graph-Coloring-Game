@@ -9,6 +9,6 @@
       Title="GraphPage">
 
     <Grid Name="graphGrid" HorizontalAlignment="Center" VerticalAlignment="Center">
-        
+
     </Grid>
 </Page>
