@@ -88,13 +88,13 @@ namespace GraphColoringGame
         // adds the appropriate color to the ColorPicker btns
         private void colorButton(Button btn)
         {
-            var uid = btn.Uid.ToString();
-            btn.Background = Graphs.ColorExtensions.ConvertToColor(uid).asBrush();
+            btn.Background = Graphs.ColorExtensions.ConvertToColor(btn.Uid).asBrush();
         }
         private void colorPicker_Click(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
-            _selectedColor = Graphs.ColorExtensions.ConvertToColor(btn.Uid.ToString());
+            
+            _selectedColor = Graphs.ColorExtensions.ConvertToColor(btn.Uid);
         }
 
         /*
