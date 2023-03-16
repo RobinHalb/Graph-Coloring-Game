@@ -8,7 +8,12 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="GraphPage">
 
-    <Grid Name="graphGrid" HorizontalAlignment="Center" VerticalAlignment="Center">
-
+    <Grid Name="GraphPageGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <Grid Name="graphGrid" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Grid Name="ColorPicker" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
     </Grid>
 </Page>

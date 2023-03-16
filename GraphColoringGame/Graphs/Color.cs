@@ -27,5 +27,15 @@ namespace GraphColoringGame.Graphs
             Color.Yellow => new SolidColorBrush { Color = Colors.Yellow },
             _ => new SolidColorBrush { Color = Colors.White },
         };
+
+        public static Color ConvertToColor(string color)
+        {
+            var colorLow = color.ToLower();
+            if (colorLow == "red") return Color.Red;
+            if (colorLow == "blue") return Color.Blue;
+            if (colorLow == "green") return Color.Green;
+            if (colorLow == "yellow") return Color.Yellow;
+            return Color.None;
+        }
     } 
 }
