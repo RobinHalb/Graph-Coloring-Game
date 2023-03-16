@@ -27,7 +27,7 @@ namespace GraphColoringGame.Graphs
             var xMax = _vertices.Keys.Max(c => c.Item1);
             var yMin = _vertices.Keys.Min(c => c.Item2);
             var yMax = _vertices.Keys.Max(c => c.Item2);
-            var graph = new Graph(xMin, xMax, yMin, yMax, _vertices);
+            var graph = new Graph(xMin, xMax, yMin, yMax, _vertices, _colors);
             return graph;
         }
 
