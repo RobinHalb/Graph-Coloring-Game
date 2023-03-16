@@ -51,10 +51,10 @@ namespace GraphColoringGame
         // adds a Button to the ColorPicker with color corresponding to the Color enum from Graphs
         private void addColorButton(Graphs.Color color, int index)
         {
-            var Cbutton = new CButton(color) { Uid = $"{color}_btn", Height = _widthHeight, Width = 50 };
+            var Cbutton = new CButton(color) { Uid = $"{color}_btn", Height = _widthHeight, Width = 60 };
 
             colorButton(Cbutton, color);
-            Cbutton.Margin = new Thickness(0,0,3,0);
+            Cbutton.Margin = new Thickness(2.5,0,3,0);
             Cbutton.Click += RedColor_Click;
             Grid.SetColumn(Cbutton, index);
             ColorPickerGrid.Children.Add(Cbutton);

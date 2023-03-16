@@ -101,10 +101,8 @@ namespace GraphColoringGame
                     string caption = "Color Vertex";
                     MessageBoxButton button = MessageBoxButton.OKCancel;
                     MessageBoxImage icon = MessageBoxImage.Information;
-                    MessageBoxResult result;
-
-                    result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
-                    if (result == MessageBoxResult.Yes)
+                    var result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.OK);
+                    if (result == MessageBoxResult.OK)
                     {
                         b.Background = _graph.getVertexColor(coord).asBrush();
                         b.IsEnabled = false;
@@ -117,8 +115,7 @@ namespace GraphColoringGame
                 string caption = "No Color Selected";
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxImage icon = MessageBoxImage.Warning;
-                MessageBoxResult result;
-                result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
+                var result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.OK);
             }
         }
     }
