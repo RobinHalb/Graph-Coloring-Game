@@ -30,11 +30,10 @@ namespace GraphColoringGame.Graphs
 
         public static Color ConvertToColor(string color)
         {
-            var colorLow = color.ToLower();
-            if (colorLow == "red") return Color.Red;
-            if (colorLow == "blue") return Color.Blue;
-            if (colorLow == "green") return Color.Green;
-            if (colorLow == "yellow") return Color.Yellow;
+            if (color == "Red") return Color.Red;
+            if (color == "Blue") return Color.Blue;
+            if (color == "Green") return Color.Green;
+            if (color == "Yellow") return Color.Yellow;
             return Color.None;
         }
     } 
