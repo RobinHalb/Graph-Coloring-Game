@@ -1,18 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using GraphColoringGame.Graphs;
 
 namespace GraphColoringGame
@@ -24,8 +12,7 @@ namespace GraphColoringGame
     {
         private Graph _graph;
         private GraphGrid _graphGrid;
-        private ColorPicker _colorPicker;
-        private Graphs.Color _selectedColor = Graphs.Color.None;
+        private Graphs.Color _selectedColor = Graphs.Color.Red;
         private Dictionary<string,Button> buttons = new Dictionary<string,Button>();
         private Dictionary<string,Coord> coords = new Dictionary<string, Coord>();
         
@@ -35,7 +22,6 @@ namespace GraphColoringGame
             InitializeComponent();
             _graph = graph;
             _graphGrid = new GraphGrid(30);
-            _colorPicker = new ColorPicker(_graph.colors);
 
             for (int i = 0; i < _graph.width; i++) graphGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = _graphGrid.gridLength });
             for (int i = 0; i < _graph.height; i++) graphGrid.RowDefinitions.Add(new RowDefinition() { Height = _graphGrid.gridLength });
@@ -69,17 +55,35 @@ namespace GraphColoringGame
             coords.Add(button.Uid, e.coord);
         }
 
-        /*adds new row under the vertecies and inserts the colorpicker at the bottom-left of the vertices*/
+        /* Adds colorPicker to the ColorPicker grid in GraphPage - bottom-left of the screen */
         private void addColorPicker(List<Graphs.Color> colors) 
         {
-            var gridy = new GridLength(15);
-            graphGrid.RowDefinitions.Add(new RowDefinition() { Height = gridy });
-            graphGrid.RowDefinitions.Add(new RowDefinition() { Height = gridy });
-            
-            Grid.SetColumn(_colorPicker, 0);
-            Grid.SetRow(_colorPicker, graphGrid.RowDefinitions.Count-1);
-            graphGrid.Children.Add(_colorPicker);
-            
+            var width = new GridLength(50);
+            var height = new GridLength(40);
+            var margin = new Thickness(15,0,0,5);
+            ColorPicker.RowDefinitions.Add(new RowDefinition() { Height = height });
+            for (int i = 0; i < colors.Count; i++)
+            {
+                ColorPicker.ColumnDefinitions.Add(new ColumnDefinition() { Width = width });
+                
+                var button = new Button() { Uid = $"{colors[i]}", Margin = margin };
+                Grid.SetRow(button, 0);
+                Grid.SetColumn(button, i);
+                colorButton(button);
+                button.Click += colorPicker_Click;
+                ColorPicker.Children.Add(button);
+            }
+        }
+        // adds the appropriate color to the ColorPicker btns
+        private void colorButton(Button btn) 
+        {
+            var uid = btn.Uid.ToString();
+            btn.Background = Graphs.ColorExtensions.ConvertToColor(uid).asBrush();
+        }
+        private void colorPicker_Click(object sender, RoutedEventArgs e) 
+        {
+            var btn = sender as Button;
+            _selectedColor = Graphs.ColorExtensions.ConvertToColor(btn.Uid.ToString());   
         }
 
         /*
@@ -91,32 +95,27 @@ namespace GraphColoringGame
         {
             var b = sender as Button;
             var coord = coords[b.Uid];
-            if (_selectedColor != _colorPicker.getCurrentColor()) _selectedColor = _colorPicker.getCurrentColor();
-
-            if (_selectedColor != Graphs.Color.None)
+            if (_graph.colorVertex(coord, _selectedColor))
             {
-                if (_graph.colorVertex(coord, _selectedColor))
+                var result = openMessageBox(b);
+                // If user pressed OK, color the vertex
+                if (result == MessageBoxResult.OK)
                 {
-                    string messageBoxText = $"Do you want to color this vertex {_selectedColor}?";
-                    string caption = "Color Vertex";
-                    MessageBoxButton button = MessageBoxButton.OKCancel;
-                    MessageBoxImage icon = MessageBoxImage.Information;
-                    var result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.OK);
-                    if (result == MessageBoxResult.OK)
-                    {
-                        b.Background = _graph.getVertexColor(coord).asBrush();
-                        b.IsEnabled = false;
-                    }
+                    b.Background = _graph.getVertexColor(coord).asBrush();
+                    b.IsEnabled = false;
                 }
             }
-            else 
-            {
-                string messageBoxText = "No Color selected, please select a color.";
-                string caption = "No Color Selected";
-                MessageBoxButton button = MessageBoxButton.OK;
-                MessageBoxImage icon = MessageBoxImage.Warning;
-                var result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.OK);
-            }
+        }
+
+        // Opens a Messagebox, and returns the result of the messageBox (OK or Cancel)
+        private MessageBoxResult openMessageBox(Button btn) 
+        {
+            var messageBoxText = $"Do you want to color this vertex {_selectedColor}?";
+            var caption = "Color Vertex";
+            MessageBoxButton button = MessageBoxButton.OKCancel;
+            MessageBoxImage icon = MessageBoxImage.Question;
+            var result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.OK);
+            return result;
         }
     }
 }
