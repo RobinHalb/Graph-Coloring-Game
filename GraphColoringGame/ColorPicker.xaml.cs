@@ -85,12 +85,6 @@ namespace GraphColoringGame
             // Change color emun
             var cB = sender as CButton;
             _currentSelectColor = cB.ColorV;
-            MessageBoxButton button = MessageBoxButton.YesNo;
-            MessageBoxImage icon = MessageBoxImage.Warning;
-            MessageBoxResult result;
-            result = MessageBox.Show($"Color of Button: {cB?.ColorV}", "testing", button, icon, MessageBoxResult.Yes);
-            
-
         }
     }
     class CButton : Button

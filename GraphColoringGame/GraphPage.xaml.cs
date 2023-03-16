@@ -69,6 +69,7 @@ namespace GraphColoringGame
             coords.Add(button.Uid, e.coord);
         }
 
+        /*adds new row under the vertecies and inserts the colorpicker at the bottom-left of the vertices*/
         private void addColorPicker(List<Graphs.Color> colors) 
         {
             var gridy = new GridLength(15);
@@ -96,9 +97,28 @@ namespace GraphColoringGame
             {
                 if (_graph.colorVertex(coord, _selectedColor))
                 {
-                    b.Background = _graph.getVertexColor(coord).asBrush();
-                    b.IsEnabled = false;
+                    string messageBoxText = $"Do you want to color this vertex {_selectedColor}?";
+                    string caption = "Color Vertex";
+                    MessageBoxButton button = MessageBoxButton.OKCancel;
+                    MessageBoxImage icon = MessageBoxImage.Information;
+                    MessageBoxResult result;
+
+                    result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        b.Background = _graph.getVertexColor(coord).asBrush();
+                        b.IsEnabled = false;
+                    }
                 }
+            }
+            else 
+            {
+                string messageBoxText = "No Color selected, please select a color.";
+                string caption = "No Color Selected";
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Warning;
+                MessageBoxResult result;
+                result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
             }
         }
     }
