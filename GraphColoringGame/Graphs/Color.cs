@@ -28,13 +28,13 @@ namespace GraphColoringGame.Graphs
             _ => new SolidColorBrush { Color = Colors.White },
         };
 
-        public static Color ConvertToColor(string color)
+        public static Color ConvertToColor(string color) => color switch
         {
-            if (color == "Red") return Color.Red;
-            if (color == "Blue") return Color.Blue;
-            if (color == "Green") return Color.Green;
-            if (color == "Yellow") return Color.Yellow;
-            return Color.None;
-        }
+            "Red" => Color.Red,
+            "Blue" => Color.Blue,
+            "Green" => Color.Green,
+            "Yellow" => Color.Yellow,
+            _ => Color.None
+        };
     } 
 }
