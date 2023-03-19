@@ -21,9 +21,9 @@ namespace GraphColoringGame.Graphics
     /// </summary>
     public partial class ExplanationGraphPage : Page
     {
-        private ColorPicker _colorPicker;
+        //private ColorPicker _colorPicker;
         //private GraphDrawCalc _graphDraw;
-        private Graphs.Color selectedColor => _colorPicker.selectedColor;
+        //private Graphs.Color selectedColor => _colorPicker.selectedColor;
 
         private Dictionary<string, Button> buttons = new Dictionary<string, Button>();
         private Dictionary<string, Coord> coords = new Dictionary<string, Coord>();
