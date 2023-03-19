@@ -1,4 +1,5 @@
-﻿using GraphColoringGame.Graphs;
+﻿using GraphColoringGame.Explanation;
+using GraphColoringGame.Graphs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,6 @@ namespace GraphColoringGame.Levels
     public interface ILevel
     {
         public Graph graph { get; }
+        public List<ExplanationStep> explanation { get; }
     }
 }
