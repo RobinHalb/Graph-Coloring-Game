@@ -12,7 +12,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace GraphColoringGame
 {
@@ -41,10 +40,7 @@ namespace GraphColoringGame
         {
             var uncolorableBitImage = addBitImage(200, @"Images\Rules\example_uncolor_vertices.png");
 
-            ImageExample1.Margin = imageMargin;
-            ImageExample1.Width = imageWidth;
-            ImageExample1.Height = imageHeight;
-            ImageExample1.Source = uncolorableBitImage;
+            addImageAttributes(ImageExample1, uncolorableBitImage);
         }
 
         private BitmapImage addBitImage(int height, string path) 
@@ -55,6 +51,15 @@ namespace GraphColoringGame
             bitMapImage.DecodePixelHeight = 200;
             bitMapImage.EndInit();
             return bitMapImage;
+        }
+
+        private void addImageAttributes(Image img, BitmapImage bitImage) 
+        {
+            img.Margin = imageMargin;
+            img.Width = imageWidth;
+            img.Height = imageHeight;
+            img.Source = bitImage;
+
         }
     }
 }
