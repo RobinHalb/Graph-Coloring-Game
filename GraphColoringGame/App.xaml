@@ -77,7 +77,7 @@
                 <Setter Property="Margin" Value="10,0,10,0"/>
                 <Setter Property="Height" Value="auto"/>
                 <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
-                <Setter Property="Padding" Value="0,10,0,10"/>
+                <Setter Property="Padding" Value="10,0,10,0"/>
                 <Setter Property="FontSize" Value="12"/>
             </Style>
         </ResourceDictionary>
