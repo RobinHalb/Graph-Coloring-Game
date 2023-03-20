@@ -19,16 +19,16 @@
                         <Bold>Welcome to the Graph Coloring Game!</Bold> <LineBreak/><LineBreak/>
                         The rules are as followed:
                     </TextBlock>
-                    <TextBlock Name="RulesTextIndent" Height="auto" Margin="10,0,10,0" TextWrapping="WrapWithOverflow">
+                    <TextBlock Name="RulesTextIndent" Style="{StaticResource RulesTextBlockIndent}">
                         You are playing as <Italic><Bold>Player 1</Bold></Italic>.<LineBreak/> 
                         You start the game by coloring a <Italic><Bold>vertex</Bold></Italic> then the the turn switches to the opponent. <LineBreak/>
                     </TextBlock>
-                    <TextBlock Name="RulesTextIndent1" Height="auto" Margin="10,0,10,0" TextWrapping="WrapWithOverflow">
+                    <TextBlock Name="RulesTextIndent1" Style="{StaticResource RulesTextBlockIndent}">
                         Your objective is to color every vertex in the graph such that two adjacent vertices <Bold>do not</Bold> have the same color.
                         This means two adjacent vertices cannot have the same color as shown in the example below.
                     </TextBlock>
                     <Image Name="ImageExample1"/>
-                    <TextBlock Name="RulesTextIndent2" Margin="10,0,10,0" TextWrapping="WrapWithOverflow" FontSize="12" Padding="0,10,0,10" Height="auto">
+                    <TextBlock Name="RulesTextIndent2" Style="{StaticResource RulesTextBlockIndent}">
                     If a vertex has no legal color available, it is uncolorable and you lose the game. <LineBreak/>
                     There are 2-4 available colors per level, which is specified by the selected level.
                     </TextBlock>
