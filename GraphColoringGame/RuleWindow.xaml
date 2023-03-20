@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GraphColoringGame"
         mc:Ignorable="d"
-        Title="Rules" Height="250" Width="350">
+        WindowStartupLocation="CenterOwner"
+        Title="Rules" Height="350" Width="350">
     <Grid Name="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="4*"/>
@@ -13,16 +14,23 @@
         </Grid.RowDefinitions>
         <Grid Name ="TextIconGrid" Grid.Row="0" HorizontalAlignment="Center" Margin="5">
             <ScrollViewer>
-            <TextBlock Name="textBlock1" TextWrapping="WrapWithOverflow" FontSize="12" Padding="10">
-    <Bold>Welcome to the Graph Coloring Game!</Bold> <LineBreak/><LineBreak/>
-                The rules are as followed: <LineBreak/>
-                You are playing as <Bold>Player 1</Bold>.<LineBreak/> 
-                You start the game by coloring a vertex, then the turn switches to the opponent. <LineBreak/>
-                Your objective is to color every vertex in the graph such that two adjacent vertices <Bold>do not</Bold> have the same color.
-                This means two adjacent vertices cannot have the same color. <LineBreak/>
-                If a vertex has no legal color available, it is uncolorable and you lose the game. <LineBreak/>
-                There are 2-4 available colors per level, which is specified by the selected level. <LineBreak/>
-            </TextBlock>
+                <StackPanel Name="RulesStackPanel">
+                    <TextBlock Name="RulesTextBlock1" TextWrapping="WrapWithOverflow"  FontSize="12" Padding="0,10,0,10" Height="auto">
+                        <Bold>Welcome to the Graph Coloring Game!</Bold> <LineBreak/><LineBreak/>
+                        The rules are as followed:
+                    </TextBlock>
+                    <TextBlock Name="RulesTextIndent" Height="auto" Margin="10,0,10,0" TextWrapping="WrapWithOverflow">
+                    You are playing as <Italic><Bold>Player 1</Bold></Italic>.<LineBreak/> 
+                        You start the game by coloring a <Italic><Bold>vertex</Bold></Italic>, then the turn switches to the opponent. <LineBreak/>
+                        Your objective is to color every vertex in the graph such that two adjacent vertices <Bold>do not</Bold> have the same color.
+                        This means two adjacent vertices cannot have the same color as shown in the example below.
+                    </TextBlock>
+                    <Image Name="ImageExample1"/>
+                    <TextBlock Name="RulesTextBlock2" Margin="10,0,10,0" TextWrapping="WrapWithOverflow" FontSize="12" Padding="0,10,0,10" Height="252">
+                    If a vertex has no legal color available, it is uncolorable and you lose the game. <LineBreak/>
+                    There are 2-4 available colors per level, which is specified by the selected level. <LineBreak/>
+                    </TextBlock>
+                </StackPanel>
             </ScrollViewer>
         </Grid>
         <Grid Name ="ButtonGrid"   Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
