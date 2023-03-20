@@ -64,5 +64,11 @@ namespace GraphColoringGame
             };
             (Application.Current.MainWindow as MainWindow)?.openLevel(level);
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var ruleWindow = new RuleWindow();
+            ruleWindow.Show();
+        }
     }
 }
