@@ -11,22 +11,18 @@ namespace GraphColoringGame.Graphs
 
         public Coord(int x, int y) : base(x, y) { }
 
-        public Coord neighbour(Direction dir)
+        public Coord neighbour(Direction dir) => dir switch
         {
-            switch (dir)
-            {
-                case Direction.Left: return new Coord(Item1 - 1, Item2);
-                case Direction.Right: return new Coord(Item1 + 1, Item2);
-                case Direction.Up: return new Coord(Item1, Item2 - 1);
-                case Direction.Down: return new Coord(Item1, Item2 + 1);
-                case Direction.UpLeft: return new Coord(Item1 - 1, Item2 - 1);
-                case Direction.UpRight: return new Coord(Item1 + 1, Item2 - 1);
-                case Direction.DownLeft: return new Coord(Item1 - 1, Item2 + 1);
-                case Direction.DownRight: return new Coord(Item1 + 1, Item2 + 1);
-                default: return this;
-            }
-            
-        }
+            Direction.Left => new Coord(Item1 - 1, Item2),
+            Direction.Right => new Coord(Item1 + 1, Item2),
+            Direction.Up => new Coord(Item1, Item2 - 1),
+            Direction.Down => new Coord(Item1, Item2 + 1),
+            Direction.UpLeft => new Coord(Item1 - 1, Item2 - 1),
+            Direction.UpRight => new Coord(Item1 + 1, Item2 - 1),
+            Direction.DownLeft => new Coord(Item1 - 1, Item2 + 1),
+            Direction.DownRight => new Coord(Item1 + 1, Item2 + 1),
+            _ => this
+        };
 
         public bool direction(Coord coord, out Direction dir)
         {

@@ -27,7 +27,7 @@ namespace GraphColoringGame.Graphs
         public Vertex(Coord coord, List<Color> availableColors)
         {
             this.coord = coord;
-            _availableColors = availableColors;
+            _availableColors = availableColors.ToList();
         }
 
         private List<Color> UpdateAvailable()

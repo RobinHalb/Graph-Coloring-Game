@@ -9,9 +9,7 @@ namespace GraphColoringGame.Graphs
     public class GraphBuilder
     {
         private List<Color> _colors = new List<Color>() { };
-        //private Dictionary<int, Vertex> vertices = new Dictionary<int, Vertex>();
         private Dictionary<Coord, Vertex> _vertices = new Dictionary<Coord, Vertex>();
-        //private Dictionary<int,Coord> coords = new Dictionary<int,Coord>(); //´<id, x, y>
 
         public GraphBuilder(List<Color> colors)
         {
@@ -34,7 +32,7 @@ namespace GraphColoringGame.Graphs
         /*
          * addVertex - adds a new Vertex at the given coordinate.
          */
-        public void addVertex(Coord coord) => _vertices.Add(coord, new Vertex(coord, _colors.ToList()));
+        public void addVertex(Coord coord) => _vertices.Add(coord, new Vertex(coord, _colors));
 
         public void addVertexMany(IEnumerable<Coord> coords) => coords.ForEach(addVertex);
 
