@@ -13,14 +13,15 @@
         </Grid.RowDefinitions>
         <Grid Name ="TextIconGrid" Grid.Row="0" HorizontalAlignment="Center" Margin="5">
             <ScrollViewer>
-            <TextBlock Name="textBlock1" TextWrapping="WrapWithOverflow" FontSize="12">
+            <TextBlock Name="textBlock1" TextWrapping="WrapWithOverflow" FontSize="12" Padding="10">
     <Bold>Welcome to the Graph Coloring Game!</Bold> <LineBreak/><LineBreak/>
                 The rules are as followed: <LineBreak/>
-                You are playing as Player 1. <LineBreak/> 
-                You start coloring a vertex, then the turn switches to the opponent. <LineBreak/>
-                Your objective is to color every vertex in graph such that two adjacent vertices do not have the same color. <LineBreak/>
+                You are playing as <Bold>Player 1</Bold>.<LineBreak/> 
+                You start the game by coloring a vertex, then the turn switches to the opponent. <LineBreak/>
+                Your objective is to color every vertex in the graph such that two adjacent vertices <Bold>do not</Bold> have the same color.
+                This means two adjacent vertices cannot have the same color. <LineBreak/>
                 If a vertex has no legal color available, it is uncolorable and you lose the game. <LineBreak/>
-                There are 2-4 available colors per level, which is specified by the selected level <LineBreak/>
+                There are 2-4 available colors per level, which is specified by the selected level. <LineBreak/>
             </TextBlock>
             </ScrollViewer>
         </Grid>
