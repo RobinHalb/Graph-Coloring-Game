@@ -18,18 +18,22 @@ namespace GraphColoringGame
     /// <summary>
     /// Interaction logic for ExplanationPage.xaml
     /// </summary>
-    public partial class ExplanationPage : Page
+    public partial class ExplanationTest : Page
     {
-        public ExplanationPage()
+        public ExplanationTest()
         {
             InitializeComponent();
+            addLabel("Hello World", 0);
+            addLabel("HELLO", 1);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void addLabel(string text, int row) 
         {
-            ExplanationFrame.Source = new Uri("ExplanationTest.xaml", UriKind.Relative);
-            //(Application.Current.MainWindow as MainWindow)?.changeLevel();
-            //(Parent as MainWindow)?.changeLevel();
+            var label = new Label();
+            label.Content = text;
+            Grid.SetRow(label, row);
+            ExplanationOpen.Children.Add(label);
         }
+
     }
 }
