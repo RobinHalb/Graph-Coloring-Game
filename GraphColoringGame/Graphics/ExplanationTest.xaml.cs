@@ -20,20 +20,30 @@ namespace GraphColoringGame
     /// </summary>
     public partial class ExplanationTest : Page
     {
+        private List<Label> labels = new();
         public ExplanationTest()
         {
             InitializeComponent();
-            addLabel("Hello World", 0);
-            addLabel("HELLO", 1);
+            addLabel("Level", 0, VerticalAlignment.Bottom);
+            addLabel("NUMBER OF COLORS", 1, VerticalAlignment.Top);
+            addLabel("Winning Strategy:", 2, VerticalAlignment.Bottom);
+            addLabel("Bob", 3, VerticalAlignment.Top);
         }
 
-        private void addLabel(string text, int row) 
+        private void addLabel(string text, int row, VerticalAlignment vertical) 
         {
             var label = new Label();
             label.Content = text;
+            label.HorizontalAlignment = HorizontalAlignment.Center;
+            label.VerticalAlignment = vertical;
+            labels.Add(label);
             Grid.SetRow(label, row);
             ExplanationOpen.Children.Add(label);
+           
         }
-
+        private void addTextBlock(string text, int row, VerticalAlignment vertical)
+        {
+            var textBlock = new TextBlock();
+        }
     }
 }

@@ -18,18 +18,16 @@ namespace GraphColoringGame
     /// <summary>
     /// Interaction logic for ExplanationPage.xaml
     /// </summary>
-    public partial class ExplanationPage : Page
+    public partial class ExplanationTestCopy : Page
     {
-        public ExplanationPage()
+        public ExplanationTestCopy()
         {
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ExplanationFrame.Source = new Uri("ExplanationTestCopy.xaml", UriKind.Relative);
-            //(Application.Current.MainWindow as MainWindow)?.changeLevel();
-            //(Parent as MainWindow)?.changeLevel();
+
         }
     }
 }
