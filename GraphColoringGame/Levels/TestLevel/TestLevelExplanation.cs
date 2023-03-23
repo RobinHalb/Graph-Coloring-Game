@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 
-namespace GraphColoringGame.Levels.TestLevelContent
+namespace GraphColoringGame.Levels
 {
     class TestLevelExplanation : LevelExplanation
         //TODO: MAKE EXPLANATION PAGE

@@ -1,6 +1,5 @@
 ﻿using GraphColoringGame.Explanations;
 using GraphColoringGame.Graphs;
-using GraphColoringGame.Levels.Level1Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace GraphColoringGame.Levels
 {
-    public class TestLevel : ILevel
+    public class Level4 : ILevel
     {
         public Graph graph { get; private set; }
         public List<ExplanationStep> explanation { get; private set; }
 
-        public TestLevel()
+        public Level4() 
         {
-            graph = new TestLevelGraph().createGraph();
-            explanation = new TestLevelExplanation(graph).GetExplanation();
+            graph = new Level4Graph().createGraph();
+            explanation = new Level4Explanation(graph).GetExplanation();
         }
     }
 }

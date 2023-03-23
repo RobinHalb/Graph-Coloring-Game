@@ -1,7 +1,5 @@
 ﻿using GraphColoringGame.Graphs;
 using GraphColoringGame.Levels;
-using GraphColoringGame.Levels.TestLevelContent;
-using GraphColoringGame.Levels.TestLevel2Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,7 +60,7 @@ namespace GraphColoringGame
                 "1" => new Level1(),
                 "2" => new Level2(),
                 "3" => new Level3(),
-                "4" => new TestLevel(),
+                "4" => new Level4(),
                 "5" => new TestLevel2(),
                 _ => new Level1()
             };

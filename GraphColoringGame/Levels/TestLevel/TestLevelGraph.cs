@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GraphColoringGame.Graphs;
 
-namespace GraphColoringGame.Levels.TestLevelContent
+namespace GraphColoringGame.Levels
 {
     public class TestLevelGraph
     {
