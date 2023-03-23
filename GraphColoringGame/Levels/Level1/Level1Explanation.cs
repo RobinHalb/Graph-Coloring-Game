@@ -35,7 +35,7 @@ namespace GraphColoringGame.Levels.Level1Content
         {
             var text = "To ensure victory for this graph, Alice must color the middle vertex, as shown with green outline.";
             var vertices = newVertices();
-            // Set colors
+
             vertices[coords[1]].outline = green;
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
@@ -46,9 +46,9 @@ namespace GraphColoringGame.Levels.Level1Content
             var text = "This vertex has two legal colors: red and blue, and two uncolored neighbours, as shown with purple outlines." +
                 "\n\nA vertex which has equally as many or more uncolored neighbours as available colors is called a dangerous vertex.";
             var vertices = newVertices();
-            // Set colors
-            vertices[coords[1]].outline = green;
+
             vertices[coords[0]].outline = purple;
+            vertices[coords[1]].outline = green;
             vertices[coords[2]].outline = purple;
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
@@ -70,7 +70,7 @@ namespace GraphColoringGame.Levels.Level1Content
         {
             var text = "If Alice colors one of the outer vertices red, the middle vertex remains dangerous, as it will have one available color: blue, and one uncolored neighbour.";
             var vertices = newVertices();
-            // Set colors
+
             vertices[coords[0]].color = Graphs.Color.Red;
             vertices[coords[1]].outline = green;
             vertices[coords[2]].outline = purple;
@@ -82,9 +82,9 @@ namespace GraphColoringGame.Levels.Level1Content
         {
             var text = "Once a dangerous vertex has only one available color, Bob can win by coloring any neighbour with that color.";
             var vertices = newVertices();
-            // Set colors
-            vertices[coords[1]].outline = green;
+            
             vertices[coords[0]].color = Graphs.Color.Red;
+            vertices[coords[1]].outline = green;
             vertices[coords[2]].color = Graphs.Color.Blue;
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
@@ -94,9 +94,9 @@ namespace GraphColoringGame.Levels.Level1Content
         {
             var text = "If Alice instead colors the dangerous vertex red, Bob will be forced to color either of the two outer vertices blue, after which Alice can win.";
             var vertices = newVertices();
-            // Set colors
-            vertices[coords[1]].color = Graphs.Color.Red;
+            
             vertices[coords[0]].outline = purple;
+            vertices[coords[1]].color = Graphs.Color.Red;
             vertices[coords[2]].outline = purple;
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
