@@ -7,18 +7,19 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="250"
       Title="ExplanationTest"
-      Background="Gray">
+      Background="LightGray">
 
 
     <Grid Name="ExplanationOpen">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50*"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="20" MinHeight="9"/>
-            <RowDefinition Height="54*"/>
-            <RowDefinition Height="231*" Name="TextBlockRow"/>
-            <RowDefinition Height="74*" Name="ButtonRow"/>
+            <RowDefinition Height="53*"/>
+            <RowDefinition Height="33"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="62*"/>
+            <RowDefinition Height="192*" Name="TextBlockRow"/>
+            <RowDefinition Height="78*" Name="ButtonRow"/>
         </Grid.RowDefinitions>
+        <Button Content="Close Explanation" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Height="20" Width="98" Click="Button_Click"/>
         <Grid Grid.Row="5" Name="ButtonGrid">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="83.3"/>

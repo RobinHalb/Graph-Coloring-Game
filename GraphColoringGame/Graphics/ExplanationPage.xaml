@@ -7,10 +7,10 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="250"
       Title="ExplanationPage"
-      Background="Gray">
+      Background="LightGray">
 
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Click="Button_Click"/>
+        <Button Content="Explain it!" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Click="Button_Click"/>
         <Frame Name="ExplanationFrame"/>
 
     </Grid>

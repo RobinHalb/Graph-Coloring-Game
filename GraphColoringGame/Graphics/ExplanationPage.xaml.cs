@@ -27,7 +27,9 @@ namespace GraphColoringGame
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ExplanationFrame.Source = new Uri("ExplanationTestCopy.xaml", UriKind.Relative);
+            var explanationpages = new ExplanationTest();
+            NavigationService.Navigate(explanationpages);
+            //ExplanationFrame.Source = new Uri("ExplanationTest.xaml", UriKind.Relative);
             //(Application.Current.MainWindow as MainWindow)?.changeLevel();
             //(Parent as MainWindow)?.changeLevel();
         }
