@@ -110,8 +110,8 @@
                     </Setter.Value>
                 </Setter>
             </Style>
-            <Style BasedOn="{StaticResource {x:Type TextBlock}}"
-                    x:Key="RulesTextBlockIndent" TargetType="TextBlock">
+            <Style BasedOn="{StaticResource {x:Type TextBlock}}" 
+                   x:Key="RulesTextBlockIndent" TargetType="TextBlock">
                 <Setter Property="Margin" Value="10,0,10,0"/>
                 <Setter Property="Height" Value="auto"/>
                 <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
