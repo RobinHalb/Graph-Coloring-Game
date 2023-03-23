@@ -7,12 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 
-namespace GraphColoringGame.Explanation
+namespace GraphColoringGame.Explanations
 {
     public class ExplanationVertex
     {
         public Graphs.Color color = Graphs.Color.None;
-        public System.Drawing.Color? outline;
+        public System.Windows.Media.Color? outline;
         public IEnumerable<Direction> directions;
 
         public ExplanationVertex(IEnumerable<Direction> directions)

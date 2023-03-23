@@ -1,19 +1,9 @@
-﻿using GraphColoringGame.Levels;
-using System;
+﻿using GraphColoringGame.Explanations;
+using GraphColoringGame.Graphics;
+using GraphColoringGame.Levels;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace GraphColoringGame
 {
@@ -22,11 +12,19 @@ namespace GraphColoringGame
     /// </summary>
     public partial class LevelPage : Page
     {
+        private GraphPage _graphPage;
+        private List<ExplanationGraphPage> _explanationGraphs = new List<ExplanationGraphPage>();
+
         public LevelPage(ILevel level)
         {
             InitializeComponent();
-            var graphPage = new GraphPage(level.graph);
-            GraphFrame.Content = graphPage;
+            _graphPage = new GraphPage(level.graph);
+            GraphFrame.Content = _graphPage;
+            foreach (ExplanationStep step in level.explanation)
+            {
+                _explanationGraphs.Add(new ExplanationGraphPage(step));
+            }
+            //GraphFrame.Content = _explanationGraphs[0];
         }
 
         private void ReturnButton_Click(object sender, RoutedEventArgs e)

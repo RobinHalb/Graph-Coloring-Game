@@ -1,4 +1,4 @@
-﻿using GraphColoringGame.Explanation;
+﻿using GraphColoringGame.Explanations;
 using GraphColoringGame.Graphs;
 using GraphColoringGame.Levels.Level1Content;
 using System;
