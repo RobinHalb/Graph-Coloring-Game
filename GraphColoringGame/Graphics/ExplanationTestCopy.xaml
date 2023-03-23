@@ -12,33 +12,33 @@
 
     <Grid Name="ExplanationOpenCopy">
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="49*"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="6*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="20" MinHeight="9"/>
+            <RowDefinition Height="54*"/>
+            <RowDefinition Height="231*" Name="TextBlockRow"/>
+            <RowDefinition Height="74*"/>
         </Grid.RowDefinitions>
-        <Label Content="LEVEL X" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,19,0,0" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Top" FontSize="8" Margin="0,15,0,0" TextAlignment="Center">
+        <Label Content="LEVEL X" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,19,0,0" FontWeight="Bold" Height="26" Width="62" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Top" FontSize="9" Margin="0,19,0,0" TextAlignment="Center" Height="auto" Width="auto" Grid.RowSpan="2">
             Winning strategy: <LineBreak/> <Bold>Bob</Bold>
         </TextBlock>
-        <Label Content="COLOURS" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Top" FontSize="9"/>
-        <Button Content="Close Explanation" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Click="Button_Click"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,29,0,0" Grid.Row="4" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <Label Content="COLOURS" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" FontSize="9" Height="22" Width="50"/>
+        <Button Content="Close Explanation" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Click="Button_Click" Height="20" Width="98"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,29,0,0" Grid.Row="4" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="auto" Width="auto"/>
 
         <Grid Grid.Row="5">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="75"/>
-                <ColumnDefinition Width="75"/>
-                <ColumnDefinition Width="75"/>
+                <ColumnDefinition Width="83.3"/>
+                <ColumnDefinition Width="83.3"/>
+                <ColumnDefinition Width="83.3"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="left arrow" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <Label Grid.Column="1" Content="0/4" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <Button Grid.Column="2" Content="right arrow" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <Button Grid.Column="0" FontFamily="Segoe MDL2 Assets"  Content="&#xE72B;" VerticalAlignment="Center" Width="30" Height="30" HorizontalAlignment="Center" Margin="15,0,0,0"/>
+            <Label Grid.Column="1" Content="0/4" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15,0,0,0"/>
+            <Button Grid.Column="2" FontFamily="Segoe MDL2 Assets" Content="&#xE72A;" VerticalAlignment="Center" Width="30" Height="30" HorizontalAlignment="Center" Margin="15,0,0,0"/>
 
 
         </Grid>
-        
+
     </Grid>
 </Page>
