@@ -46,6 +46,8 @@ namespace GraphColoringGame.Graphs
             return Color.None;
         }
 
+        public bool canColor(Coord coord, Color color) => _vertices.TryGetValue(coord, out var v) && v.availableColors.Contains(color);
+
         public bool colorVertex(Coord coord, Color color)
         {
             if (_vertices.TryGetValue(coord, out var v) && v.availableColors.Contains(color))
@@ -62,27 +64,5 @@ namespace GraphColoringGame.Graphs
             return _dangerousVertices;
         }
 
-        /*
-        // updates a neighbor + isdangerous
-        private void Update(int id, Color color)
-        {
-            vertices[id].availableColors.Remove(color);
-            // if available colors && uncolored neighbor count is equal or less:
-            if (vertices[id].isDangerous) {
-                dangerousVertices.Add(id);
-            }
-        }
-        */
-        // method for uncolored vertecies count (for dangerous)
-        /*    
-            private int CountUncolored(int id)
-            {
-                if (neighbours.TryGetValue(id, out var nb))
-                {
-                    return nb.Count(nid => vertices.ContainsKey(nid) && vertices[nid].isColored);
-                }
-                return 0;
-            }
-        */
     }
 }

@@ -7,4 +7,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Images\Rules\example_uncolor_vertices.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Rules\example_uncolor_vertices.png" />
+  </ItemGroup>
+
 </Project>

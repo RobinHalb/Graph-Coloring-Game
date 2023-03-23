@@ -1,0 +1,46 @@
+﻿<Window x:Class="GraphColoringGame.RuleWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GraphColoringGame"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterOwner"
+        Title="Rules" Height="350" Width="350">
+    <Grid Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid Name ="TextIconGrid" Grid.Row="0" HorizontalAlignment="Center" Margin="5">
+            <ScrollViewer>
+                <StackPanel Name="RulesStackPanel">
+                    <TextBlock Name="RulesTextBlock1" TextWrapping="WrapWithOverflow"  FontSize="12" Padding="0,10,0,10" Height="auto">
+                        <Bold>Welcome to the Graph Coloring Game!</Bold> <LineBreak/><LineBreak/>
+                        The rules are as followed:
+                    </TextBlock>
+                    <TextBlock Name="RulesTextIndent" Style="{StaticResource RulesTextBlockIndent}">
+                        You are playing as <Italic><Bold>Player 1</Bold></Italic>.<LineBreak/> 
+                        You start the game by coloring a <Italic><Bold>vertex</Bold></Italic> then the the turn switches to the opponent. <LineBreak/>
+                    </TextBlock>
+                    <TextBlock Name="RulesTextIndent1" Style="{StaticResource RulesTextBlockIndent}">
+                        Your objective is to color every vertex in the graph such that two adjacent vertices <Bold>do not</Bold> have the same color.
+                        This means two adjacent vertices cannot have the same color as shown in the example below.
+                    </TextBlock>
+                    <Image Name="ImageExample1"/>
+                    <TextBlock Name="RulesTextIndent2" Style="{StaticResource RulesTextBlockIndent}">
+                    If a vertex has no legal color available, it is uncolorable and you lose the game. <LineBreak/>
+                    There are 2-4 available colors per level, which is specified by the selected level.
+                    </TextBlock>
+                    <Image Name="RulesLostGame"/>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+        <Grid Name ="ButtonGrid"   Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Button Name="TestButton" Grid.Column="0" Height="20" Width="40" Click="TestButton_Click" Content="Ok"/>
+        </Grid>
+    </Grid>
+</Window>
