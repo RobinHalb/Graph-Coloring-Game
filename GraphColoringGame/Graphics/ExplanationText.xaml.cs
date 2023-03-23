@@ -23,7 +23,7 @@ namespace GraphColoringGame
     /// 
     /// </summary>
     /// 
-    public partial class ExplanationTest : Page
+    public partial class ExplanationText : Page
     {
         private Thickness marginTop = new Thickness(0,19,0,0);
         private int _currentStep = 1;
@@ -31,7 +31,7 @@ namespace GraphColoringGame
         private int colorCount;
         private int level;
         private string text;
-        public ExplanationTest(int totalPages, int colorCount, int level, string text)
+        public ExplanationText(int totalPages, int colorCount, int level, string text)
         {
             InitializeComponent();
             DataContext = this;
