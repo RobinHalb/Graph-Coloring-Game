@@ -1,18 +1,8 @@
 ﻿using GraphColoringGame.Graphs;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace GraphColoringGame
 {
@@ -26,7 +16,7 @@ namespace GraphColoringGame
         private Thickness _borderSelected = new Thickness(5);
         private Thickness _borderDefault = new Thickness(0);
 
-        public ColorPickerPage(List<Graphs.Color> colors)
+        public ColorPickerPage(List<Graphs.Color> colors, bool enabled = true)
         {
             InitializeComponent();
             var width = new GridLength(50);
@@ -41,11 +31,19 @@ namespace GraphColoringGame
                 Grid.SetColumn(button, i);
                 button.Background = colors[i].asBrush();
                 button.BorderBrush = new SolidColorBrush(Colors.Black);
-                button.Click += colorPicker_Click;
                 ColorPickerGrid.Children.Add(button);
-                if (i == 0) _selected = button;
+
+                if (enabled)
+                {
+                    button.Click += colorPicker_Click;
+                    if (i == 0)
+                    {
+                        _selected = button;
+                        _selected.BorderThickness = _borderSelected;
+                    }
+                }
+                else button.IsEnabled = false;
             }
-            _selected.BorderThickness = _borderSelected;
         }
 
         private void colorPicker_Click(object sender, RoutedEventArgs e)
