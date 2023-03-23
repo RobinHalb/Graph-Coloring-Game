@@ -1,5 +1,7 @@
 ﻿using GraphColoringGame.Graphs;
 using GraphColoringGame.Levels;
+using GraphColoringGame.Levels.TestLevelContent;
+using GraphColoringGame.Levels.TestLevel2Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,7 +47,7 @@ namespace GraphColoringGame
                 Grid.SetColumn(button, x);
                 Grid.SetRow(button, y);
                 LevelGrid.Children.Add(button);
-                if (level > 3) button.IsEnabled = false;
+                if (level > 5) button.IsEnabled = false;
 
                 if (x == cols - 1) y++;
                 x = (x + 1) % cols;
@@ -60,6 +62,8 @@ namespace GraphColoringGame
                 "1" => new Level1(),
                 "2" => new Level2(),
                 "3" => new Level3(),
+                "4" => new TestLevel(),
+                "5" => new TestLevel2(),
                 _ => new Level1()
             };
             (Application.Current.MainWindow as MainWindow)?.openLevel(level);
