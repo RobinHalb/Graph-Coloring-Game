@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GraphColoringGame.Levels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,15 +21,18 @@ namespace GraphColoringGame
     /// </summary>
     public partial class ExplanationPage : Page
     {
-        public ExplanationPage()
+        private ILevel _level;
+        public ExplanationPage(ILevel level)
         {
             InitializeComponent();
+            _level = level;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var explanationpages = new ExplanationText(4,2,3, "TESTING STUFF");
-            NavigationService.Navigate(explanationpages);
+            //var explanationpages = new ExplanationText(4,2,3, "TESTING STUFF");
+            //var explanationpages = new ExplanationTextPage(_level.explanation, ExplanationGraphFrame);
+            //NavigationService.Navigate(explanationpages);
             //ExplanationFrame.Source = new Uri("ExplanationTest.xaml", UriKind.Relative);
             //(Application.Current.MainWindow as MainWindow)?.changeLevel();
             //(Parent as MainWindow)?.changeLevel();
