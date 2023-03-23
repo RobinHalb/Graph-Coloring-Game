@@ -13,13 +13,9 @@
             <ColumnDefinition Width="2*" />
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
-        <Frame Grid.Column="0" Name="GraphFrame" NavigationUIVisibility="Hidden">
-        </Frame>
-        <Frame Grid.Column="1">
-            <Frame.Content>
-                <local:ExplanationPage/>
-            </Frame.Content>
-        </Frame>
+        <Frame Grid.Column="0" Name="GraphFrame" NavigationUIVisibility="Hidden"/>
+        <Frame Grid.Column="0" Name="ExplanationGraphFrame" NavigationUIVisibility="Hidden" Background="White" Visibility="Hidden"/>
+        <Frame Grid.Column="1" Name="ExplanationFrame"/>
         <Button Name="ReturnButton" Content="Back" Width="50" Height="30" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ReturnButton_Click"/>
     </Grid>
     

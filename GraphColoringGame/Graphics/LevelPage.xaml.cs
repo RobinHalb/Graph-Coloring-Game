@@ -13,17 +13,20 @@ namespace GraphColoringGame
     public partial class LevelPage : Page
     {
         private GraphPage _graphPage;
-        private List<ExplanationGraphPage> _explanationGraphs = new List<ExplanationGraphPage>();
 
         public LevelPage(ILevel level)
         {
             InitializeComponent();
             _graphPage = new GraphPage(level.graph);
             GraphFrame.Content = _graphPage;
+            ExplanationFrame.Content = new ExplanationTextPage(level.explanation, ExplanationGraphFrame);
+
+            /*
             foreach (ExplanationStep step in level.explanation)
             {
                 _explanationGraphs.Add(new ExplanationGraphPage(step));
             }
+            */
             //GraphFrame.Content = _explanationGraphs[0];
         }
 
