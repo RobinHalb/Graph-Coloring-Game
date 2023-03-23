@@ -109,6 +109,7 @@
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
+            </Style>
             <Style BasedOn="{StaticResource {x:Type TextBlock}}" 
                    x:Key="RulesTextBlockIndent" TargetType="TextBlock">
                 <Setter Property="Margin" Value="10,0,10,0"/>
