@@ -21,7 +21,7 @@ namespace GraphColoringGame
     public partial class RuleWindow : Window
     {
 
-        private Thickness imageMargin = new Thickness(0,-20,0,-20);
+        private Thickness imageMargin = new Thickness(0,-15,0,-20);
         private int imageWidth = 250;
         private int imageHeight = 200;
         public RuleWindow()
@@ -29,18 +29,24 @@ namespace GraphColoringGame
             
             this.Owner = App.Current.MainWindow;
             InitializeComponent();
-            addUncolorableImage();
+            addUncoloredImage();
+            addUncolorableVImage();
         }
 
         private void TestButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-        private void addUncolorableImage() 
+        private void addUncoloredImage() 
         {
-            var uncolorableBitImage = addBitImage(200, @"Images\Rules\example_uncolor_vertices.png");
+            var uncoloredBitImage = addBitImage(200, @"..\Images\Rules\example_uncolor_vertices.png");
+            addImageAttributes(ImageExample1, uncoloredBitImage);
+        }
 
-            addImageAttributes(ImageExample1, uncolorableBitImage);
+        private void addUncolorableVImage() 
+        {
+            var uncolorableVBitImage = addBitImage(200, @"..\Images\Rules\example_uncolorable_vertex.png");
+            addImageAttributes(RulesLostGame, uncolorableVBitImage);
         }
 
         private BitmapImage addBitImage(int height, string path) 

@@ -17,20 +17,21 @@
                 <StackPanel Name="RulesStackPanel">
                     <TextBlock Name="RulesTextBlock1" TextWrapping="WrapWithOverflow"  FontSize="12" Padding="0,10,0,10" Height="auto">
                         <Bold>Welcome to the Graph Coloring Game!</Bold> <LineBreak/><LineBreak/>
-                        The rules are as followed:
+                        The rules are the following:
                     </TextBlock>
                     <TextBlock Name="RulesTextIndent" Style="{StaticResource RulesTextBlockIndent}">
-                        You are playing as <Italic><Bold>Player 1</Bold></Italic>.<LineBreak/> 
-                        You start the game by coloring a <Italic><Bold>vertex</Bold></Italic> then the the turn switches to the opponent. <LineBreak/>
+                        You are playing as <Italic><Bold>Alice</Bold></Italic>.<LineBreak/> 
+                        You start the game by coloring a <Italic><Bold>vertex</Bold></Italic>, then the turn switches to <Italic><Bold>Bob</Bold></Italic>, your opponent. <LineBreak/>
                     </TextBlock>
                     <TextBlock Name="RulesTextIndent1" Style="{StaticResource RulesTextBlockIndent}">
-                        Your objective is to color every vertex in the graph such that two adjacent vertices <Bold>do not</Bold> have the same color.
+                        Your goal is to color every vertex in the graph such that two adjacent vertices <Bold>do not</Bold> have the same color.
                         This means two adjacent vertices cannot have the same color as shown in the example below.
                     </TextBlock>
                     <Image Name="ImageExample1"/>
                     <TextBlock Name="RulesTextIndent2" Style="{StaticResource RulesTextBlockIndent}">
-                    If a vertex has no legal color available, it is uncolorable and you lose the game. <LineBreak/>
-                    There are 2-4 available colors per level, which is specified by the selected level.
+                    Bob's goal is to make a vertex <Italic><Bold>uncolorable</Bold></Italic>, preventing you from coloring the graph. <LineBreak/>
+                    If a vertex is <Italic><Bold>uncolorable</Bold></Italic>, that is, if it has no legal color available, you lose the game. An example of this is shown below. <LineBreak/>
+                    There are 2-4 available colors per level. The selected level determines the number of available colors.
                     </TextBlock>
                     <Image Name="RulesLostGame"/>
                 </StackPanel>
