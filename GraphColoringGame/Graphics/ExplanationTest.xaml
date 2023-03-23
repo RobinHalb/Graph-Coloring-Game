@@ -12,12 +12,21 @@
 
     <Grid Name="ExplanationOpen">
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="50*"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="1.5*"/>
-            <RowDefinition Height="6*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="20" MinHeight="9"/>
+            <RowDefinition Height="54*"/>
+            <RowDefinition Height="231*" Name="TextBlockRow"/>
+            <RowDefinition Height="74*" Name="ButtonRow"/>
         </Grid.RowDefinitions>
+        <Grid Grid.Row="5" Name="ButtonGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="83.3"/>
+                <ColumnDefinition Width="83.3"/>
+                <ColumnDefinition Width="83.3"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Style="{StaticResource SymbolButton}" Content="&#xE72B;"/>
+            <Button Grid.Column="2" Style="{StaticResource SymbolButton}" Content="&#xE72A;"/>
+        </Grid>
     </Grid>
 </Page>
