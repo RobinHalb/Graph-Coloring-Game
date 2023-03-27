@@ -76,6 +76,7 @@ namespace GraphColoringGame
         {
             if (_graph.isDone)
             {
+                foreach (var b in buttons.Values) b.IsEnabled = false;
                 var messageBoxText = $"Player {_graph.winner} has won!";
                 var caption = "Game Ended";
                 MessageBoxButton button = MessageBoxButton.OK;
