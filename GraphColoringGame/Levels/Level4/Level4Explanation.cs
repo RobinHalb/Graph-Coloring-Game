@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace GraphColoringGame.Levels
 {
-    public class Level5Explanation : LevelExplanation
+    public class Level4Explanation : LevelExplanation
     {
         private Coord[] coords;
-        public Level5Explanation(Graph graph) : base(graph)
+        public Level4Explanation(Graph graph) : base(graph)
         {
             coords = new Coord[] {
             new Coord(0,0), // coords[0]

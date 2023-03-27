@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GraphColoringGame.Levels
 {
-    public class Level5Graph
+    public class Level4Graph
     {
         public Graph createGraph()
         {
