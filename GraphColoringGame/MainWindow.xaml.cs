@@ -30,7 +30,7 @@ namespace GraphColoringGame
             MainFrame.Content = _levelSelectPage;
         }
 
-        public void openLevel(ILevel level)
+        public void openLevel(Level level)
         {
             MainFrame.Content = new LevelPage(level);
         }

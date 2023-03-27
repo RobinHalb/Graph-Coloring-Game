@@ -12,6 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Images\Rules\example_uncolor_vertices.png" />
   </ItemGroup>
 
