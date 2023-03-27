@@ -11,7 +11,10 @@ namespace GraphColoringGame.Levels
 {
     public class Level1 : Level
     {
-        public Level1() : base() { }
+        public Level1() : base() 
+        { 
+            level = 1; 
+        }
 
         protected override Graph newGraph() => new Level1Graph().createGraph();
         protected override List<ExplanationStep> newExplanation() => new Level1Explanation(graph).GetExplanation();

@@ -30,7 +30,7 @@ namespace GraphColoringGame.Levels
             var text = "";
             var vertices = newVertices();
 
-            vertices[coords[0]].outline = green;
+            vertices[coords[1]].outline = green;
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
