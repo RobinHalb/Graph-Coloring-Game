@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GraphColoringGame.Levels.TestLevel2Content
+namespace GraphColoringGame.Levels
 {
     class TestLevel2Explanation : LevelExplanation
     {
@@ -30,7 +30,7 @@ namespace GraphColoringGame.Levels.TestLevel2Content
             var text = "";
             var vertices = newVertices();
 
-            vertices[coords[1]].outline = green;
+            vertices[coords[0]].outline = green;
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }

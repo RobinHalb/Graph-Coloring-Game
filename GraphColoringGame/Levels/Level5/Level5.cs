@@ -8,15 +8,13 @@ using System.Threading.Tasks;
 
 namespace GraphColoringGame.Levels
 {
-    public class TestLevel2 : ILevel
+    public class Level5 : ILevel
     {
+        public Level5() { }
+        
         public Graph graph { get; private set; }
         public List<ExplanationStep> explanation { get; private set; }
-
-        public TestLevel2() 
-        {
-            graph = new Test2LevelGraph().createGraph();
-            explanation = new TestLevel2Explanation(graph).GetExplanation();
-        }
     }
 }
+    
+
