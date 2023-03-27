@@ -9,12 +9,12 @@ using System.Windows.Media;
 
 namespace GraphColoringGame.Levels
 {
-    public class Level4Explanation : LevelExplanation
+    public class Level3Explanation : LevelExplanation
     //TODO: MAKE EXPLANATION PAGE
     {
         private Coord[] coords;
 
-        public Level4Explanation(Graph graph) : base(graph)
+        public Level3Explanation(Graph graph) : base(graph)
         {
             coords = new Coord[]{
             new Coord(0,1), // coords[0]
