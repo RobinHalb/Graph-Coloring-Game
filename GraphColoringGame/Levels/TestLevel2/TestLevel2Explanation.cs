@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GraphColoringGame.Levels
 {
-    class TestLevel2Explanation : LevelExplanation
+    public class TestLevel2Explanation : LevelExplanation
     {
         //TODO: MAKE EXPLANATION PAGE
         private Coord[] coords;
@@ -16,7 +16,7 @@ namespace GraphColoringGame.Levels
         public TestLevel2Explanation(Graph graph) : base(graph)
         {
             coords = new Coord[] {
-                new Coord(0, 1),
+                new Coord(0, 0),
             };
         }
 

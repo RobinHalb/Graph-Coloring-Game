@@ -29,6 +29,7 @@ namespace GraphColoringGame.Levels
         {
             step1(),
             step2(),
+            step3()
         };
 
         public ExplanationStep step1()
@@ -43,14 +44,29 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step2() 
         {
-            var text = "Then Bob can color a vertex at distance 2 away from the vertex Alice has colored marked with purple";
+            var text = "Then Bob can color a vertex blue at distance 2 away from the vertex Alice has colored."; // REWORD THIS
             var vertices = newVertices();
 
-            vertices[coords[1]].outline = green;
+            vertices[coords[1]].color = Graphs.Color.Red;
             vertices[coords[3]].outline = purple;
             vertices[coords[4]].outline = purple;
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
+        }
+
+        public ExplanationStep step3()
+        {
+            var text = "Now Alice cannot color the green vertex as there is no legal color avaliable, since only the colors red and blue are avaliable"; // CHECK FOR ERROR
+            var vertices = newVertices();
+
+            vertices[coords[1]].color = Graphs.Color.Red;
+            vertices[coords[3]].color = Graphs.Color.Red;
+            vertices[coords[4]].color = Graphs.Color.Red;
+            vertices[coords[2]].outline = green;
+
+            return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
+
+
         }
     }
 }

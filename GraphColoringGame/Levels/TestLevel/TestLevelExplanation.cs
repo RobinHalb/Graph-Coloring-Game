@@ -9,7 +9,7 @@ using System.Windows.Media;
 
 namespace GraphColoringGame.Levels
 {
-    class TestLevelExplanation : LevelExplanation
+    public class TestLevelExplanation : LevelExplanation
         //TODO: MAKE EXPLANATION PAGE
     {
         private Coord[] coords;
