@@ -9,14 +9,16 @@ using System.Threading.Tasks;
 
 namespace GraphColoringGame.Levels
 {
-    public class Level1 : Level
+    public class Level4 : Level
     {
-        public Level1() : base() 
-        { 
-            level = 1; 
+        public Level4() : base() 
+        {
+            level = 4;
         }
 
-        protected override Graph newGraph() => new Level1Graph().createGraph();
+        protected override Graph newGraph() => new Level4Graph().createGraph();
         protected override List<ExplanationStep> newExplanation() => new Level1Explanation(graph).GetExplanation();
     }
 }
+    
+

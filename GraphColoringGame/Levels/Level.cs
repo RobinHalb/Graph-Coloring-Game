@@ -13,6 +13,8 @@ namespace GraphColoringGame.Levels
         public Graph graph { get; protected set; }
         public List<ExplanationStep> explanation { get; protected set; }
 
+        public int level { get; protected set; }
+
         public Level()
         {
             graph = newGraph();

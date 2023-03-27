@@ -37,7 +37,7 @@ namespace GraphColoringGame
 
         public Frame graphFrame { get; private set; }
 
-        public ExplanationTextPage(List<ExplanationStep> steps, Frame graphFrame)
+        public ExplanationTextPage(List<ExplanationStep> steps, Frame graphFrame, int level)
         {
             InitializeComponent();
             DataContext = this;
@@ -52,7 +52,7 @@ namespace GraphColoringGame
             _lastStep = steps.Count-1;
             ofSteps = $"/{steps.Count}";
 
-            LevelLabel.Content = $"Level {1}";
+            LevelLabel.Content = $"Level {level}";
             ColorsLabel.Content = $"{steps[0].colors.Count} colors";
             setWinning("Alice");
 

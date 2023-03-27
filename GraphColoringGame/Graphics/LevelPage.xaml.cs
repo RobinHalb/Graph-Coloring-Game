@@ -20,7 +20,7 @@ namespace GraphColoringGame
             InitializeComponent();
             _level = level;
             setGraphFrame();
-            ExplanationFrame.Content = new ExplanationTextPage(level.explanation, ExplanationGraphFrame);
+            ExplanationFrame.Content = new ExplanationTextPage(level.explanation, ExplanationGraphFrame, _level.level);
         }
 
         private void setGraphFrame()
