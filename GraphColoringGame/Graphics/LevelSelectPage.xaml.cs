@@ -55,7 +55,7 @@ namespace GraphColoringGame
         private void Vertex_Click(object sender, RoutedEventArgs e)
         {
             var b = sender as Button;
-            ILevel level = b.Uid switch
+            Level level = b.Uid switch
             {
                 "1" => new Level1(),
                 "2" => new Level2(),

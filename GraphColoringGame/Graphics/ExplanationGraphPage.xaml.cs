@@ -24,7 +24,7 @@ namespace GraphColoringGame.Graphics
     {
         private ExplanationStep _step;
         private ColorPickerPage _colorPicker;
-        private Thickness _outlineThickness = new Thickness(5);
+        private Thickness _outlineThickness = new Thickness(3);
 
         public ExplanationGraphPage(ExplanationStep step)
         {

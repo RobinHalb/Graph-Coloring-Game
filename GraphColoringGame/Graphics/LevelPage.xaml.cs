@@ -12,24 +12,32 @@ namespace GraphColoringGame
     /// </summary>
     public partial class LevelPage : Page
     {
+        private Level _level;
         private GraphPage _graphPage;
-        private List<ExplanationGraphPage> _explanationGraphs = new List<ExplanationGraphPage>();
 
-        public LevelPage(ILevel level)
+        public LevelPage(Level level)
         {
             InitializeComponent();
-            _graphPage = new GraphPage(level.graph);
+            _level = level;
+            setGraphFrame();
+            ExplanationFrame.Content = new ExplanationTextPage(level.explanation, ExplanationGraphFrame);
+        }
+
+        private void setGraphFrame()
+        {
+            _graphPage = new GraphPage(_level.graph);
             GraphFrame.Content = _graphPage;
-            foreach (ExplanationStep step in level.explanation)
-            {
-                _explanationGraphs.Add(new ExplanationGraphPage(step));
-            }
-            //GraphFrame.Content = _explanationGraphs[0];
         }
 
         private void ReturnButton_Click(object sender, RoutedEventArgs e)
         {
             (Application.Current.MainWindow as MainWindow)?.openLevelSelect();
+        }
+
+        private void ResetBtn_Click(object sender, RoutedEventArgs e)
+        {
+            _level.reset();
+            setGraphFrame();
         }
     }
 }
