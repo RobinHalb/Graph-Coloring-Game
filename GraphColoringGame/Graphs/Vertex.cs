@@ -22,7 +22,7 @@ namespace GraphColoringGame.Graphs
         private List<Color> _availableColors;
         public List<Color> availableColors { get => UpdateAvailable(); private set => _availableColors = value; }
 
-        public bool isDangerous => uncoloredCount >= availableColors.Count;
+        public bool isDangerous => !isColored && uncoloredCount >= availableColors.Count;
         public bool isUncolorable => !isColored && availableColors.Count == 0;
 
         public Vertex(Coord coord, List<Color> availableColors)
