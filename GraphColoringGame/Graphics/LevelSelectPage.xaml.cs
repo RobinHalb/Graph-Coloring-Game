@@ -41,18 +41,18 @@ namespace GraphColoringGame
             for (int level = 1; level <= levels; level++)
             {
                 var button = new Button() { Content = $"Level {level}", Margin = margin, Uid = level.ToString() };
-                button.Click += Vertex_Click;
+                button.Click += Level_Click;
                 Grid.SetColumn(button, x);
                 Grid.SetRow(button, y);
                 LevelGrid.Children.Add(button);
-                if (level > 6) button.IsEnabled = false;
+                if (level > 4) button.IsEnabled = false;
 
                 if (x == cols - 1) y++;
                 x = (x + 1) % cols;
             }
         }
 
-        private void Vertex_Click(object sender, RoutedEventArgs e)
+        private void Level_Click(object sender, RoutedEventArgs e)
         {
             var b = sender as Button;
             Level level = b.Uid switch
@@ -61,14 +61,12 @@ namespace GraphColoringGame
                 "2" => new Level2(),
                 "3" => new Level3(),
                 "4" => new Level4(),
-                "5" => new TestLevel2(),
-                "6" => new TestLevel(),
                 _ => new Level1()
             };
             (Application.Current.MainWindow as MainWindow)?.openLevel(level);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Rule_Click(object sender, RoutedEventArgs e)
         {
             var ruleWindow = new RuleWindow();
             ruleWindow.Show();
