@@ -56,6 +56,7 @@ namespace GraphColoringGame
                     _graph.colorVertex(coord, selectedColor);
                     b.Background = _graph.getVertexColor(coord).asBrush();
                     b.IsEnabled = false;
+                    checkDone();
                 }
             }
         }
@@ -69,6 +70,18 @@ namespace GraphColoringGame
             MessageBoxImage icon = MessageBoxImage.Question;
             var result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.OK);
             return result;
+        }
+
+        private void checkDone()
+        {
+            if (_graph.isDone)
+            {
+                var messageBoxText = $"Player {_graph.winner} has won!";
+                var caption = "Game Ended";
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Information;
+                MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.OK);
+            }
         }
     }
 }

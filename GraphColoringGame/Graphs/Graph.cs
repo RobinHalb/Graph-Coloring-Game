@@ -20,6 +20,8 @@ namespace GraphColoringGame.Graphs
         private List<Vertex> _dangerousVertices;
         public List<Vertex> dangerousVertices => updateDangerous();
         public readonly List<Color> colors;
+        public Player? winner { get; private set; }
+        public bool isDone => winner != null;
 
 
         // Coords mapped to vertices
@@ -50,9 +52,11 @@ namespace GraphColoringGame.Graphs
 
         public bool colorVertex(Coord coord, Color color)
         {
+            if (isDone) return false;
             if (_vertices.TryGetValue(coord, out var v) && v.availableColors.Contains(color))
             {
                 v.color = color;
+                checkIfDone();
                 return true;
             }
             return false;
@@ -64,5 +68,12 @@ namespace GraphColoringGame.Graphs
             return _dangerousVertices;
         }
 
+        private void checkIfDone()
+        {
+            if (winner != null) return;
+            if (dangerousVertices.Any(v => v.isUncolorable)) winner = Player.Bob;
+            else if (_vertices.Values.All(v => v.isColored)) winner = Player.Alice;
+            
+        }
     }
 }
