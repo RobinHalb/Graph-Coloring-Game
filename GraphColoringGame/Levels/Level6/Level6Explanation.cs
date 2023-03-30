@@ -117,6 +117,7 @@ namespace GraphColoringGame.Levels
             vertices[coords[5]].color = Color.Red;
             vertices[coords[8]].color = Color.Red;
             vertices[coords[7]].color = Color.Blue;
+            vertices[coords[6]].outline = green;
             vertices[coords[1]].outline = purple;
             vertices[coords[11]].outline = purple;
 
