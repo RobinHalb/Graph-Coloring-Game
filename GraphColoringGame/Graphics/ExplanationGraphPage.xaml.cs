@@ -48,7 +48,7 @@ namespace GraphColoringGame.Graphics
                 {
                     button.Opacity = (double) vertex.opacity;
                 }
-                gridBuilder.addVertex(coord, button, vertex.directions);
+                gridBuilder.addVertex(coord, button, vertex.directions, vertex.opacity != null);
             }
 
             ColorPickerFrame.Content = _colorPicker;
