@@ -10,10 +10,20 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
-        <Grid Name="GraphGrid" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Frame Name="ColorPickerFrame" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="70" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="Turn:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
+            <Label Name="TurnLabel" Grid.Column="1" Content="Alice" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+        </Grid>
+        
+        <Grid Name="GraphGrid" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Frame Name="ColorPickerFrame" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
     </Grid>
 </Page>

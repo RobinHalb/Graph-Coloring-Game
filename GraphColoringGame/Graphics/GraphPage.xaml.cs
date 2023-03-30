@@ -1,5 +1,8 @@
 ﻿using GraphColoringGame.Graphs;
+using GraphColoringGame.Play;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -14,8 +17,13 @@ namespace GraphColoringGame
         private ColorPickerPage _colorPicker;
         private Graphs.Color selectedColor => _colorPicker.selectedColor;
 
-        private Dictionary<string,Button> buttons = new Dictionary<string,Button>();
+        private Dictionary<Coord,Button> buttons = new Dictionary<Coord,Button>();
         private Dictionary<string,Coord> coords = new Dictionary<string, Coord>();
+
+        private IBob bob = new Bob2();
+
+        private Player? _turn = Player.Alice;
+        
 
         public GraphPage(Graph graph)
         {
@@ -31,7 +39,7 @@ namespace GraphColoringGame
                 button.Background = _graph.getVertexColor(coord).asBrush();
                 button.Click += Vertex_Click;
                 gridBuilder.addVertex(coord, button, dirs);
-                buttons.Add(button.Uid, button);
+                buttons.Add(coord, button);
                 coords.Add(button.Uid, coord);
             }
 
@@ -45,44 +53,71 @@ namespace GraphColoringGame
 
         private void Vertex_Click(object sender, RoutedEventArgs e)
         {
+            if (_turn != Player.Alice) return;
             var b = sender as Button;
             var coord = coords[b.Uid];
             if (_graph.canColor(coord, selectedColor))
             {
-                var result = openMessageBox(b);
-                // If user pressed OK, color the vertex
-                if (result == MessageBoxResult.OK)
+                if (confirmColor() == MessageBoxResult.OK)
                 {
-                    _graph.colorVertex(coord, selectedColor);
-                    b.Background = _graph.getVertexColor(coord).asBrush();
-                    b.IsEnabled = false;
-                    checkDone();
+                    colorVertex(coord, selectedColor);
+                    endTurn();
                 }
             }
         }
 
         // Opens a Messagebox, and returns the result of the messageBox (OK or Cancel)
-        private MessageBoxResult openMessageBox(Button btn)
+        private MessageBoxResult confirmColor() => MessageBox.Show($"Do you want to color this vertex {selectedColor}?", "Color Vertex", MessageBoxButton.OKCancel, MessageBoxImage.Question, MessageBoxResult.OK);
+
+        private async void bobPlay()
         {
-            var messageBoxText = $"Do you want to color this vertex {selectedColor}?";
-            var caption = "Color Vertex";
-            MessageBoxButton button = MessageBoxButton.OKCancel;
-            MessageBoxImage icon = MessageBoxImage.Question;
-            var result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.OK);
-            return result;
+            await Task.Delay(1000);
+            var move = bob.play(_graph);
+            if (move != null)
+            {
+                (Coord coord, Color color) = move.Value;
+                colorVertex(coord, color);
+                endTurn();
+            }
         }
 
-        private void checkDone()
+        private void colorVertex(Coord coord, Color color)
+        {
+            _graph.colorVertex(coord, color);
+            var b = buttons[coord];
+            b.Background = _graph.getVertexColor(coord).asBrush();
+            b.IsEnabled = false;
+        }
+        
+        private void endTurn()
         {
             if (_graph.isDone)
             {
-                foreach (var b in buttons.Values) b.IsEnabled = false;
-                var messageBoxText = $"Player {_graph.winner} has won!";
-                var caption = "Game Ended";
-                MessageBoxButton button = MessageBoxButton.OK;
-                MessageBoxImage icon = MessageBoxImage.Information;
-                MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.OK);
+                _turn = null;
+                TurnLabel.Content = "None";
+                endGame();
             }
+            else if (_turn == Player.Alice)
+            {
+                _turn = Player.Bob;
+                TurnLabel.Content = _turn.ToString();
+                bobPlay();
+            }
+            else if (_turn == Player.Bob)
+            {
+                _turn = Player.Alice;
+                TurnLabel.Content = _turn.ToString();
+            }
+        }
+
+        private void endGame()
+        {
+            foreach (var b in buttons.Values) b.IsEnabled = false;
+            var messageBoxText = $"Player {_graph.winner} has won!";
+            var caption = "Game Ended";
+            MessageBoxButton button = MessageBoxButton.OK;
+            MessageBoxImage icon = MessageBoxImage.Information;
+            MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.OK);
         }
     }
 }
