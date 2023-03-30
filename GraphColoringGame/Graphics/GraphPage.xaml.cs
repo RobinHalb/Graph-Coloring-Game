@@ -29,7 +29,14 @@ namespace GraphColoringGame
             {
                 var button = new Button() { Uid = toUid(coord), Style = FindResource("RoundButton") as Style };
                 button.Background = _graph.getVertexColor(coord).asBrush();
-                button.Click += Vertex_Click;
+                if (_graph.getVertexColor(coord) == Color.None)
+                {
+                    button.Click += Vertex_Click;
+                } else
+                {
+                    button.IsEnabled = false;
+                }
+                
                 gridBuilder.addVertex(coord, button, dirs);
                 buttons.Add(button.Uid, button);
                 coords.Add(button.Uid, coord);

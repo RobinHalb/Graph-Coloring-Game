@@ -44,6 +44,10 @@ namespace GraphColoringGame.Graphics
                     button.BorderThickness = _outlineThickness;
                     button.BorderBrush = new SolidColorBrush() { Color = (System.Windows.Media.Color) vertex.outline };
                 }
+                if (vertex.opacity != null) 
+                {
+                    button.Opacity = (double) vertex.opacity;
+                }
                 gridBuilder.addVertex(coord, button, vertex.directions);
             }
 
