@@ -39,7 +39,7 @@ namespace GraphColoringGame
         /*
          * addVertex - adds the button to the graph at the given coordinates, and adds lines pointing in the specified directions.
          */
-        public void addVertex(Coord coord, Button button, IEnumerable<Direction> directions)
+        public void addVertex(Coord coord, Button button, IEnumerable<Direction> directions, bool greyout = false)
         {
             button.Height = vertexSize;
             button.Width = vertexSize;
@@ -49,7 +49,7 @@ namespace GraphColoringGame
             // Add connecting lines to graph
             foreach (var dir in directions)
             {
-                var line = getLine(dir);
+                var line = getLine(dir, greyout);
                 Grid.SetColumn(line, x);
                 Grid.SetRow(line, y);
                 grid.Children.Add(line);
@@ -61,9 +61,14 @@ namespace GraphColoringGame
             grid.Children.Add(button);
         }
 
-        private Line getLine(Direction dir)
+        private Line getLine(Direction dir, bool greyout)
         {
             var line = new Line() { Stroke = new SolidColorBrush() { Color = Colors.Black }, StrokeThickness = 1 };
+            if (greyout) 
+            {
+                line.Opacity = 0.2;
+            }
+            
             switch (dir)
             {
                 case Direction.Left:
