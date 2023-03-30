@@ -14,6 +14,7 @@ namespace GraphColoringGame.Explanations
         public Graphs.Color color = Graphs.Color.None;
         public System.Windows.Media.Color? outline;
         public IEnumerable<Direction> directions;
+        public double? opacity;
 
         public ExplanationVertex(IEnumerable<Direction> directions)
         {

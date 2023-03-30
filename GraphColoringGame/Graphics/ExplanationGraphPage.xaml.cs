@@ -44,7 +44,12 @@ namespace GraphColoringGame.Graphics
                     button.BorderThickness = _outlineThickness;
                     button.BorderBrush = new SolidColorBrush() { Color = (System.Windows.Media.Color) vertex.outline };
                 }
-                gridBuilder.addVertex(coord, button, vertex.directions);
+                var opacity = vertex.opacity != null;
+                if (opacity) 
+                {
+                    button.Opacity = (double) vertex.opacity;
+                }
+                gridBuilder.addVertex(coord, button, vertex.directions, opacity);
             }
 
             ColorPickerFrame.Content = _colorPicker;

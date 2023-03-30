@@ -45,7 +45,7 @@ namespace GraphColoringGame
                 Grid.SetColumn(button, x);
                 Grid.SetRow(button, y);
                 LevelGrid.Children.Add(button);
-                if (level > 4) button.IsEnabled = false;
+                if (level > 6) button.IsEnabled = false;
 
                 if (x == cols - 1) y++;
                 x = (x + 1) % cols;
@@ -61,6 +61,8 @@ namespace GraphColoringGame
                 "2" => new Level2(),
                 "3" => new Level3(),
                 "4" => new Level4(),
+                "5" => new Level5(),
+                "6" => new Level6(),
                 _ => new Level1()
             };
             (Application.Current.MainWindow as MainWindow)?.openLevel(level);

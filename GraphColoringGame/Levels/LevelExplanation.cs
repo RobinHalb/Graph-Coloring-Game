@@ -13,6 +13,7 @@ namespace GraphColoringGame.Levels
     {
         protected System.Windows.Media.Color green = Colors.ForestGreen;
         protected System.Windows.Media.Color purple = Colors.Purple;
+        protected double greyout = 0.2;
 
         protected IEnumerable<(Coord, IEnumerable<Direction>)> connections;
         protected List<Graphs.Color> colors;
