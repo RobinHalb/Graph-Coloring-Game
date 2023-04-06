@@ -8,25 +8,35 @@ using System.Threading.Tasks;
 
 namespace GraphColoringGame.Levels
 {
-    public class Level5Explanation : LevelExplanation
+    /// <summary>
+    /// The graph and explanation of a "3 leged" graph
+    /// 
+    ///     0   0   0
+    ///     |   |   | 
+    /// 0 - 0 - 0 - 0 - 0
+    ///     |   |   |
+    ///     0   0   0
+    /// </summary>
+    public class Level7Explanation : LevelExplanation
     {
-        //TODO: MAKE EXPLANATION PAGE
+
         private Coord[] coords;
 
-        public Level5Explanation(Graph graph) : base(graph)
+
+        public Level7Explanation(Graph graph) : base(graph)
         {
             coords = new Coord[] {
-            new Coord(1,-1), // coords[0]
-            new Coord(2, -1), // 1
-            new Coord(3, -1), //2
-            new Coord(0, 0),//3
-            new Coord(1, 0),//4
-            new Coord(2, 0),//5
-            new Coord(3, 0),//6
-            new Coord(4, 0),//7
-            new Coord(1,1), // 8
-            new Coord(2,1), // 9
-            new Coord(3,1), // 10
+            new Coord(1,0), // coords[0]
+            new Coord(2, 0), // 1
+            new Coord(3, 0), //2
+            new Coord(0, 1),//3
+            new Coord(1,1),//4
+            new Coord(2, 1),//5
+            new Coord(3, 1),//6
+            new Coord(4, 1),//7
+            new Coord(1,2), // 8
+            new Coord(2,2), // 9
+            new Coord(3,2), // 10
             };
         }
 
