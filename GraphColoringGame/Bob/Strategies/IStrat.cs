@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GraphColoringGame.Play
+namespace GraphColoringGame.Bob.Strategies
 {
-    public interface IBob
+    public interface IStrat
     {
-        (Coord, Color)? play(Graph graph);
+        public (Coord, Color)? tryMove(Vertex v);
     }
 }
