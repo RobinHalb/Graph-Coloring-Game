@@ -25,18 +25,6 @@ namespace GraphColoringGame.Bob
                     if (move != null) return move;
                 }
             }
-            /*
-            foreach (var dv in graph.dangerousVertices)
-            {
-                var move = StratWin.tryMove(dv);
-                if (move != null) return move;
-            }
-            foreach (var dv in graph.dangerousVertices)
-            {
-                var move = StratDangerous.tryMove(dv);
-                if (move != null) return move;
-            }
-            */
             var vertex = graph.vertices.FirstOrDefault(v => !v.isColored);
             if (vertex != null) return (vertex.coord, vertex.availableColors[0]);
             return null;
