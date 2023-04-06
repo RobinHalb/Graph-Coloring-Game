@@ -1,6 +1,5 @@
 ﻿using GraphColoringGame.Explanations;
 using GraphColoringGame.Graphs;
-using GraphColoringGame.Levels.Level1Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +10,7 @@ namespace GraphColoringGame.Levels
 {
     public class Level5 : Level
     {
-
-        public Level5() : base() 
+        public Level5() : base()
         {
             level = 5;
         }
