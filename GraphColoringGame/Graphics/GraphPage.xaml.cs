@@ -1,5 +1,5 @@
 ﻿using GraphColoringGame.Graphs;
-using GraphColoringGame.Play;
+using GraphColoringGame.Bob;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,7 +20,7 @@ namespace GraphColoringGame
         private Dictionary<Coord,Button> buttons = new Dictionary<Coord,Button>();
         private Dictionary<string,Coord> coords = new Dictionary<string, Coord>();
 
-        private IBob bob = new Bob2();
+        private IBob bob;
 
         private Player? _turn = Player.Alice;
         
@@ -51,6 +51,9 @@ namespace GraphColoringGame
             }
 
             ColorPickerFrame.Content = _colorPicker;
+            if (graph.colors.Count == 3) bob = new Bob3();
+            else if (graph.colors.Count == 4) bob = new Bob4();
+            else bob = new Bob2();
         }
 
         /*
