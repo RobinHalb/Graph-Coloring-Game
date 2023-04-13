@@ -23,6 +23,8 @@ namespace GraphColoringGame.Bob.Strategies.ThreeColors
          *       v2b
          *       
          * Move: Color v2a with b
+         * 
+         * Max moves required to win: 2
          */
 
 
@@ -32,17 +34,17 @@ namespace GraphColoringGame.Bob.Strategies.ThreeColors
          * The given vertex is placed as v2 in the pattern.
          * For each possible vertex in each place in the pattern, it is checked whether the requirements are met.
          * - v1 must be colored.
-         * - v2a must have at least two available colors.
+         * - v2a must have at least one available color different from the color of v1.
          * - v3 must be a dangerous vertex and have at least one colored neighbour (v4) with the same color as v1, and at least one uncolored vertex (v3a), which can be colored with the same color as is chosen for v2a.
          */
         public (Coord, Color)? tryMove(Vertex v2)
         {
             var v1 = v2.neighbours.Values.FirstOrDefault(n => n.isColored);
-            if (v1 == null) return null;
+            if (!v2.isDangerous || v1 == null) return null;
 
             foreach (var v2a in v2.neighbours.Values)
             {
-                if (!v2a.isColored && v2a.availableColors.Count >= 2)
+                if (!v2a.isColored)
                 {
                     foreach (var c1 in v2a.availableColors)
                     {

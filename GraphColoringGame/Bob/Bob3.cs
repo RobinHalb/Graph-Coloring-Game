@@ -19,6 +19,7 @@ namespace GraphColoringGame.Bob
             {
                 new StratWin(),
                 new Strat3A(),
+                new StratDouble(),
                 new Strat3B(),
                 new Strat3C(),
                 new StratDangerous(),

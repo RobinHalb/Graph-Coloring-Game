@@ -14,6 +14,7 @@ namespace GraphColoringGame.Bob
             var strats = new IStrat[]
             {
                 new StratWin(),
+                new StratDouble(),
                 new StratDangerous(),
             };
 

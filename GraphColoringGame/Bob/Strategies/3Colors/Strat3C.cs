@@ -23,6 +23,8 @@ namespace GraphColoringGame.Bob.Strategies.ThreeColors
          *       v2b  v3b  v4b  v5b
          *       
          * Move: Color v1
+         * 
+         * Max moves required to win: 4
          */
 
 
@@ -41,23 +43,25 @@ namespace GraphColoringGame.Bob.Strategies.ThreeColors
          */
         public (Coord, Color)? tryMove(Vertex v2)
         {
+            if (!v2.isDangerous || v2.availableColors.Count != 3) return null;
+
             foreach (var v1 in v2.neighbours.Values) 
             {
                 if (!v1.isColored)
                 {
                     foreach (var v3 in v2.neighbours.Values)
                     {
-                        if (v3.isDangerous && v3 != v1 && 
+                        if (v3 != v1 && v3.isDangerous && v3.availableColors.Count == 3 &&
                             hasValidAB(v2, v1, v3))
                         {
                             foreach (var v4 in v3.neighbours.Values)
                             {
-                                if (v4.isDangerous && v4 != v2 && 
+                                if (v4 != v2 && v4.isDangerous && v4.availableColors.Count == 3 &&
                                     hasValidAB(v3, v2, v4))
                                 {
                                     foreach (var v5 in v4.neighbours.Values)
                                     {
-                                        if (v5.isDangerous && v5 != v3 && 
+                                        if (v5 != v3 && v5.isDangerous && v5.availableColors.Count == 3 &&
                                             hasValidAB(v4, v3, v5) && 
                                             v5.neighbours.Values.Count(n => n != v4 && !n.isColored && n.availableColors.Count == 3) >= 3)
                                         {

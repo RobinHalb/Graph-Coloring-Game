@@ -13,9 +13,10 @@ namespace GraphColoringGame.Bob.Strategies
         {
             if (v.isDangerous && v.availableColors.Count == 1)
             {
+                var c = v.availableColors[0];
                 foreach (var n in v.neighbours.Values)
                 {
-                    if (!n.isColored && n.availableColors.Contains(v.availableColors[0])) return (n.coord, v.availableColors[0]);
+                    if (!n.isColored && n.availableColors.Contains(c)) return (n.coord, c);
                 }
             }
             return null;
