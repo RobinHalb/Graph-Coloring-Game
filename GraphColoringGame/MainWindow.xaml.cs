@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GraphColoringGame.FreePlay;
 
 namespace GraphColoringGame
 {
@@ -39,6 +40,11 @@ namespace GraphColoringGame
         public void openLevelSelect()
         {
             MainFrame.Content = _levelSelectPage;
+        }
+
+        public void openFreePlay(IFreePlay freePlay)
+        {
+            MainFrame.Content = new FreeGraphPage(freePlay);
         }
     }
 }

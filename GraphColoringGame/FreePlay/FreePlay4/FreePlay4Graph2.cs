@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GraphColoringGame.FreePlay
 {
-    public class _4_Freeplay2
+    public class FreePlay4Graph2 : IFreePlay
     {
         public Graph createGraph()
         {

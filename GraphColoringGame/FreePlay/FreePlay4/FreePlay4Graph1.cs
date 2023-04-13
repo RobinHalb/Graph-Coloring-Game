@@ -14,7 +14,7 @@ namespace GraphColoringGame.FreePlay
     ///     0   0   0   0   0   0   0   0
     ///                 0   0   0   0
     /// </summary>
-    public class _4_FreePlayGraph
+    public class FreePlay4Graph1 :IFreePlay
     {
         public Graph createGraph()
         {

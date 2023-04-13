@@ -16,7 +16,7 @@ namespace GraphColoringGame.FreePlay
     ///                 |
     ///                 0
     /// </summary>
-    public class _3_FreePlay3Graph
+    public class FreePlay3Graph3 : IFreePlay
     {
 
         public Graph createGraph()
