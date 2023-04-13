@@ -6,6 +6,8 @@ namespace GraphColoringGame.Bob
 {
     public class Bob2 : IBob
     {
+        public bool hasWinning { get; private set; }
+
         /*
         * play - returns Bob's next move.
         */

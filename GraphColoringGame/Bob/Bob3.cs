@@ -1,12 +1,15 @@
 ﻿using GraphColoringGame.Bob.Strategies;
 using GraphColoringGame.Bob.Strategies.ThreeColors;
 using GraphColoringGame.Graphs;
+using System.IO;
 using System.Linq;
 
 namespace GraphColoringGame.Bob
 {
     public class Bob3 : IBob
     {
+        public bool hasWinning { get; private set; }
+
         /*
          * play - returns Bob's next move.
          * 
@@ -22,7 +25,6 @@ namespace GraphColoringGame.Bob
                 new StratDouble(),
                 new Strat3B(),
                 new Strat3C(),
-                new StratDangerous(),
             };
 
             foreach (var strat in strats)
@@ -30,8 +32,18 @@ namespace GraphColoringGame.Bob
                 foreach (var dv in graph.dangerousVertices)
                 {
                     var move = strat.tryMove(dv);
-                    if (move != null) return move;
+                    if (move != null)
+                    {
+                        hasWinning = true;
+                        return move;
+                    }
                 }
+            }
+            var stratDangerous = new StratDangerous();
+            foreach (var dv in graph.dangerousVertices)
+            {
+                var move = stratDangerous.tryMove(dv);
+                if (move != null) return move;
             }
             var vertex = graph.vertices.FirstOrDefault(v => !v.isColored);
             if (vertex != null) return (vertex.coord, vertex.availableColors[0]);

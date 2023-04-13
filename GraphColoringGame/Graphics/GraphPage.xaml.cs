@@ -5,6 +5,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.ComponentModel;
+using System.Windows.Documents;
 
 namespace GraphColoringGame
 {
@@ -23,11 +25,12 @@ namespace GraphColoringGame
         private IBob bob;
 
         private Player? _turn = Player.Alice;
-        
+        private Run? _winningName;
 
-        public GraphPage(Graph graph)
+        public GraphPage(Graph graph, Run? winningName)
         {
             InitializeComponent();
+            _winningName = winningName;
             var gridLength = 40;
             _graph = graph;
             var gridBuilder = new GraphGridBuilder(GraphGrid, gridLength, _graph.width, _graph.height, _graph.xMin, _graph.yMin);
@@ -87,6 +90,7 @@ namespace GraphColoringGame
             {
                 (Coord coord, Color color) = move.Value;
                 colorVertex(coord, color);
+                if (bob.hasWinning && _winningName != null) _winningName.Text = Player.Bob.ToString();
                 endTurn();
             }
         }

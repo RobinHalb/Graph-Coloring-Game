@@ -14,6 +14,7 @@ namespace GraphColoringGame.Levels
         public List<ExplanationStep> explanation { get; protected set; }
 
         public int level { get; protected set; }
+        public Player winning { get; protected set; } = Player.Alice;
 
         public Level()
         {

@@ -1,5 +1,6 @@
 ﻿using GraphColoringGame.Explanations;
 using GraphColoringGame.Graphics;
+using GraphColoringGame.Graphs;
 using GraphColoringGame.Levels;
 using System.Collections.Generic;
 using System.Windows;
@@ -15,17 +16,20 @@ namespace GraphColoringGame
         private Level _level;
         private GraphPage _graphPage;
 
+        private ExplanationTextPage _explanationTextPage;
+
         public LevelPage(Level level)
         {
             InitializeComponent();
             _level = level;
+            _explanationTextPage = new ExplanationTextPage(level.explanation, ExplanationGraphFrame, _level.level, level.winning);
+            ExplanationFrame.Content = _explanationTextPage;
             setGraphFrame();
-            ExplanationFrame.Content = new ExplanationTextPage(level.explanation, ExplanationGraphFrame, _level.level);
         }
 
         private void setGraphFrame()
         {
-            _graphPage = new GraphPage(_level.graph);
+            _graphPage = new GraphPage(_level.graph, _explanationTextPage.WinningName);
             GraphFrame.Content = _graphPage;
         }
 

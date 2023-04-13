@@ -1,5 +1,6 @@
 ﻿using GraphColoringGame.Explanations;
 using GraphColoringGame.Graphics;
+using GraphColoringGame.Graphs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,7 +38,7 @@ namespace GraphColoringGame
 
         public Frame graphFrame { get; private set; }
 
-        public ExplanationTextPage(List<ExplanationStep> steps, Frame graphFrame, int level)
+        public ExplanationTextPage(List<ExplanationStep> steps, Frame graphFrame, int level, Player winning)
         {
             InitializeComponent();
             DataContext = this;
@@ -54,7 +55,7 @@ namespace GraphColoringGame
 
             LevelLabel.Content = $"Level {level}";
             ColorsLabel.Content = $"{steps[0].colors.Count} colors";
-            setWinning("Alice");
+            setWinning(winning.ToString());
 
             StepText.Text = _steps[0].text;
             changeStep();
@@ -64,7 +65,7 @@ namespace GraphColoringGame
             graphFrame.Content = _explanationGraphs[_currentStep];
         }
 
-        private void setWinning(string winning) => WinningName.Text = winning;
+        public void setWinning(string winning) => WinningName.Text = winning;
 
         /*
          * Show / Hide explanation
