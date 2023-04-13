@@ -22,7 +22,7 @@ namespace GraphColoringGame.FreePlay
     ///       /   \
     ///     0       0
     /// </summary>
-    public class _3_FreePlay1Graph
+    public class FreePlay3Graph1 : IFreePlay
     {
         public Graph createGraph()
         {

@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GraphColoringGame.FreePlay;
+using GraphColoringGame.Graphs;
+using GraphColoringGame.Levels;
 
 namespace GraphColoringGame.Graphics
 {
@@ -20,6 +23,24 @@ namespace GraphColoringGame.Graphics
     /// </summary>
     public partial class FreeSelectPage : Page
     {
+        private IFreePlay[] TwoColors =
+        {
+            new FreePlay2Graph1()
+        };
+
+        private IFreePlay[] ThreeColors =
+        {
+            new FreePlay3Graph1(),
+            new FreePlay3Graph2(),
+            new FreePlay3Graph3(),
+        };
+
+        private IFreePlay[] FourColors =
+        {
+            new FreePlay4Graph1(),
+            new FreePlay4Graph2(),
+        };
+
         public FreeSelectPage()
         {
             InitializeComponent();
@@ -27,17 +48,20 @@ namespace GraphColoringGame.Graphics
 
         private void Free2Btn_Click(object sender, RoutedEventArgs e)
         {
-
+            var i = new Random().Next(TwoColors.Length);
+            (Application.Current.MainWindow as MainWindow)?.openFreePlay(TwoColors[i]);
         }
 
         private void Free3Btn_Click(object sender, RoutedEventArgs e)
         {
-
+            var i = new Random().Next(ThreeColors.Length);
+            (Application.Current.MainWindow as MainWindow)?.openFreePlay(ThreeColors[i]);
         }
 
         private void Free4Btn_Click(object sender, RoutedEventArgs e)
         {
-
+            var i = new Random().Next(FourColors.Length);
+            (Application.Current.MainWindow as MainWindow)?.openFreePlay(FourColors[i]);
         }
     }
 }
