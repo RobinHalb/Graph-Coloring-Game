@@ -77,8 +77,7 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step4() 
         {
-            var text = "The new trunks are the following: \n" +
-                "";
+            var text = "The new trunks are the following:";
             var vertices = newVertices();
             vertices[coords[1]].color = Color.Red;
             vertices[coords[5]].color = Color.Blue;
@@ -90,5 +89,27 @@ namespace GraphColoringGame.Levels
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
+
+        public ExplanationStep step5() 
+        {
+            var text = "(1) Red vertices trunk";
+            var vertices = newVertices();
+
+            vertices[coords[1]].color = Color.Red;
+            vertices[coords[5]].color = Color.Blue;
+            vertices[coords[9]].color = Color.Green;
+
+            vertices[coords[3]].color = Color.Red;
+            //greyout - needs clean up of some sort
+            vertices[coords[4]].opacity = greyout;
+            vertices[coords[5]].opacity = greyout;
+            vertices[coords[0]].opacity = greyout;
+            vertices[coords[7]].opacity = greyout;
+            vertices[coords[8]].opacity = greyout;
+            vertices[coords[9]].opacity = greyout;
+
+            return new ExplanationStep(text, vertices, colors ,width, height, xMin, yMin);
+        }
     }
+
     }
