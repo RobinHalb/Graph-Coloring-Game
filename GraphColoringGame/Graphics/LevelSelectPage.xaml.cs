@@ -66,8 +66,8 @@ namespace GraphColoringGame.Graphics
                 "7" => new Level7(),
                 "8" => new Level8(),
                 "9" => new Level9(),
-                "10" => new Level11(),
-                "11" => new Level10(),
+                "10" => new Level10(),
+                "11" => new Level11(),
                 _ => new Level1()
             };
             (Application.Current.MainWindow as MainWindow)?.openLevel(level);
