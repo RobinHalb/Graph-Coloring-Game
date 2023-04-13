@@ -1,5 +1,6 @@
 ﻿using GraphColoringGame.Graphs;
 using GraphColoringGame.Levels;
+using GraphColoringGame.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;

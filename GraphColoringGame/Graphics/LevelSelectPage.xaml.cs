@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GraphColoringGame
+namespace GraphColoringGame.Graphics
 {
     /// <summary>
     /// Interaction logic for LevelSelectPage.xaml
