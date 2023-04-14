@@ -22,17 +22,19 @@ namespace GraphColoringGame.Graphics
     /// </summary>
     public partial class FreeGraphPage : Page
     {
-        private IFreePlay _freePlay;
+        private IFreePlay _freePlay; 
+        private Player _alice = Player.Alice;
         public FreeGraphPage(IFreePlay freePlay)
         {
+            
             _freePlay = freePlay;
             InitializeComponent();
-            GraphPageFrame.Content = new GraphPage(_freePlay.createGraph());
+            GraphPageFrame.Content = new GraphPage(_freePlay.createGraph(), new Run(_alice.ToString()));
         }
 
         private void ResetBtn_Click(object sender, RoutedEventArgs e)
         {
-            GraphPageFrame.Content = new GraphPage(_freePlay.createGraph());
+            GraphPageFrame.Content = new GraphPage(_freePlay.createGraph(), new Run(_alice.ToString()));
         }
 
         private void ReturnButton_Click(object sender, RoutedEventArgs e)
