@@ -11,14 +11,15 @@ namespace GraphColoringGame.Levels
 {
     public class Level7 : Level
     {
-
         public Level7() : base() 
         {
             level = 7;
             winning = Player.Bob;
         }
 
-        protected override Graph newGraph() => new Level7Graph().createGraph();
+        protected override Graph newGraph() => new Level7Graph().coloredGraph();
         protected override List<ExplanationStep> newExplanation() => new Level7Explanation(graph).GetExplanation();
     }
 }
+    
+
