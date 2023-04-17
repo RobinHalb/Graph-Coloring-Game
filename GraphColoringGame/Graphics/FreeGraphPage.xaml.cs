@@ -23,7 +23,6 @@ namespace GraphColoringGame.Graphics
     public partial class FreeGraphPage : Page
     {
         private IFreePlay _freePlay; 
-        private Player _alice = Player.Alice;
         public FreeGraphPage(IFreePlay freePlay)
         {
             
