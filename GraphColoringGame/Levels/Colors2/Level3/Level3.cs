@@ -14,7 +14,7 @@ namespace GraphColoringGame.Levels
         public Level3() : base() 
         {
             level = 3;
-            winning = Player.Bob;
+            winning = Player.Alice;
         }
 
         protected override Graph newGraph() => new Level3Graph().createGraph();

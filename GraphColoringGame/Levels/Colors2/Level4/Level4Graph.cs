@@ -8,11 +8,11 @@ using GraphColoringGame.Graphs;
 namespace GraphColoringGame.Levels
 {
     /*
-     *      0
-     *      |
-     *  0 - 0 - 0 
+     *          0
+     *          |
+     *  0 - 0 - 0 - 0 
      */
-    public class Level3Graph
+    public class Level4aGraph
     {
         public Graph createGraph()
         {
@@ -21,7 +21,8 @@ namespace GraphColoringGame.Levels
             new Coord(0,1), // coords[0]
             new Coord(1, 1), // 1
             new Coord(2, 1), //2
-            new Coord(1, 0),//3
+            new Coord(3, 1),//3
+            new Coord(2, 0),//4
             };
 
 
@@ -31,7 +32,8 @@ namespace GraphColoringGame.Levels
             (Coord, Coord)[] connections = {
                 (coords[0], coords[1]),
                 (coords[1], coords[2]),
-                (coords[1], coords[3]),
+                (coords[2], coords[3]),
+                (coords[4], coords[2]),
             };
             builder.connectVerticesMany(connections);
 

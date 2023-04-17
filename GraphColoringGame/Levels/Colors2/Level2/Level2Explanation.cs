@@ -33,12 +33,11 @@ namespace GraphColoringGame.Levels
                 step1(),
                 step2(),
                 step3(),
-                step4(),
         };
 
         public ExplanationStep step1()
         {
-            var text = "In this level, Alice cannot win with only two colors as there are two dangerours vertices marked with green";
+            var text = "When playing this graph using two colors, Bob has a winning strategy. \n\nThis means that Alice cannot win, if Bob plays correctly. \n\nNotice that this graph contains two dangerous vertices, as outlined with green.";
             var vertices = newVertices();
             vertices[coords[1]].outline = green;
             vertices[coords[2]].outline = green;
@@ -48,34 +47,24 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step2()
         {
-            var text = "If Alice colors one of the dangerous vertices red, Bob can simply color the vertex at distance 2 away blue to win as Alice cannot counterplay both dangerous " +
-                "vertices in one round";
+            var text = "When four vertices are connected in a line, any vertex that Alice colors will have an uncolored vertex (shown purple) with a dangerous vertex (shown green) inbetween. \n\nBob may then color the purple vertex with the remaining color to win.";
             var vertices = newVertices();
-            vertices[coords[1]].color = Graphs.Color.Red;
-            vertices[coords[3]].outline = purple;
 
+            vertices[coords[0]].color = Graphs.Color.Red;
+            vertices[coords[1]].outline = green;
+            vertices[coords[2]].outline = purple;
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
 
         public ExplanationStep step3() 
         {
-            var text = "After Bob has colored the vertex blue, there is no avaliable color for the marked vertex and Alice losses.";
+            var text = "When four vertices are connected in a line, any vertex that Alice colors will have an uncolored vertex (shown purple) with a dangerous vertex (shown green) inbetween. \n\nBob may then color the purple vertex with the remaining color to win.";
             var vertices = newVertices();
+            
             vertices[coords[1]].color = Graphs.Color.Red;
-            vertices[coords[3]].color = Graphs.Color.Blue;
-            vertices[coords[2]].outline = purple;
-
-            return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
-        }
-
-        public ExplanationStep step4() 
-        {
-            var text = "this also happens if Alice colors the other dangerous vertex instead";
-            var vertices = newVertices();
-            vertices[coords[2]].color = Graphs.Color.Red;
-            vertices[coords[0]].color = Graphs.Color.Blue;
-            vertices[coords[1]].outline = purple;
+            vertices[coords[2]].outline = green;
+            vertices[coords[3]].outline = purple;
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
