@@ -29,12 +29,12 @@ namespace GraphColoringGame.Graphics
             
             _freePlay = freePlay;
             InitializeComponent();
-            GraphPageFrame.Content = new GraphPage(_freePlay.createGraph(), new Run(_alice.ToString()));
+            GraphPageFrame.Content = new GraphPage(_freePlay.createGraph());
         }
 
         private void ResetBtn_Click(object sender, RoutedEventArgs e)
         {
-            GraphPageFrame.Content = new GraphPage(_freePlay.createGraph(), new Run(_alice.ToString()));
+            GraphPageFrame.Content = new GraphPage(_freePlay.createGraph());
         }
 
         private void ReturnButton_Click(object sender, RoutedEventArgs e)
