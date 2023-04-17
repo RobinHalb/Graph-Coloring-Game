@@ -22,9 +22,10 @@ namespace GraphColoringGame.Graphics
     /// </summary>
     public partial class FreeGraphPage : Page
     {
-        private IFreePlay _freePlay;
+        private IFreePlay _freePlay; 
         public FreeGraphPage(IFreePlay freePlay)
         {
+            
             _freePlay = freePlay;
             InitializeComponent();
             GraphPageFrame.Content = new GraphPage(_freePlay.createGraph());
