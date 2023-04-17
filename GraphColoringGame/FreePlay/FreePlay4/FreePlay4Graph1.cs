@@ -7,13 +7,17 @@ using System.Threading.Tasks;
 
 namespace GraphColoringGame.FreePlay
 {
-    /// <summary>
-    ///     0   0       0           0
-    ///     0   0   0   0   0       0   0
-    ///     0   0   0   0   0   0   0   0
-    ///     0   0   0   0   0   0   0   0
-    ///                 0   0   0   0
-    /// </summary>
+    /*
+     *      0 - 0       0           0
+     *          |       |           |
+     *      0   0   0   0   0       0 - 0
+     *        \ | /     |   |       |
+     *      0 - 0 - 0 - 0 - 0 - 0 - 0 - 0
+     *        / | \     |       |       
+     *      0   0   0   0   0 - 0 - 0 - 0
+     *                          |
+     *                  0 - 0 - 0 - 0
+     */
     public class FreePlay4Graph1 :IFreePlay
     {
         public Graph createGraph()
@@ -43,19 +47,19 @@ namespace GraphColoringGame.FreePlay
 
             //y=3
             new Coord (0,3),//19
-            new Coord(1,3),//21
-            new Coord(2,3),//22
-            new Coord(3,3),//23
-            new Coord(4,3),//24
-            new Coord(5,3),//25
-            new Coord(6,3),//26
-            new Coord(7,3),//27
+            new Coord(1,3),//20
+            new Coord(2,3),//21
+            new Coord(3,3),//22
+            new Coord(4,3),//23
+            new Coord(5,3),//24
+            new Coord(6,3),//25
+            new Coord(7,3),//26
 
             //y=4
-            new Coord(3, 4),//28
-            new Coord(4,4),//29
-            new Coord(5,4),//30
-            new Coord(6,4),//31
+            new Coord(3, 4),//27
+            new Coord(4,4),//28
+            new Coord(5,4),//29
+            new Coord(6,4),//30
             };
 
             builder.addVertexMany(coords);

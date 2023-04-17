@@ -9,6 +9,16 @@ namespace GraphColoringGame.FreePlay
 {
     public class FreePlay4Graph2 : IFreePlay
     {
+        /*
+         *  0 - 0   0   0   0   0
+         *  |   |   |   |   |   |
+         *  0 - 0 - 0 - 0 - 0 - 0
+         *  |   |   |   |   |   |
+         *  0   0   0   0   0   0
+         *  |
+         *  0 - 0 - 0 - 0 - 0 - 0
+         * 
+         */
         public Graph createGraph()
         {
             var builder = new GraphBuilder(new List<Color>() { Color.Red, Color.Blue, Color.Green, Color.Yellow });
