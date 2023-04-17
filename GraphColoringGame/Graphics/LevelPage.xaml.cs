@@ -22,13 +22,14 @@ namespace GraphColoringGame
         {
             InitializeComponent();
             _level = level;
-            _explanationTextPage = new ExplanationTextPage(level.explanation, ExplanationGraphFrame, _level.level, level.winning);
+            _explanationTextPage = new ExplanationTextPage(level.explanation, ExplanationGraphFrame, _level.level);
             ExplanationFrame.Content = _explanationTextPage;
             setGraphFrame();
         }
 
         private void setGraphFrame()
         {
+            _explanationTextPage.setWinning(_level.winning.ToString());
             _graphPage = new GraphPage(_level.graph, _explanationTextPage.WinningName);
             GraphFrame.Content = _graphPage;
         }
