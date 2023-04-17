@@ -27,7 +27,7 @@ namespace GraphColoringGame
         private Player? _turn = Player.Alice;
         private Run? _winningName;
 
-        public GraphPage(Graph graph, Run? winningName)
+        public GraphPage(Graph graph, Run? winningName = null)
         {
             InitializeComponent();
             _winningName = winningName;
