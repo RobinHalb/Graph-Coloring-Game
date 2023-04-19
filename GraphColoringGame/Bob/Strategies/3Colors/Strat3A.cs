@@ -10,7 +10,7 @@ namespace GraphColoringGame.Bob.Strategies.ThreeColors
          * 
          *       0   0
          *       |   |
-         *   a - 0 - 0 - a
+         *   a - 0 - 0 - a/b
          *       |   
          *       0   
          *       
@@ -35,7 +35,8 @@ namespace GraphColoringGame.Bob.Strategies.ThreeColors
          * For each possible vertex in each place in the pattern, it is checked whether the requirements are met.
          * - v1 must be colored.
          * - v2a must have at least one available color different from the color of v1.
-         * - v3 must be a dangerous vertex and have at least one colored neighbour (v4) with the same color as v1, and at least one uncolored vertex (v3a), which can be colored with the same color as is chosen for v2a.
+         * - v2b must have a color different from v1 and v2a available.
+         * - v3 must be a dangerous vertex and have at least one colored neighbour (v4), and at least one uncolored vertex (v3a), which can be colored differently from v4 and v2b.
          */
         public (Coord, Color)? tryMove(Vertex v2)
         {
@@ -55,8 +56,10 @@ namespace GraphColoringGame.Bob.Strategies.ThreeColors
                             {
                                 if (v3 != v2a && v3.isDangerous &&
                                     v2.neighbours.Values.Any(n => n != v3 && n != v2a && !n.isColored && n.availableColors.Contains(c2)) &&
-                                    v3.neighbours.Values.Any(n => n.isColored && n.color == v1.color) &&
-                                    v3.neighbours.Values.Any(n => n != v2 && !n.isColored && n.availableColors.Contains(c1)))
+                                    ((v3.neighbours.Values.Any(n => n.isColored && n.color != v1.color) &&
+                                    v3.neighbours.Values.Any(n => n != v2 && !n.isColored && n.availableColors.Contains(c1))) ||
+                                    (v3.neighbours.Values.Any(n => n.isColored && n.color != c1) &&
+                                    v3.neighbours.Values.Any(n => n != v2 && !n.isColored && n.availableColors.Contains(v1.color)))))
                                 {
                                     return (v2a.coord, c1);
                                 }
