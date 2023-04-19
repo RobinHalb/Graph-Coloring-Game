@@ -1,11 +1,9 @@
-﻿using GraphColoringGame.Graphs;
-using GraphColoringGame.Bob;
+﻿using GraphColoringGame.Bob;
+using GraphColoringGame.Graphs;
 using System.Collections.Generic;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.ComponentModel;
 using System.Windows.Documents;
 
 namespace GraphColoringGame
@@ -40,7 +38,7 @@ namespace GraphColoringGame
             {
                 var button = new Button() { Uid = toUid(coord), Style = FindResource("RoundButton") as Style };
                 button.Background = _graph.getVertexColor(coord).asBrush();
-                if (_graph.getVertexColor(coord) == Color.None)
+                if (_graph.getVertexColor(coord) == Graphs.Color.None)
                 {
                     button.Click += Vertex_Click;
                 } else
@@ -88,14 +86,14 @@ namespace GraphColoringGame
             var move = bob.play(_graph);
             if (move != null)
             {
-                (Coord coord, Color color) = move.Value;
+                (Coord coord, Graphs.Color color) = move.Value;
                 colorVertex(coord, color);
                 if (bob.hasWinning && _winningName != null) _winningName.Text = Player.Bob.ToString();
                 endTurn();
             }
         }
 
-        private void colorVertex(Coord coord, Color color)
+        private void colorVertex(Coord coord, Graphs.Color color)
         {
             _graph.colorVertex(coord, color);
             var b = buttons[coord];
@@ -126,6 +124,10 @@ namespace GraphColoringGame
 
         private void endGame()
         {
+            foreach (var vertex in _graph.dangerousVertices)
+            {
+                if (vertex.isUncolorable && buttons.TryGetValue(vertex.coord, out var b)) b.BorderThickness = new Thickness(3);
+            }
             foreach (var b in buttons.Values) b.IsEnabled = false;
             var messageBoxText = $"Player {_graph.winner} has won!";
             var caption = "Game Ended";
