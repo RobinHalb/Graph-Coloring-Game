@@ -57,7 +57,7 @@ namespace GraphColoringGame.Levels
             var coord1 = new Coord(0,1);
             var coord2 = new Coord(4, 1);
             graph.colorVertex(coord1, Color.Red);
-            graph.colorVertex(coord1, Color.Blue);
+            graph.colorVertex(coord2, Color.Blue);
             return graph;
 
         }

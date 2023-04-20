@@ -11,11 +11,6 @@ namespace GraphColoringGame.Levels
     /* 
      * This graph is supposed to show the Player the subcase in case 3 with dangerous vertices where x and y are not adjacent.
      * 
-     *      0
-     *      |
-     *  0 - 0   0
-     *      |   |
-     *      0 - 0 - 0
      *      
      *      0       0
      *      |       |
@@ -42,18 +37,16 @@ namespace GraphColoringGame.Levels
         {
                 step1(),
                 step2(),
-                step3()
         };
 
         public ExplanationStep step1()
         {
-            var text = "This scenario will show the last case with two dangerous vertices in a subgraph with at most 7 vertices.\n" +
-                    "Let's imagine Alice and Bob have both played so that both dangerous vertices have one colored neighbor each.";
+            var text = "In a subgraph with 7 vertices, where two dangerous vertices (shown purple) are not adjacent to each other and each has one colored neighbor, Alice may color any dangerous vertex with an available color.";
             var vertices = newVertices();
 
-            vertices[coords[0]].color = Color.Blue;
-            vertices[coords[3]].color = Color.Blue;
-            vertices[coords[2]].outline = purple;
+            vertices[coords[2]].color = Color.Red;
+            vertices[coords[6]].color = Color.Blue;
+            vertices[coords[3]].outline = purple;
             vertices[coords[5]].outline = purple;
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
@@ -61,25 +54,13 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step2() 
         {
-            var text = "In this case, both of the dangerous vertices have three neighbors. Alice can choose one of the dangerous vertices and color it with a legal color to reach a winning position.";
+            var text = "The remaining dangerous vertex (shown purple), will now still have only one colored neighbor. \n\nBob can therefore add only one more colored neighbor, before Alice colors the vertex to win.";
             var vertices = newVertices();
 
-            vertices[coords[0]].color = Color.Blue;
+            vertices[coords[2]].color = Color.Red;
+            vertices[coords[6]].color = Color.Blue;
             vertices[coords[3]].color = Color.Blue;
-            vertices[coords[2]].outline = purple;
             vertices[coords[5]].outline = purple;
-
-            return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
-        }
-
-        public ExplanationStep step3() 
-        {
-            var text = "Now Bob cannot prevent any vertex from being colored. If one of the dangerous vertices has more than three neighbors, Alice should color the dangerous vertex with three neighbors to reach a winning position.";
-            var vertices = newVertices();
-
-            vertices[coords[0]].color = Color.Blue;
-            vertices[coords[3]].color = Color.Blue;
-            vertices[coords[5]].color = Color.Red;
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
