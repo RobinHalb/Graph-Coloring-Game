@@ -13,23 +13,24 @@ namespace GraphColoringGame.Levels
      * 
      *      0   0
      *      |   |
-     *  0 - 0 - 0
+     *  a - 0 - 0
      *      |   |
-     *      a   0
+     *      b   0
      * 
      */
-    public class Level5Graph {
+    public class Level5aGraph
+    {
         public Graph createGraph()
         {
             var builder = new GraphBuilder(new List<Color>() { Color.Red, Color.Blue, Color.Green });
             Coord[] coords = {
-            new Coord(1,0), // coords[0]
-            new Coord(2, 0), // 1
-            new Coord(0, 1),//2
-            new Coord(1, 1),//3
-            new Coord(2, 1),//4
-            new Coord(1,2), //5
-            new Coord(2,2), //6
+                new Coord(1,0), // coords[0] v1a
+                new Coord(2, 0), // 1 v2a
+                new Coord(0, 1),//2 v0
+                new Coord(1, 1),//3 v1
+                new Coord(2, 1),//4 v2
+                new Coord(1,2), //5 v1b
+                new Coord(2,2), //6 v2b
             };
 
             builder.addVertexMany(coords);
@@ -47,14 +48,16 @@ namespace GraphColoringGame.Levels
             return builder.build();
         }
 
-        public Graph coloredGraph()
+        public Graph coloredGraph() 
         {
             var graph = createGraph();
-            var coord1 = new Coord(1,2);
+            var coord1 = new Coord(0, 1);
+            var coord2 = new Coord(1, 2);
             graph.colorVertex(coord1, Color.Red);
+            graph.colorVertex(coord2, Color.Blue);
 
             return graph;
         }
+
     }
 }
-

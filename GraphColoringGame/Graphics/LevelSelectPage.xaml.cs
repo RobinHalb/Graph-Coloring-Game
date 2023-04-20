@@ -62,7 +62,7 @@ namespace GraphColoringGame.Graphics
                 "3" => new Level3(),
                 "4" => new Level4(),
                 "5" => new Level5(),
-                "6" => new Level6(),
+                "6" => new Level5b(),
                 "7" => new Level7(),
                 "8" => new Level8(),
                 "9" => new Level9(),
