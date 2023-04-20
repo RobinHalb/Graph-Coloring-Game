@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace GraphColoringGame.Levels
 {
-    public class Level4 : Level
+    public class Level12 : Level
     {
-        public Level4() : base()
+        public Level12() : base()
         {
-            level = 4;
+            level = 12;
             winning = Player.Alice;
         }
 
-        protected override Graph newGraph() => new Level4Graph().createGraph();
-        protected override List<ExplanationStep> newExplanation() => new Level4Explanation(graph).GetExplanation();
+        protected override Graph newGraph() => new Level12Graph().createGraph();
+        protected override List<ExplanationStep> newExplanation() => new Level12Explanation(graph).GetExplanation();
     }
 }

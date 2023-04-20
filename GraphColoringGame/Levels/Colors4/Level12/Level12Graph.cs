@@ -13,12 +13,14 @@ namespace GraphColoringGame.Levels
      *  0 - 0 - 0 - 0 - 0 - 0
      *      |   |   |   |
      *      0   0   0   0
+     *
      */
-    public class Level9Graph
+    public class Level12Graph
     {
+
         public Graph createGraph()
         {
-            var builder = new GraphBuilder(new List<Color>() { Color.Red, Color.Blue, Color.Green });
+            var builder = new GraphBuilder(new List<Color>() { Color.Red, Color.Blue, Color.Green, Color.Yellow });
             Coord[] coords = {
             new Coord(1,0), // coords[0]
             new Coord(2, 0), // 1
@@ -27,7 +29,7 @@ namespace GraphColoringGame.Levels
             new Coord(0, 1),//4
             new Coord(1, 1),//5
             new Coord(2, 1),//6
-            new Coord(3,1),//7
+            new Coord(3, 1),//7
             new Coord(4,1), // 8
             new Coord(5,1),// 9
             new Coord(1,2), //10
@@ -35,8 +37,6 @@ namespace GraphColoringGame.Levels
             new Coord(3, 2), //12
             new Coord(4, 2), //13
             };
-
-
 
             builder.addVertexMany(coords);
 
