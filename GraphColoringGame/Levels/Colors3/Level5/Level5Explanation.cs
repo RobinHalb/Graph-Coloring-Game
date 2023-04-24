@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using GraphColoringGame.Graphs;
-using System.Windows.Automation;
-using System.Security.Policy;
 
 namespace GraphColoringGame.Levels
 {
