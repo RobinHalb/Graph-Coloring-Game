@@ -56,7 +56,7 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step2() 
         {
-            var text = "In this case, one of the dangerous vertices has no colored neighbours (shown purple).\n\nAlice may then color the other dangerous vertex (shown green), whether it has colored neighbours or not.";
+            var text = "In this case, one of the dangerous vertices has no colored neighbors (shown purple).\n\nAlice may then color the other dangerous vertex (shown green), whether it has colored neighbors or not.";
             // In this case, one of the dangerous vertices has no colored neighbours (shown purple). Alice may then color the other dangerous vertex (shown green), whether it has colored neighbours or not.
             //var text = "Case 1: There is a dangerous vertex that has no colored neighbors after Bob's first turn in the subgraph: \n " +
             //    "In this case, Alice can color the other vertex dangerous vertex (marked green) with an avaliable color to reach a winning position.";

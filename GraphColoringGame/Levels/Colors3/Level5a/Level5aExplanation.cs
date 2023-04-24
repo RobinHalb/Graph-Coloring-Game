@@ -48,7 +48,7 @@ namespace GraphColoringGame.Levels
         {
             // In this subgraph similar to Level5, one of the dangerous vertecies has two colored neighbors (marked purple). Alice can reach a winning position by coloring this vertex.
             // In a subgraph of 7 vertices, where one dangerous vertex has two colored neighbours (shown green), Alice may win the subgraph by coloring this vertex.
-            var text = "In a subgraph of 7 vertices, where one dangerous vertex has two colored neighbours (shown green), Alice may color this vertex.";
+            var text = "In a subgraph of 7 vertices, where one dangerous vertex has two colored neighbors (shown green), Alice may color this vertex.";
             var vertices = newVertices();
 
             vertices[coords[5]].color = Color.Blue;
@@ -60,7 +60,7 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step2()
         {
-            var text = "The remaining dangerous vertex (shown purple) can now have only one colored neighbour. \n\nBob can therefore only color a second neighbour, before Alice colors the dangerous vertex, winning the subgraph.";
+            var text = "The remaining dangerous vertex (shown purple) can now have only one colored neighbor. \n\nBob can therefore only color a second neighbor, before Alice colors the dangerous vertex, winning the subgraph.";
             //var text = "Alice can reach a winning strategy by coloring this vertex. Since the other dangerous vertex can have at most one colored neighbor.";
             var vertices = newVertices();
 
