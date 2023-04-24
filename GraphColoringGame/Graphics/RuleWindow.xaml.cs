@@ -40,13 +40,13 @@ namespace GraphColoringGame
         private void addUncoloredImage() 
         {
             var uncoloredBitImage = addBitImage(200, @"..\Images\Rules\example_uncolor_vertices.png");
-            addImageAttributes(ImageExample1, uncoloredBitImage);
+            addImageAttributes(ImageUncoloredVertex, uncoloredBitImage);
         }
 
         private void addUncolorableVImage() 
         {
-            var uncolorableVBitImage = addBitImage(200, @"..\Images\Rules\example_uncolorable_vertex.png");
-            addImageAttributes(RulesLostGame, uncolorableVBitImage);
+            var uncolorableVBitImage = addBitImage(200, @"..\Images\Rules\rules_uncolorable_vertex.png");
+            addImageAttributes(ImageRulesLostGame, uncolorableVBitImage);
         }
 
         private BitmapImage addBitImage(int height, string path) 
