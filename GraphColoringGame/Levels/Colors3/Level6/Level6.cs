@@ -16,7 +16,7 @@ namespace GraphColoringGame.Levels
             winning = Player.Alice;
         }
 
-        protected override Graph newGraph() => new Level6Graph().createGraph();
+        protected override Graph newGraph() => new Level6Graph().coloredGraph();
         protected override List<ExplanationStep> newExplanation() => new Level6Explanation(graph).GetExplanation();
     }
 }

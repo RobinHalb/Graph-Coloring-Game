@@ -43,7 +43,7 @@ namespace GraphColoringGame.Levels
         public List<ExplanationStep> GetExplanation() => new List<ExplanationStep>()
         {
                 step1(),
-                step2(),
+                //step2(),
                 step3(),
                 step4(),
                 step5(),
@@ -51,14 +51,19 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step1()
         {
-            var text = "In this level, Alice cannot win. This can easily be shown by considering the following: If Alice colors any vertex, example the outlined one...";
+            //var text = "In this level, Alice cannot win. This can easily be shown by considering the following: If Alice colors any vertex, example the outlined one...";
+            var text = "When playing on trees with more than 13 vertices, Alice cannot win with only 3 colors. If Alice colors any vertex then Bob can color any vertex at distance 3 away (shown purple) with the same color to win.";
             var vertices = newVertices();
 
-            vertices[coords[2]].outline = green;
+            vertices[coords[5]].outline = green;
+            vertices[coords[2]].outline = purple;
+            vertices[coords[8]].outline = purple;
+            vertices[coords[12]].outline = purple;
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
 
+        /*
         public ExplanationStep step2() 
         {
             var text = "...then Bob can color any vertex that is at distance 3 away with the same color to win.";
@@ -72,14 +77,16 @@ namespace GraphColoringGame.Levels
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
 
         }
+        */
 
         public ExplanationStep step3() 
         {
-            var text = "Notice, that if Bob colors this vertex Red, the layout of the graph is a graph similar to Level 4, but with some addtional leaves.";
+            var text = "Notice, that if Bob colors this vertex Red, the layout of the graph is a graph similar to Level 6, but with some addtional leaves.";
             var vertices = newVertices();
 
             vertices[coords[5]].color = Color.Red;
             vertices[coords[8]].color = Color.Red;
+            vertices[coords[8]].outline = green;
 
             //greyout
             vertices[coords[0]].opacity = greyout;
@@ -94,7 +101,7 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step4() 
         {
-            var text = "Now the level can be played out as in Level 4.. where Alice can choose to one of the dangerous vertices.";
+            var text = "Now the level can be played out as in Level 6, where Alice can color one of the dangerous vertices.";
             var vertices = newVertices();
 
             vertices[coords[5]].color = Color.Red;
@@ -118,7 +125,7 @@ namespace GraphColoringGame.Levels
         public ExplanationStep step5() 
         {
 
-            var text = "Bob can now respond by coloring a neighbor of the uncolored dangerous vertex to make it uncolorable.";
+            var text = "Bob can respond by coloring a neighbor of the uncolored dangerous vertex on his next turn to make it uncolorable.";
             var vertices = newVertices();
 
             vertices[coords[5]].color = Color.Red;
@@ -140,6 +147,7 @@ namespace GraphColoringGame.Levels
 
         }
 
+        //SHOULD THIS BE SHOWN AT A DIFFERENT STARTING PONT?
         public ExplanationStep step6() 
         {
             var text = "Thus, this graph is an example of a graph that requires at least 4 colors for Alice to have a winning strategy.";

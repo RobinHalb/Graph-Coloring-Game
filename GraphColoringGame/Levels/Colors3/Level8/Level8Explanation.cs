@@ -43,13 +43,15 @@ namespace GraphColoringGame.Levels
                 step1(),
                 step2(),
                 step3(),
-                step4(),
+                //step4(),
                 step5(),
         };
 
         public ExplanationStep step1()
         {
-            var text = "In this scenerio, Bob has a winning strategy from the get go. If Alice chooses to color a vertex, Bob can color a vertex at distance 3 away with the same color.";
+            // In this graph, Bob has a winning strategy. If Alice colors a vertex (marked green), Bob can color a vertex distance 3 vertices away (marked purple) with the same color. \n \n 
+            //var text = "In this scenerio, Bob has a winning strategy from the get go. If Alice chooses to color a vertex, Bob can color a vertex at distance 3 away with the same color.";
+            var text = "In this graph, Bob has a winning strategy. If Alice colors a vertex (shown green), Bob can color a vertex distance 3 vertices away (shown purple) with the same color.";
             var vertices = newVertices();
 
             vertices[coords[4]].outline = green;
@@ -62,7 +64,9 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step2()
         {
-            var text = "Now Alice can respond by coloring either of the remaining two dangerous vertices with an available color";
+            // Alice can respond by coloring one of the remaining dangerous vertices with an available color. 
+            //var text = "Now Alice can respond by coloring either of the remaining two dangerous vertices with an available color";
+            var text = "Alice can respond by coloring one of the remaining dangerous vertices with an available color. \n \n Notice that this part of the graph resembles the same graph as in level 7";
             var vertices = newVertices();
 
             vertices[coords[2]].color = Color.Red;
@@ -70,23 +74,35 @@ namespace GraphColoringGame.Levels
             vertices[coords[6]].outline = green;
             vertices[coords[5]].outline = green;
 
+            vertices[coords[0]].opacity = greyout;
+            vertices[coords[3]].opacity = greyout;
+            vertices[coords[8]].opacity = greyout;
+            
+
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
+        //MAYBE NEW STEP HERE WITH GREYOUT
+        // SINCE WE KIND OF HAVE THE SAME GRAPH AS IN LVL 7
+
 
         public ExplanationStep step3() 
         {
-            var text = "Bob can now respond by coloring one of the neighbors of the other dangerous vertex with the only avaliable color for the uncolored dangerous vertex to win.";
+            var text = "Bob can now respond by coloring one of the neighbors of the other dangerous vertex (shown purple) with the only avaliable color for the uncolored dangerous vertex to win.";
             var vertices = newVertices();
 
             vertices[coords[2]].color = Color.Red;
             vertices[coords[4]].color = Color.Red;
-            vertices[coords[6]].color = Color.Green;
+            vertices[coords[6]].color = Color.Blue;
             vertices[coords[1]].outline = purple;
             vertices[coords[9]].outline = purple;
 
+            vertices[coords[0]].opacity = greyout;
+            vertices[coords[3]].opacity = greyout;
+            vertices[coords[8]].opacity = greyout;
+
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
-
+        /*
         public ExplanationStep step4() 
         {
             var text = "Now the dangerous vertex is uncolorable and Bob has won.";
@@ -94,25 +110,35 @@ namespace GraphColoringGame.Levels
 
             vertices[coords[2]].color = Color.Red;
             vertices[coords[4]].color = Color.Red;
-            vertices[coords[6]].color = Color.Green;
-            vertices[coords[1]].color = Color.Blue;
+            vertices[coords[6]].color = Color.Blue;
+            vertices[coords[1]].color = Color.Green;
             vertices[coords[5]].outline = green;
+
+            vertices[coords[0]].opacity = greyout;
+            vertices[coords[3]].opacity = greyout;
+            vertices[coords[8]].opacity = greyout;
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
 
         }
+        */
 
         public ExplanationStep step5() 
         {
-            var text = "Notice this will also happen, if Alice chosed to color the other dangerous vertex. Here, Bob will simply color one of the neighbors to the other dangerous vertex to win as this will make the dangerous vertex uncolorable.";
+            var text = "If Alice color the other dangerous vertex. Bob can simply color one of the neighbors of the other dangerous vertex (shown purple) to make the dangerous vertex uncolorable.";
+            // var text = "Notice this will also happen, if Alice chosed to color the other dangerous vertex. Here, Bob will simply color one of the neighbors to the other dangerous vertex to win as this will make the dangerous vertex uncolorable.";
             var vertices = newVertices();
 
             vertices[coords[2]].color = Color.Red;
             vertices[coords[4]].color = Color.Red;
-            vertices[coords[5]].color = Color.Green;
+            vertices[coords[5]].color = Color.Blue;
             vertices[coords[7]].outline = purple;
             vertices[coords[10]].outline = purple;
             vertices[coords[6]].outline = green;
+
+            vertices[coords[0]].opacity = greyout;
+            vertices[coords[3]].opacity = greyout;
+            vertices[coords[8]].opacity = greyout;
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
 

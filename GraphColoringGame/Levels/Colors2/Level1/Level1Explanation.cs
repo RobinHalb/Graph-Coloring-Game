@@ -46,8 +46,8 @@ namespace GraphColoringGame.Levels.Level1Content
 
         public ExplanationStep step2()
         {
-            var text = "This vertex has two legal colors: red and blue, and two uncolored neighbours, as shown with purple outlines." +
-                "\n\nA vertex which has equally as many or more uncolored neighbours as available colors is called a dangerous vertex.";
+            var text = "This vertex has two legal colors: red and blue, and two uncolored neighbors, as shown with purple outlines." +
+                "\n\nA vertex which has equally as many or more uncolored neighbors as available colors is called a dangerous vertex.";
             var vertices = newVertices();
 
             vertices[coords[0]].outline = purple;
@@ -71,7 +71,7 @@ namespace GraphColoringGame.Levels.Level1Content
         */
         public ExplanationStep step3()
         {
-            var text = "If Alice colors one of the outer vertices red, the middle vertex remains dangerous, as it will have one available color: blue, and one uncolored neighbour.";
+            var text = "If Alice colors one of the outer vertices red, the middle vertex remains dangerous, as it will have one available color: blue, and one uncolored neighbor.";
             var vertices = newVertices();
 
             vertices[coords[0]].color = Graphs.Color.Red;
@@ -83,7 +83,7 @@ namespace GraphColoringGame.Levels.Level1Content
 
         public ExplanationStep step4()
         {
-            var text = "Once a dangerous vertex has only one available color, Bob can win by coloring any neighbour with that color.";
+            var text = "Once a dangerous vertex has only one available color, Bob can win by coloring any neighbor with that color.";
             var vertices = newVertices();
             
             vertices[coords[0]].color = Graphs.Color.Red;

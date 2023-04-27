@@ -44,7 +44,7 @@ namespace GraphColoringGame.Levels
                 step2(),
                 step3(),
                 step4(),
-                step5(),
+                //step5(),
                 step6(),
                 step7(),
                 step8(),
@@ -53,7 +53,8 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step1()
         {
-            var text = "Alice can win on graphs with four colors, if she does not make a mistake. On graphs with four colors, the strategy is a little different than with three colors.";
+            //var text = "Alice can win on graphs with four colors, if she does not make a mistake. On graphs with four colors, the strategy is a little different than with three colors.";
+            var text = "Alice can win on graphs with four colors, if she does not make a mistake. Her strategy on graphs with four colors involve trunks.";
             var vertices = newVertices();
             vertices[coords[1]].color = Color.Red;
             vertices[coords[5]].color = Color.Blue;
@@ -64,8 +65,9 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step2() 
         {
-            var text = "When there are four colors, Alice uses trunks to win the game. A trunk is a subgraph, where every colored vertex in it is a leaf, like the graph in this level is a trunk. \n" +
-                "An uncolored vertex will appear in exactly one trunk. A colored vertex will appear in as many trunks as it has neighbors.";
+            var text = "A trunk is a subgraph, where every colored vertex is a leaf, like the graph in this level. \n \n An uncolored vertex appear in exactly one trunk. A colored vertex will apeear in as trunks as it has neighbors.";
+            //var text = "When there are four colors, Alice uses trunks to win the game. A trunk is a subgraph, where every colored vertex in it is a leaf, like the graph in this level is a trunk. \n" +
+            //    "An uncolored vertex will appear in exactly one trunk. A colored vertex will appear in as many trunks as it has neighbors.";
             var vertices = newVertices();
             vertices[coords[1]].color = Color.Red;
             vertices[coords[5]].color = Color.Blue;
@@ -77,8 +79,9 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step3() 
         {
-            var text = "To split this trunk, Alice needs to identify a vertex with a degree of at least three, as there are currently three colored vertices in this trunk. " +
-                "After Alice has colored this vertex with some color, the graph will split into three different trunks.";
+            var text = "To split this trunk, Alice needs to identify a vertex with at least 3 neighbors, since there are currently 3 colored vertices in the trunk. \n \n After Alice colors this vertex (shown green) with some color, the graph will split into 3 different trunks.";
+           // var text = "To split this trunk, Alice needs to identify a vertex with a degree of at least three, as there are currently three colored vertices in this trunk. " +
+           //     "After Alice has colored this vertex with some color, the graph will split into three different trunks.";
             var vertices = newVertices();
             vertices[coords[1]].color = Color.Red;
             vertices[coords[5]].color = Color.Blue;
@@ -91,19 +94,25 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step4() 
         {
-            var text = "The new trunks are the following:";
+            var text = "The new trunks are the following: \n \n  (1) Red-Red trunk";
             var vertices = newVertices();
             vertices[coords[1]].color = Color.Red;
             vertices[coords[5]].color = Color.Blue;
             vertices[coords[9]].color = Color.Green;
 
             vertices[coords[3]].color = Color.Red;
-            vertices[coords[3]].outline = green;
-            
+            //greyout - needs clean up of some sort
+            vertices[coords[4]].opacity = greyout;
+            vertices[coords[5]].opacity = greyout;
+            vertices[coords[0]].opacity = greyout;
+            vertices[coords[7]].opacity = greyout;
+            vertices[coords[8]].opacity = greyout;
+            vertices[coords[9]].opacity = greyout;
+
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
-
+        /*
         public ExplanationStep step5() 
         {
             var text = "(1) Red-Red trunk";
@@ -124,7 +133,7 @@ namespace GraphColoringGame.Levels
             
             return new ExplanationStep(text, vertices, colors ,width, height, xMin, yMin);
         }
-
+        */
         public ExplanationStep step6() 
         {
             var text = "(2) Red-Blue trunk";
@@ -170,8 +179,10 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step8() 
         {
-            var text = "Now, Alice can pretend a separate game is being played on each trunk. Meaning if there is an uncolored vertex in the trunk Bob has played in, Alice will play in the same trunk. \n " +
-                "(green outline = Alice, purple outline = Bob)";
+
+            //var text = "Now, Alice can pretend a separate game is being played on each trunk. Meaning if there is an uncolored vertex in the trunk Bob has played in, Alice will play in the same trunk. \n " +
+            //    "(green outline = Alice, purple outline = Bob)";
+            var text = "Alice pretends a seperate game is being played on each trunk. If there is an uncolored vertex in the trunk Bob has played in, Alice will play in the same trunk \n (Alice's play shown green, Bob's play shown purple).";
             var vertices = newVertices();
 
             vertices[coords[1]].color = Color.Red;
@@ -191,7 +202,8 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step9() 
         {
-            var text = "If Bob colors the last vertex in a trunk, Alice can play in another trunk with uncolored vertices instead.";
+            //var text = "If Bob colors the last vertex in a trunk, Alice can play in another trunk with uncolored vertices instead.";
+            var text = "If Bob colors the last vertex in a trunk (shown purple), Alice can play in another trunk with uncolored vertices instead (shown green).";
             var vertices = newVertices();
 
             vertices[coords[1]].color = Color.Red;
