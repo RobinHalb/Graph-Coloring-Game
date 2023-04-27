@@ -37,7 +37,7 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step1()
         {
-            var text = "When playing this graph using two colors, Bob has a winning strategy. \n\nThis means that Alice cannot win, if Bob plays correctly. \n\nNotice that this graph contains two dangerous vertices, as outlined with green.";
+            var text = "When playing this graph using two colors, Bob has a winning strategy. \n\nThis means that Alice cannot win, if Bob plays correctly. \n\nNotice that this graph contains two dangerous vertices (shown green).";
             var vertices = newVertices();
             vertices[coords[1]].outline = green;
             vertices[coords[2]].outline = green;
@@ -47,7 +47,7 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step2()
         {
-            var text = "When four vertices are connected in a line, any vertex that Alice colors will have an uncolored vertex (shown purple) with a dangerous vertex (shown green) inbetween. \n\nBob may then color the purple vertex with the remaining color to win.";
+            var text = "When four vertices are connected in a line, any vertex that Alice colors will have some uncolored vertex (shown purple) with a dangerous vertex (shown green) inbetween. \n\nBob may then color the purple vertex with the remaining color to win.";
             var vertices = newVertices();
 
             vertices[coords[0]].color = Graphs.Color.Red;
@@ -59,7 +59,7 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step3() 
         {
-            var text = "When four vertices are connected in a line, any vertex that Alice colors will have an uncolored vertex (shown purple) with a dangerous vertex (shown green) inbetween. \n\nBob may then color the purple vertex with the remaining color to win.";
+            var text = "When four vertices are connected in a line, any vertex that Alice colors will have some uncolored vertex (shown purple) with a dangerous vertex (shown green) inbetween. \n\nBob may then color the purple vertex with the remaining color to win.";
             var vertices = newVertices();
             
             vertices[coords[1]].color = Graphs.Color.Red;

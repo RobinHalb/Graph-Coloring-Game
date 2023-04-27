@@ -1,11 +1,11 @@
-﻿using System;
+﻿using GraphColoringGame.Graphs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GraphColoringGame.Graphs;
 
-namespace GraphColoringGame.Levels
+namespace GraphColoringGame.FreePlay
 {
     /*
      *      0   0   0
@@ -14,7 +14,7 @@ namespace GraphColoringGame.Levels
      *      |   |   |
      *      0   0   0
      */
-    public class Level8Graph
+    public class FreePlay3Graph7 : IFreePlay
     {
         public Graph createGraph()
         {
@@ -32,8 +32,6 @@ namespace GraphColoringGame.Levels
             new Coord(2, 2),
             new Coord(3, 2),
             };
-
-
 
             builder.addVertexMany(coords);
 

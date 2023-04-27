@@ -36,7 +36,7 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step1()
         {
-            var text = "When playing using two colors, Alice can only win if there are no more than three vertices connected in a line. (shown green)";
+            var text = "When playing using two colors, Alice can win if there are no more than three vertices connected in a line. (shown green)";
             var vertices = newVertices();
 
             vertices[coords[0]].outline = green;
@@ -48,7 +48,7 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step2() 
         {
-            var text = "When only three vertices are in a line, the graph can have only one dangerous vertex, which Alice can win by coloring, since Bob needs a dangerous vertex to win.";
+            var text = "When only three vertices are in a line, the graph can have only one dangerous vertex, which Alice can win by coloring. \n\nAs Bob wins by surrounding a dangerous vertex with all of its available colors, Alice is certain to win, if no dangerous vertices are left in the graph.";
             var vertices = newVertices();
 
             vertices[coords[0]].outline = green;

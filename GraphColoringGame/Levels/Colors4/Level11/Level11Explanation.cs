@@ -41,7 +41,7 @@ namespace GraphColoringGame.Levels
         public List<ExplanationStep> GetExplanation() => new List<ExplanationStep>()
         {
                 step1(),
-                step2(),
+                //step2(),
                 step3(),
                 step4(),
                 //step5(),
@@ -62,10 +62,10 @@ namespace GraphColoringGame.Levels
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
-
+        /*
         public ExplanationStep step2() 
         {
-            var text = "A trunk is a subgraph, where every colored vertex is a leaf, like the graph in this level. \n \n An uncolored vertex appear in exactly one trunk. A colored vertex will apeear in as trunks as it has neighbors.";
+            //var text = "A trunk is a subgraph, where every colored vertex is a leaf, like the graph in this level. \n \n An uncolored vertex appear in exactly one trunk. A colored vertex will apeear in as many trunks as it has neighbors.";
             //var text = "When there are four colors, Alice uses trunks to win the game. A trunk is a subgraph, where every colored vertex in it is a leaf, like the graph in this level is a trunk. \n" +
             //    "An uncolored vertex will appear in exactly one trunk. A colored vertex will appear in as many trunks as it has neighbors.";
             var vertices = newVertices();
@@ -76,6 +76,7 @@ namespace GraphColoringGame.Levels
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
 
         }
+        */
 
         public ExplanationStep step3() 
         {

@@ -23,13 +23,13 @@ namespace GraphColoringGame.Levels
         public Level5Explanation(Graph graph) : base(graph)
         {
             coords = new Coord[] {
-            new Coord(1,0), // coords[0]
+            new Coord(1, 0), // coords[0]
             new Coord(2, 0), // 1
             new Coord(0, 1),//2
             new Coord(1, 1),//3
             new Coord(2, 1),//4
-            new Coord(1,2), //5
-            new Coord(2,2), //6
+            new Coord(1, 2), //5
+            new Coord(2, 2), //6
           };
         }
 
@@ -42,9 +42,17 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step1()
         {
-            var text = "In a subgraph of 7 vertices or less, there can be at most 2 dangerous vertices (shown green), and Alice can win the game on the subgraph."; 
-           // var text = "In this scenerio, you will learn more about dangerous vertices and how to play around them with 3 colors. \n " +
-           //     "Let's imagine this is a subgraph of a bigger graph, and Bob has played first in this subgraph. There are different cases that Alice can respond to while having a winning strategy:";
+            var text = "The subgraph for this level is of a type called a trunk, which has two restrictions: \n\n1. Any colored vertices must be leaves, meaning they are connected only to one other vertex in the trunk. \n\n2. Only colored vertices can have neighbors that are not in the trunk.";
+            var vertices = newVertices();
+
+            vertices[coords[5]].color = Color.Red;
+
+            return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin); 
+        }
+
+        public ExplanationStep step2()
+        {
+            var text = "A trunk of 7 vertices or less can contain at most 2 dangerous vertices (shown green), and Alice can win the game on the trunk, if there are no more than two colored vertices."; 
             var vertices = newVertices();
 
             vertices[coords[5]].color = Color.Red;
@@ -54,12 +62,9 @@ namespace GraphColoringGame.Levels
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
 
-        public ExplanationStep step2() 
+        public ExplanationStep step3() 
         {
-            var text = "In this case, one of the dangerous vertices has no colored neighbors (shown purple).\n\nAlice may then color the other dangerous vertex (shown green), whether it has colored neighbors or not.";
-            // In this case, one of the dangerous vertices has no colored neighbours (shown purple). Alice may then color the other dangerous vertex (shown green), whether it has colored neighbours or not.
-            //var text = "Case 1: There is a dangerous vertex that has no colored neighbors after Bob's first turn in the subgraph: \n " +
-            //    "In this case, Alice can color the other vertex dangerous vertex (marked green) with an avaliable color to reach a winning position.";
+            var text = "In this case, one of the dangerous vertices has no colored neighbors (shown purple). \n\nAlice may then color the other dangerous vertex (shown green), whether it has colored neighbors or not.";
             var vertices = newVertices();
 
             vertices[coords[5]].color = Color.Red;
@@ -69,10 +74,9 @@ namespace GraphColoringGame.Levels
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
 
-        public ExplanationStep step3() 
+        public ExplanationStep step5() 
         {
-            // Now, there is only one dangerous vertex remaining, which Alice can color to prevent Bob from winning. 
-            var text = "Now, there is only one dangerous vertex remaining, which Alice can color after Bob's turn to prevent Bob from winning.";
+            var text = "Now, there is only one dangerous vertex remaining, which Alice can color on her next turn to win.";
             var vertices = newVertices();
 
             vertices[coords[5]].color = Color.Red;

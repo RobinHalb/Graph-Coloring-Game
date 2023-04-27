@@ -41,7 +41,7 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step1()
         {
-            var text = "In a subgraph with 7 vertices, where two dangerous vertices (shown purple) are not adjacent to each other and each has one colored neighbor, Alice may color any dangerous vertex with an available color.";
+            var text = "In a trunk of 7 vertices, where two dangerous vertices (shown purple) are not adjacent to each other and each has one colored neighbor, Alice may color any dangerous vertex with an available color.";
             var vertices = newVertices();
 
             vertices[coords[2]].color = Color.Red;

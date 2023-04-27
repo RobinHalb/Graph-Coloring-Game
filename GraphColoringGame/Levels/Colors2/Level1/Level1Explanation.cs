@@ -56,19 +56,7 @@ namespace GraphColoringGame.Levels.Level1Content
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
-        /*
-        public ExplanationStep step3()
-        {
-            var text = "Bob can only win if the graph contains at least one dangerous vertex, as he must be able to create a neighbour of each color to make a vertex uncolorable.";
-            var vertices = newVertices();
-            // Set colors
-            vertices[coords[1]].outline = green;
-            vertices[coords[0]].color = Graphs.Color.Red;
-            vertices[coords[2]].color = Graphs.Color.Blue;
 
-            return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
-        }
-        */
         public ExplanationStep step3()
         {
             var text = "If Alice colors one of the outer vertices red, the middle vertex remains dangerous, as it will have one available color: blue, and one uncolored neighbor.";

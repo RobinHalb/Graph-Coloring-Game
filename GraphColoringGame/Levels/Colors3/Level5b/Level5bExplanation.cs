@@ -48,7 +48,7 @@ namespace GraphColoringGame.Levels
         public ExplanationStep step1()
         {
             // In a subgraph of 7 vertices, where two dangerous vertices are adjacent and each has exactly one colored neighbor, one of these must have 3 neighbors in total (shown green). 
-            var text = "In a subgraph of 7 vertices, where two dangerous vertices are adjacent and each has exactly one colored neighbor, one dangerous vertex must have 3 neighbors in total (shown green).";
+            var text = "In a trunk of at most 7 vertices, where two dangerous vertices are adjacent and each has exactly one colored neighbor, one dangerous vertex must have 3 neighbors in total (shown green).";
             var vertices = newVertices();
 
             vertices[coords[6]].color = Color.Blue;
