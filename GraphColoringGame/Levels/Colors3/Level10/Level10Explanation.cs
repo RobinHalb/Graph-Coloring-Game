@@ -11,9 +11,7 @@ namespace GraphColoringGame.Levels
         /*
          *  0 - 0
          *      |
-         *      0
-         *      |
-         *      0 - 0 - 0 - 0 - 0
+         *      0   0   0   0   0
          *      |   |   |   |   |
          *      0 - 0 - 0 - 0 - 0 - 0
          *          |   |   |   |
