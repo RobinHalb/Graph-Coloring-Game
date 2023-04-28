@@ -44,11 +44,10 @@ namespace GraphColoringGame.Levels
                 //step2(),
                 step3(),
                 step4(),
-                //step5(),
+                step5(),
                 step6(),
                 step7(),
                 step8(),
-                step9(),
         };
 
         public ExplanationStep step1()
@@ -113,29 +112,8 @@ namespace GraphColoringGame.Levels
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
-        /*
+
         public ExplanationStep step5() 
-        {
-            var text = "(1) Red-Red trunk";
-            var vertices = newVertices();
-
-            vertices[coords[1]].color = Color.Red;
-            vertices[coords[5]].color = Color.Blue;
-            vertices[coords[9]].color = Color.Green;
-
-            vertices[coords[3]].color = Color.Red;
-            //greyout - needs clean up of some sort
-            vertices[coords[4]].opacity = greyout;
-            vertices[coords[5]].opacity = greyout;
-            vertices[coords[0]].opacity = greyout;
-            vertices[coords[7]].opacity = greyout;
-            vertices[coords[8]].opacity = greyout;
-            vertices[coords[9]].opacity = greyout;
-            
-            return new ExplanationStep(text, vertices, colors ,width, height, xMin, yMin);
-        }
-        */
-        public ExplanationStep step6() 
         {
             var text = "(2) Red-Blue trunk";
             var vertices = newVertices();
@@ -156,7 +134,7 @@ namespace GraphColoringGame.Levels
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
 
-        public ExplanationStep step7() 
+        public ExplanationStep step6() 
         {
             var text = "(3) Red-Green trunk";
             var vertices = newVertices();
@@ -178,7 +156,7 @@ namespace GraphColoringGame.Levels
 
         }
 
-        public ExplanationStep step8() 
+        public ExplanationStep step7() 
         {
 
             //var text = "Now, Alice can pretend a separate game is being played on each trunk. Meaning if there is an uncolored vertex in the trunk Bob has played in, Alice will play in the same trunk. \n " +
@@ -201,7 +179,7 @@ namespace GraphColoringGame.Levels
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
 
-        public ExplanationStep step9() 
+        public ExplanationStep step8() 
         {
             //var text = "If Bob colors the last vertex in a trunk, Alice can play in another trunk with uncolored vertices instead.";
             var text = "If Bob colors the last vertex in a trunk (shown purple), Alice can play in another trunk with uncolored vertices instead (shown green).";
