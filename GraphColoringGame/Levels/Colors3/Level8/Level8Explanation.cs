@@ -8,117 +8,59 @@ using System.Threading.Tasks;
 
 namespace GraphColoringGame.Levels
 {
-    /*
-     *      0   0   0
-     *      |   |   |
+    /* 
+     * This graph is supposed to show the Player the subcase in case 3 with dangerous vertices where x and y are not adjacent.
+     * 
+     *      
+     *      0       0
+     *      |       |
      *  0 - 0 - 0 - 0 - 0
-     *      |   |   |
-     *      0   0   0
      */
     public class Level8Explanation : LevelExplanation
     {
-
         private Coord[] coords;
-
 
         public Level8Explanation(Graph graph) : base(graph)
         {
             coords = new Coord[] {
-            new Coord(1, 0), // coords[0]
-            new Coord(2, 0), // 1
-            new Coord(3, 0), //2
-            new Coord(0, 1),//3
-            new Coord(1, 1),//4
-            new Coord(2, 1),//5
-            new Coord(3, 1),//6
-            new Coord(4, 1),//7
-            new Coord(1, 2), // 8
-            new Coord(2, 2), // 9
-            new Coord(3, 2), // 10
-            };
+            new Coord(1,0), // coords[0]
+            new Coord(3, 0), // 1
+            new Coord(0, 1),//2
+            new Coord(1, 1),//3
+            new Coord(2, 1),//4
+            new Coord(3, 1), //5
+            new Coord(4, 1), //6
+          };
         }
 
         public List<ExplanationStep> GetExplanation() => new List<ExplanationStep>()
         {
                 step1(),
                 step2(),
-                step3(),
-                step4(),
-                step5(),
-                step6(),
         };
 
         public ExplanationStep step1()
         {
-            var text = "In this graph of 11 vertices, Alice has a winning strategy.";
+            var text = "In a trunk of 7 vertices, where two dangerous vertices (shown purple) are not adjacent to each other and each has one colored neighbor, Alice may color any dangerous vertex with an available color.";
             var vertices = newVertices();
+
+            vertices[coords[2]].color = Color.Red;
+            vertices[coords[6]].color = Color.Blue;
+            vertices[coords[3]].outline = purple;
+            vertices[coords[5]].outline = purple;
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
 
-        public ExplanationStep step2()
+        public ExplanationStep step2() 
         {
-            var text = "To win, Alice must color the middle vertex.";
+            var text = "The remaining dangerous vertex (shown purple), will now still have only one colored neighbor. \n\nBob can therefore add only one more colored neighbor, before Alice colors the vertex to win.";
             var vertices = newVertices();
 
-            vertices[coords[5]].color = Color.Red;
-
-            return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
-        }
-
-        public ExplanationStep step3()
-        {
-            var text = " If Bob colors one of remaining the dangerous vertices, Alice can color the other dangerous vertex (shown purple) to win.";
-            var vertices = newVertices();
-
-            vertices[coords[5]].color = Color.Red;
-            vertices[coords[4]].color = Color.Blue;
-            vertices[coords[6]].outline = purple;
-
-            return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
-        }
-
-        public ExplanationStep step4()
-        {
-            var text = "Otherwise, if Bob colors a neighbor to a dangerous vertex, Alice can color the same dangerous vertex (shown purple). \n\nWith only one dangerous vertex remaining, Alice can color it on her next turn to win.";
-            var vertices = newVertices();
-
-            vertices[coords[5]].color = Color.Red;
-            vertices[coords[0]].color = Color.Blue;
-            vertices[coords[4]].outline = purple;
-            
-            return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
-        }
-
-        public ExplanationStep step5()
-        {
-            var text = "If Alice instead colors a vertex other than the middle, Bob may color a vertex at distance 3 away (shown purple) with the same color.";
-            var vertices = newVertices();
-
-            vertices[coords[4]].color = Color.Red;
-            vertices[coords[2]].outline = purple;
-            vertices[coords[7]].outline = purple;
-            vertices[coords[10]].outline = purple;
-
-
-            return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
-        }
-
-        public ExplanationStep step6()
-        {
-            var text = "This creates a subgraph in which Bob has a winning strategy, as was shown in level 9.";
-            var vertices = newVertices();
-
-            vertices[coords[4]].color = Color.Red;
-            vertices[coords[7]].color = Color.Red;
-            vertices[coords[5]].outline = green;
-            vertices[coords[6]].outline = green;
-
-
-            vertices[coords[0]].opacity = greyout;
-            vertices[coords[3]].opacity = greyout;
-            vertices[coords[8]].opacity = greyout;
-
+            vertices[coords[2]].color = Color.Red;
+            vertices[coords[6]].color = Color.Blue;
+            vertices[coords[3]].color = Color.Blue;
+            vertices[coords[5]].outline = purple;
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }

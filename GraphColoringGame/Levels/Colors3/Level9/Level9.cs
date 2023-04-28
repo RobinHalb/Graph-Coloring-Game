@@ -1,5 +1,6 @@
 ﻿using GraphColoringGame.Explanations;
 using GraphColoringGame.Graphs;
+using GraphColoringGame.Levels.Level1Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +11,15 @@ namespace GraphColoringGame.Levels
 {
     public class Level9 : Level
     {
-        public Level9() : base()
+        public Level9() : base() 
         {
             level = 9;
             winning = Player.Bob;
         }
 
-        protected override Graph newGraph() => new Level9Graph().createGraph();
+        protected override Graph newGraph() => new Level9Graph().coloredGraph();
         protected override List<ExplanationStep> newExplanation() => new Level9Explanation(graph).GetExplanation();
-
-
     }
 }
+    
+

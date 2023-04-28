@@ -15,7 +15,7 @@ namespace GraphColoringGame.Levels
      *      0   0   0   0
      *
      */
-    public class Level12Graph
+    public class Level15Graph
     {
 
         public Graph createGraph()

@@ -17,11 +17,11 @@ namespace GraphColoringGame.Levels
      *        /   \
      *      0       0   
     */
-    public class Level11Explanation : LevelExplanation
+    public class Level14Explanation : LevelExplanation
     {
             private Coord[] coords;
 
-        public Level11Explanation(Graph graph) : base(graph)
+        public Level14Explanation(Graph graph) : base(graph)
         {
             coords = new Coord[] {
             new Coord(3,0), // coords[0]
