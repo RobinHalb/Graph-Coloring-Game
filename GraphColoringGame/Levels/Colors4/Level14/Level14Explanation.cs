@@ -80,7 +80,7 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step3() 
         {
-            var text = "To split this trunk, Alice needs to identify a vertex with at least 3 neighbors, since there are currently 3 colored vertices in the trunk. \n \n After Alice colors this vertex (shown green) with some color, the graph will split into 3 different trunks.";
+            var text = "To split this trunk, Alice needs to identify a vertex with at least 3 neighbors (shown green), since there are currently 3 colored vertices in the trunk. \n \n After Alice colors this vertex with some color, the graph will split into 3 different trunks.";
            // var text = "To split this trunk, Alice needs to identify a vertex with a degree of at least three, as there are currently three colored vertices in this trunk. " +
            //     "After Alice has colored this vertex with some color, the graph will split into three different trunks.";
             var vertices = newVertices();
