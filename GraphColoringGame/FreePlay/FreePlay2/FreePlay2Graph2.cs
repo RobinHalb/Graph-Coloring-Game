@@ -18,10 +18,10 @@ namespace GraphColoringGame.FreePlay
         {
             var builder = new GraphBuilder(new List<Color>() { Color.Red, Color.Blue });
             Coord[] coords = {
-            new Coord(0,1), // coords[0]
-            new Coord(1, 1), // 1
-            new Coord(2, 1), //2
-            new Coord(1, 0),//3
+                new Coord(0,1), // coords[0]
+                new Coord(1, 1), // 1
+                new Coord(2, 1), //2
+                new Coord(1, 0),//3
             };
 
             builder.addVertexMany(coords);
