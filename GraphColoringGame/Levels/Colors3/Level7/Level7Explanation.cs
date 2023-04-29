@@ -41,45 +41,60 @@ namespace GraphColoringGame.Levels
         {
                 step1(),
                 step2(),
-                step3()
+                step3(),
+                step4(),
         };
 
 
         public ExplanationStep step1()
         {
-            // In a subgraph of 7 vertices, where two dangerous vertices are adjacent and each has exactly one colored neighbor, one of these must have 3 neighbors in total (shown green). 
-            var text = "In a trunk of at most 7 vertices, where two dangerous vertices are adjacent and each has exactly one colored neighbor, one dangerous vertex must have 3 neighbors in total (shown green).";
+            //var text = "In a trunk of at most 7 vertices, where two dangerous vertices are adjacent and each has exactly one colored neighbor, one dangerous vertex must have 3 neighbors in total (shown green).";
+            var text = "This level demonstrates the third case, where Alice can win the 3-coloring game on a trunk of seven or less vertices with at most two colored vertices. \n\nIn this case, the two dangerous vertices (shown green) are adjacent, and each has exactly one colored neighbor.";
             var vertices = newVertices();
 
             vertices[coords[6]].color = Color.Blue;
             vertices[coords[2]].color = Color.Red;
+            vertices[coords[3]].outline = green;
             vertices[coords[4]].outline = green;
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
-
         public ExplanationStep step2()
         {
-            var text = "One of these neighbors (shown purple) must be uncolored and not dangerous. \n\nBy coloring this neighbor with the same color as the previously colored neighbor, the dangerous vertex will have two available colors and only one uncolored neighbor, making it no longer dangerous.";
+            var text = "Here, one of the dangerous vertices (shown purple), must have exactly three neighbors in total. \n\nOne of these neighbors (shown green) must be uncolored and not dangerous.";
             var vertices = newVertices();
 
             vertices[coords[6]].color = Color.Blue;
             vertices[coords[2]].color = Color.Red;
-            vertices[coords[4]].outline = green;
-            vertices[coords[1]].outline = purple;
+            vertices[coords[4]].outline = purple;
+            vertices[coords[1]].outline = green;
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
 
         public ExplanationStep step3()
         {
-            var text = "The remaining dangerous vertex (shown purple), will now still have only one colored neighbor. \n\nBob can therefore add only one more colored neighbor, before Alice colors the vertex to win.";
+            //var text = "One of these neighbors (shown green) must be uncolored and not dangerous. \n\nBy coloring this neighbor with the same color as the previously colored neighbor, the dangerous vertex will have two available colors and only one uncolored neighbor, making it no longer dangerous.";
+            var text = "By coloring this neighbor with the same color as the previously colored neighbor, the dangerous vertex will have two available colors and only one uncolored neighbor, making it no longer dangerous.";
+            var vertices = newVertices();
+
+            vertices[coords[6]].color = Color.Blue;
+            vertices[coords[2]].color = Color.Red;
+            vertices[coords[4]].outline = purple;
+            vertices[coords[1]].color = Color.Blue;
+
+            return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
+        }
+
+        public ExplanationStep step4()
+        {
+            var text = "The remaining dangerous vertex (shown green), will now still have only one colored neighbor. \n\nBob can therefore add only one more colored neighbor, before Alice colors the dangerous vertex to win.";
             var vertices = newVertices();
 
             vertices[coords[6]].color = Color.Blue;
             vertices[coords[2]].color = Color.Red;
             vertices[coords[1]].color = Color.Blue;
-            vertices[coords[3]].outline = purple;
+            vertices[coords[3]].outline = green;
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }

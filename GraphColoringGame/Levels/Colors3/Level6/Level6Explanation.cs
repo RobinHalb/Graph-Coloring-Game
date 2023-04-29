@@ -41,12 +41,14 @@ namespace GraphColoringGame.Levels
         {
                 step1(),
                 step2(),
+                step3(),
         };
 
 
         public ExplanationStep step1()
         {
-            var text = "In a trunk of 7 vertices with two dangerous vertices and two colored vertices, where both colored vertices are neighbors to the same dangerous vertex (shown green), Alice has a winning strategy.";
+            //var text = "In a trunk of 7 vertices with two dangerous vertices and two colored vertices, where both colored vertices are neighbors to the same dangerous vertex (shown green), Alice has a winning strategy.";
+            var text = "This level demonstrates the second case, where Alice can win the 3-coloring game on a trunk of seven or less vertices with at most two colored vertices. \n\nIn this case, one of the dangerous vertices (shown green), has exactly two colored neighbors.";
             var vertices = newVertices();
 
             vertices[coords[5]].color = Color.Blue;
@@ -58,13 +60,27 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step2()
         {
-            var text = "If she colors the dangerous vertex, the remaining dangerous vertex (shown purple) can now have only one colored neighbor. \n\nBob can therefore only color a second neighbor, before Alice colors the dangerous vertex, winning the subgraph.";
+            var text = "If Alice colors said dangerous vertex, the remaining dangerous vertex (shown purple) can now have only one colored neighbor.";
             var vertices = newVertices();
 
             vertices[coords[5]].color = Color.Blue;
             vertices[coords[2]].color = Color.Red;
             vertices[coords[3]].color = Color.Green;
             vertices[coords[4]].outline = purple;
+
+            return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
+        }
+
+        public ExplanationStep step3()
+        {
+            var text = "Bob can only color a second neighbor, before Alice colors the dangerous vertex, winning the subgraph.";
+            var vertices = newVertices();
+
+            vertices[coords[5]].color = Color.Blue;
+            vertices[coords[2]].color = Color.Red;
+            vertices[coords[3]].color = Color.Green;
+            vertices[coords[4]].outline = purple;
+            vertices[coords[1]].color = Color.Red;
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
