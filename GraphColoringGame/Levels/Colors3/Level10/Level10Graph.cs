@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 namespace GraphColoringGame.Levels
 {
     /*
-     *      0   0
-     *      |   |
-     *  a - 0 - 0 - b
-     *      |   |
-     *      0   0
+     *      0   0       a
+     *      |   |       |
+     *  a - 0 - 0 - b - 0
+     *      |   |       |
+     *      0   0       0
      * */
     public class Level10Graph
     {
@@ -20,14 +20,17 @@ namespace GraphColoringGame.Levels
         {
             var builder = new GraphBuilder(new List<Color>() { Color.Red, Color.Blue, Color.Green });
             Coord[] coords = {
-            new Coord(1,0), // coords[0]
-            new Coord(2, 0), // 1
-            new Coord(0, 1), //2
-            new Coord(1, 1),//3
-            new Coord(2, 1),//4
-            new Coord(3, 1),//5
-            new Coord(1,2),
-            new Coord(2,2)
+                new Coord(1,0), // coords[0]
+                new Coord(2, 0), // 1
+                new Coord(4, 0), // 2
+                new Coord(0, 1), //3
+                new Coord(1, 1),//4
+                new Coord(2, 1),//5
+                new Coord(3, 1),//6
+                new Coord(4, 1),//7
+                new Coord(1, 2),//8
+                new Coord(2, 2),//9
+                new Coord(4, 2),//10
             };
 
 
@@ -35,13 +38,16 @@ namespace GraphColoringGame.Levels
             builder.addVertexMany(coords);
 
             (Coord, Coord)[] connections = {
-                (coords[0], coords[3]),
-                (coords[1], coords[4]),
-                (coords[2], coords[3]),
-                (coords[3], coords[6]),
                 (coords[3], coords[4]),
-                (coords[4], coords[7]),
                 (coords[4], coords[5]),
+                (coords[5], coords[6]),
+                (coords[6], coords[7]),
+                (coords[4], coords[0]),
+                (coords[4], coords[8]),
+                (coords[5], coords[1]),
+                (coords[5], coords[9]),
+                (coords[7], coords[2]),
+                (coords[7], coords[10]),
             };
             builder.connectVerticesMany(connections);
 
@@ -52,9 +58,11 @@ namespace GraphColoringGame.Levels
         {
             var graph = createGraph();
             var vertex1 = new Coord(0,1);
-            var vertex2 = new Coord(3,1);
+            var vertex2 = new Coord(4,0);
+            var vertex3 = new Coord(3,1);
             graph.colorVertex(vertex1, Color.Red);
-            graph.colorVertex(vertex2, Color.Blue);
+            graph.colorVertex(vertex2, Color.Red);
+            graph.colorVertex(vertex3, Color.Blue);
 
             return graph;
         }

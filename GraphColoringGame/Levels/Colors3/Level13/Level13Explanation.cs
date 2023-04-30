@@ -60,13 +60,14 @@ namespace GraphColoringGame.Levels
                 step13(),
                 step14(),
                 step15(),
+                step16(),
         };
 
 
         public ExplanationStep step1()
         {
             //var text = "This level is a modification of the previous level. Alice cannot win in this graph with only 3 colors. \n\n If she colors any of the vertices at the side (shown green), Bob can play in middle of the graph near the dangerous vertices (shown purple) trying to make a vertex uncolorable.";
-            var text = "This graph on 15 vertices contains the graph from level 11 as a subgraph (shown green). \n\nAlice cannot win the 3-coloring game when this subgraph exists in the graph.";
+            var text = "This graph on 15 vertices contains the graph from level 11 as a subgraph (shown green). \n\nAlice cannot win the 3-coloring game when this subgraph exists in the graph, connected by an outer vertex of the longest path in the subgraph.";
             var vertices = newVertices();
 
             vertices[coords[1]].outline = green;
@@ -83,6 +84,22 @@ namespace GraphColoringGame.Levels
             vertices[coords[12]].outline = green;
             vertices[coords[13]].outline = green;
             vertices[coords[14]].outline = green;
+
+            return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
+        }
+
+        public ExplanationStep step17()
+        {
+            //var text = "This level is a modification of the previous level. Alice cannot win in this graph with only 3 colors. \n\n If she colors any of the vertices at the side (shown green), Bob can play in middle of the graph near the dangerous vertices (shown purple) trying to make a vertex uncolorable.";
+            var text = "The subgraph is connected by an outer vertex of the longest path in the subgraph (shown green). \n\nAlice cannot win the 3-coloring game when this subgraph exists in the graph.";
+            var vertices = newVertices();
+
+            vertices[coords[5]].outline = green;
+            vertices[coords[6]].outline = green;
+            vertices[coords[7]].outline = green;
+            vertices[coords[8]].outline = green;
+            vertices[coords[9]].outline = green;
+            vertices[coords[10]].outline = green;
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
@@ -155,25 +172,32 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step6()
         {
-            var text = "If Alice colors a vertex at distance three away with a different color, Bob can win the created subgraph as described in level 10.";
+            var text = "Suppose Alice colors a vertex at distance three away with a different color.";
             var vertices = newVertices();
 
             vertices[coords[0]].color = Color.Red;
             vertices[coords[5]].color = Color.Blue;
             vertices[coords[8]].color = Color.Red;
 
-            vertices[coords[0]].opacity = greyout;
-            vertices[coords[3]].opacity = greyout;
-            vertices[coords[9]].opacity = greyout;
-            vertices[coords[13]].opacity = greyout;
-            vertices[coords[10]].opacity = greyout;
-            vertices[coords[4]].opacity = greyout;
-            vertices[coords[14]].opacity = greyout;
-
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
 
         public ExplanationStep step7()
+        {
+            var text = "Bob can now color a vertex at distance two away to win as described in level 10.";
+            var vertices = newVertices();
+
+            vertices[coords[0]].color = Color.Red;
+            vertices[coords[5]].color = Color.Blue;
+            vertices[coords[8]].color = Color.Red;
+            vertices[coords[4]].color = Color.Blue;
+
+            vertices[coords[0]].opacity = greyout;
+
+            return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
+        }
+
+        public ExplanationStep step8()
         {
             var text = "There are six vertices in the subgraph which are at a distance more than three (shown green).";
             var vertices = newVertices();
@@ -190,27 +214,27 @@ namespace GraphColoringGame.Levels
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
 
-        public ExplanationStep step8()
+        public ExplanationStep step9()
         {
             var text = "Now suppose Alice colors one of these, or some other vertex outside of the subgraph.";
             var vertices = newVertices();
 
             vertices[coords[0]].color = Color.Red;
             vertices[coords[5]].color = Color.Blue;
-            vertices[coords[9]].color = Color.Red;
+            vertices[coords[9]].color = Color.Blue;
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
 
-        public ExplanationStep step9()
+        public ExplanationStep step10()
         {
-            var text = "Bob then colors a vertex at distance three away from his original vertex to win the created subgraph as described in level 10.";
+            var text = "Bob then colors a vertex at distance three away from his original vertex to win the created subgraph as described in level 9.";
             var vertices = newVertices();
 
             vertices[coords[0]].color = Color.Red;
             vertices[coords[5]].color = Color.Blue;
-            vertices[coords[8]].color = Color.Blue;
-            vertices[coords[9]].color = Color.Red;
+            vertices[coords[2]].color = Color.Blue;
+            vertices[coords[9]].color = Color.Blue;
 
             vertices[coords[0]].opacity = greyout;
             vertices[coords[3]].opacity = greyout;
@@ -223,7 +247,7 @@ namespace GraphColoringGame.Levels
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
 
-        public ExplanationStep step10()
+        public ExplanationStep step11()
         {
             var text = "There are two dangerous vertices (shown green) at distance less than two.";
             var vertices = newVertices();
@@ -236,7 +260,7 @@ namespace GraphColoringGame.Levels
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
 
-        public ExplanationStep step11()
+        public ExplanationStep step12()
         {
             var text = "If Alice colors one of these, Bob may color a vertex at distance three away (shown purple) with the same color to win as described in level 9.";
             var vertices = newVertices();
@@ -259,7 +283,7 @@ namespace GraphColoringGame.Levels
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
 
-        public ExplanationStep step12()
+        public ExplanationStep step13()
         {
             var text = "Lastly, Alice may color a leaf at distance one away with the same or a different color. \n\nIf she uses a different color, Bob can win on the next turn.";
             var vertices = newVertices();
@@ -271,7 +295,7 @@ namespace GraphColoringGame.Levels
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
 
-        public ExplanationStep step13()
+        public ExplanationStep step14()
         {
             var text = "If she has used the same color, Bob must color the dangerous vertex at distance one away with a different color. \n\nThe dangerous vertex (shown green) between them now has only one legal color left.";
             var vertices = newVertices();
@@ -285,7 +309,7 @@ namespace GraphColoringGame.Levels
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin); 
         }
 
-        public ExplanationStep step14()
+        public ExplanationStep step15()
         {
             var text = "If Alice does not color or stop this vertex from being dangerous, Bob can win by coloring the remaining neighbour (shown purple).";
             var vertices = newVertices();
@@ -300,7 +324,7 @@ namespace GraphColoringGame.Levels
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
 
-        public ExplanationStep step15()
+        public ExplanationStep step16()
         {
             var text = "If Alice does color the dangerous vertex, Bob may color a vertex (shown purple) at distance three away from his last colored with the same color to win as described in level 9.";
             var vertices = newVertices();
