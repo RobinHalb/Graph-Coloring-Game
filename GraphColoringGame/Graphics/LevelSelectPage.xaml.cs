@@ -25,7 +25,7 @@ namespace GraphColoringGame.Graphics
         public LevelSelectPage()
         {
             InitializeComponent();
-            var levels = 31;
+            var levels = 16;
             var cols = 5;
             var colWidth = new GridLength(1, GridUnitType.Star);
             var rows = (levels / 5) + 1;
@@ -45,7 +45,6 @@ namespace GraphColoringGame.Graphics
                 Grid.SetColumn(button, x);
                 Grid.SetRow(button, y);
                 LevelGrid.Children.Add(button);
-                if (level > 16) button.IsEnabled = false;
 
                 if (x == cols - 1) y++;
                 x = (x + 1) % cols;
