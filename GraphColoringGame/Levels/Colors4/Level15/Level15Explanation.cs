@@ -11,11 +11,11 @@ namespace GraphColoringGame.Levels
     /*
      *              0
      *              |
-     *  0 - 0 - 0 - 0 - 0 - 0
+     *  a - 0 - 0 - 0 - 0 - b
      *          |   |
      *      0 - 0   0
      *        /   \
-     *      0       0   
+     *      0       c
     */
     public class Level15Explanation : LevelExplanation
     {
