@@ -8,53 +8,58 @@ using System.Threading.Tasks;
 namespace GraphColoringGame.FreePlay
 {
     /*
-     *              0
-     *              |
-     *  0 - 0 - 0 - 0 - 0 - 0
-     *          |   |
-     *      0 - 0   0
-     *        /   \
-     *      0       0   
+    *          0   0
+    *          | / 
+    *      0 - 0 - 0 -0
+    *      |       |
+    *  0 - 0 - 0   0
+    *      |
+    *  0 - 0 - 0
     */
-    public class FreePlay4Graph1 : IFreePlay
+
+    public class FreePlay3Graph11 : IFreePlay
     {
         public Graph createGraph()
         {
-            var builder = new GraphBuilder(new List<Color>() { Color.Red, Color.Blue, Color.Green, Color.Yellow });
+            var builder = new GraphBuilder(new List<Color>() { Color.Red, Color.Blue, Color.Green });
             Coord[] coords = {
-                new Coord(3,0), // coords[0]
+                new Coord(2, 0), // 0
+                new Coord(3, 0), // 1
                 // Row 2
-                new Coord(0, 1), // 1
                 new Coord(1, 1), // 2
                 new Coord(2, 1), // 3
                 new Coord(3, 1), // 4
                 new Coord(4, 1), // 5
-                new Coord(5, 1), // 6
                 // Row 3
+                new Coord(0, 2), // 6
                 new Coord(1, 2), // 7
                 new Coord(2, 2), // 8
                 new Coord(3, 2), // 9
                 // Row 4
-                new Coord(1, 3), // 10
-                new Coord(3, 3), // 11
+                new Coord(0, 3), // 10
+                new Coord(1, 3), // 11
+                new Coord(2, 3), // 12
             };
 
-            builder.addVertexMany(coords);
 
+
+            builder.addVertexMany(coords);
             (Coord, Coord)[] connections = {
-                (coords[0], coords[4]),
+                (coords[0], coords[3]),
+                (coords[1], coords[3]),
                 // Row 2
-                (coords[1], coords[2]),
                 (coords[2], coords[3]),
+                (coords[2], coords[7]),
                 (coords[3], coords[4]),
-                (coords[3], coords[8]),
                 (coords[4], coords[5]),
                 (coords[4], coords[9]),
-                (coords[5], coords[6]),
                 // Row 3
+                (coords[6], coords[7]),
                 (coords[7], coords[8]),
-                (coords[8], coords[10]),
-                (coords[8], coords[11]),
+                (coords[7], coords[11]),
+                // Row 4
+                (coords[10], coords[11]),
+                (coords[11], coords[12]),
             };
             builder.connectVerticesMany(connections);
 

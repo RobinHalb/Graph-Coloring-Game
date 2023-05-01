@@ -39,6 +39,21 @@ namespace GraphColoringGame.Graphics
             new FreePlay3Graph5(),
             new FreePlay3Graph6(),
             new FreePlay3Graph7(),
+            new FreePlay3Graph8(),
+            new FreePlay3Graph9(),
+            new FreePlay3Graph10(),
+            new FreePlay3Graph11(),
+            new FreePlay3Graph12(),
+            // Partially colored
+            new FreePlay3Graph1c1(),
+            new FreePlay3Graph1c2(),
+            new FreePlay3Graph2c1(),
+            new FreePlay3Graph3c1(),
+            new FreePlay3Graph3c2(),
+            new FreePlay3Graph4c1(),
+            new FreePlay3Graph4c2(),
+            new FreePlay3Graph5c1(),
+            new FreePlay3Graph5c2(),
         };
 
         private IFreePlay[] FourColors =
@@ -47,6 +62,14 @@ namespace GraphColoringGame.Graphics
             new FreePlay4Graph2(),
             new FreePlay4Graph3(),
             new FreePlay4Graph4(),
+            new FreePlay4Graph5(),
+            // Partially colored
+            new FreePlay4Graph1c1(),
+            new FreePlay4Graph1c2(),
+            new FreePlay4Graph1c3(),
+            new FreePlay4Graph2c1(),
+            new FreePlay4Graph2c2(),
+            new FreePlay4Graph3c1(),
         };
 
         public FreeSelectPage()

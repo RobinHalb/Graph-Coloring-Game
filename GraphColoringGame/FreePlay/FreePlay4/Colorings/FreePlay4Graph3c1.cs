@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 namespace GraphColoringGame.FreePlay
 {
     /*
-     *      0   0   0   0
+     *      0   0   0   a
      *      |   |   |   |
      *  0 - 0 - 0 - 0 - 0 - 0
      *      |   |   |   |
-     *      0   0   0   0
+     *      0   0   b   0
      *
      */
-    public class FreePlay4Graph3 : IFreePlay
+    public class FreePlay4Graph3c1 : IFreePlay
     {
 
         public Graph createGraph()
@@ -60,7 +60,12 @@ namespace GraphColoringGame.FreePlay
             };
             builder.connectVerticesMany(connections);
 
-            return builder.build();
+            var graph = builder.build();
+
+            graph.colorVertex(coords[3], Color.Red);
+            graph.colorVertex(coords[12], Color.Blue);
+
+            return graph;
         }
     }
 }
