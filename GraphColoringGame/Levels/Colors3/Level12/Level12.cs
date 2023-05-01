@@ -13,10 +13,12 @@ namespace GraphColoringGame.Levels
         public Level12() : base()
         {
             level = 12;
-            winning = Player.Alice;
+            winning = Player.Bob;
         }
 
         protected override Graph newGraph() => new Level12Graph().createGraph();
         protected override List<ExplanationStep> newExplanation() => new Level12Explanation(graph).GetExplanation();
+
+
     }
 }

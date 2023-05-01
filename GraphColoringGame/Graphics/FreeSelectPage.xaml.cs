@@ -38,6 +38,7 @@ namespace GraphColoringGame.Graphics
             new FreePlay3Graph4(),
             new FreePlay3Graph5(),
             new FreePlay3Graph6(),
+            new FreePlay3Graph7(),
         };
 
         private IFreePlay[] FourColors =
