@@ -72,8 +72,7 @@ namespace GraphColoringGame.Levels.Level1Content
 
         public ExplanationStep step5()
         {
-            var text = "This vertex has two legal colors: red and blue, and two uncolored neighbors, as shown with purple outlines." +
-               "\n\nA vertex like the middle one, which has the same amount or more uncolored neighbors as available colors is called a dangerous vertex.";
+            var text = "This vertex has two legal colors: red and blue, and two uncolored neighbors, as shown with purple outlines. \n\nA vertex like the middle one, which has at least as many uncolored neighbors as available colors is called a dangerous vertex.";
             var vertices = newVertices();
 
             vertices[coords[0]].outline = purple;
