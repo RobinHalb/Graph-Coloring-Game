@@ -26,7 +26,8 @@ namespace GraphColoringGame.Graphics
         private IFreePlay[] TwoColors =
         {
             new FreePlay2Graph1(),
-            new FreePlay2Graph2()
+            new FreePlay2Graph2(),
+            new FreePlay2Graph3(),
         };
 
         private IFreePlay[] ThreeColors =

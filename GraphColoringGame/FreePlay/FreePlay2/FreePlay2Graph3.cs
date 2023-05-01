@@ -11,8 +11,10 @@ namespace GraphColoringGame.FreePlay
      *      0
      *      |
      *  0 - 0 - 0 
+     *      |
+     *      0
      */
-    public class FreePlay2Graph2 : IFreePlay
+    public class FreePlay2Graph3 : IFreePlay
     {
         public Graph createGraph()
         {
@@ -22,6 +24,7 @@ namespace GraphColoringGame.FreePlay
                 new Coord(1, 1), // 1
                 new Coord(2, 1), //2
                 new Coord(1, 0),//3
+                new Coord(1, 2),//4
             };
 
             builder.addVertexMany(coords);
@@ -30,6 +33,7 @@ namespace GraphColoringGame.FreePlay
                 (coords[0], coords[1]),
                 (coords[1], coords[2]),
                 (coords[1], coords[3]),
+                (coords[1], coords[4]),
             };
             builder.connectVerticesMany(connections);
 

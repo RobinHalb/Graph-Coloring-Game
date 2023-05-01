@@ -5,6 +5,9 @@ namespace GraphColoringGame.FreePlay
 {
     public class FreePlay2Graph1 : IFreePlay
     {
+        /*
+         *  0 - 0 - 0 
+         */
         public Graph createGraph()
         {
             var builder = new GraphBuilder(new List<Color>() { Color.Red, Color.Blue });
