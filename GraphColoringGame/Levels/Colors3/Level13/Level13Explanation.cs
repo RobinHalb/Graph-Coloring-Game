@@ -286,7 +286,7 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step14()
         {
-            var text = "Lastly, Alice may color a leaf at distance one away with the same or a different color. \n\nIf she uses a different color, Bob can win on the next turn.";
+            var text = "Lastly, Alice may color a leaf at distance two away with the same or a different color. \n\nIf she uses a different color, Bob can win on the next turn.";
             var vertices = newVertices();
 
             vertices[coords[0]].color = Color.Red;
@@ -312,7 +312,7 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step16()
         {
-            var text = "If Alice does not color or stop this vertex from being dangerous, Bob can win by coloring the remaining neighbour (shown purple).";
+            var text = "If Alice does not color or stop this vertex from being dangerous, Bob can win by coloring the remaining neighbor (shown purple).";
             var vertices = newVertices();
 
             vertices[coords[0]].color = Color.Red;
@@ -327,7 +327,7 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step17()
         {
-            var text = "If Alice does color the dangerous vertex, Bob may color a vertex (shown purple) at distance three away from his last colored with the same color to win as described in level 9.";
+            var text = "If Alice does color the dangerous vertex, Bob may color a vertex (shown purple) at distance three away from his last colored vertex with the same color to win as described in level 9.";
             var vertices = newVertices();
 
             vertices[coords[0]].color = Color.Red;
