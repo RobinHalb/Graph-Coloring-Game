@@ -104,7 +104,7 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step4()
         {
-            var text = "Because the graph has 13 or less vertices, she has made sure that the trunk can have at most seven vertices, and because Bob has only colored one vertex, there are no more than two colored leaves. \n\nLevels 5-8 showed how Alice can win the 3-coloring game on such a trunk.";
+            var text = "Because the graph has 13 or less vertices, she has made sure that the trunk can have at most seven vertices, and because Bob has only colored one vertex, there are no more than two colored leaves. \n\nLevels 5-8 show how Alice can win the 3-coloring game on such a trunk.";
             var vertices = newVertices();
 
             vertices[coords[7]].color = Color.Red;
@@ -180,7 +180,7 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step8()
         { 
-            var text = "This trunk also has less than seven vertices and two colored leaves. \n\nHere, Alice may win by the strategies presented in level 5 or 6. \n\nThis trunk also contains one or more dangerous vertices (shown green).";
+            var text = "This trunk also has less than seven vertices and two colored leaves. \n\nHere, Alice may win by the strategies presented in level 5 and 6. \n\nThis trunk also contains one or more dangerous vertices (shown green).";
             var vertices = newVertices();
 
             vertices[coords[7]].color = Color.Red;
@@ -225,7 +225,7 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step10()
         {
-            var text = "If Bob returns to a trunk which has previously been played in, the strategy resumes where it left off. \n\nThis trunk still contains a dangerous vertex (shown green).";
+            var text = "If Bob returns to a trunk which has previously been played in, the strategy resumes where it left off.";
             var vertices = newVertices();
 
             vertices[coords[7]].color = Color.Red;
