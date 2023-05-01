@@ -1,6 +1,8 @@
 ﻿using GraphColoringGame.Graphs;
 using GraphColoringGame.Bob.Strategies;
 using System.Linq;
+using System.Collections.Generic;
+using System;
 
 namespace GraphColoringGame.Bob
 {
@@ -32,10 +34,17 @@ namespace GraphColoringGame.Bob
                 }
             }
             var stratDangerous = new StratDangerous();
+            var moves = new List<(Coord, Color)>();
             foreach (var dv in graph.dangerousVertices)
             {
                 var move = stratDangerous.tryMove(dv);
-                if (move != null) return move;
+                if (move != null) moves.Add(((Coord, Color))move);
+            }
+            if (moves.Any())
+            {
+                Random rnd = new Random();
+                var i = rnd.Next(moves.Count);
+                return moves[i];
             }
             var vertex = graph.vertices.FirstOrDefault(v => !v.isColored);
             if (vertex != null) return (vertex.coord, vertex.availableColors[0]);

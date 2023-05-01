@@ -9,20 +9,30 @@ namespace GraphColoringGame.Bob.Strategies
          */
         public (Coord, Color)? tryMove(Vertex v)
         {
+            Vertex? vertex = null;
+            Color? color = null;
+
             if (v.isDangerous)
             {
+                var colors = v.availableColors;
                 foreach (var n in v.neighbours.Values)
                 {
                     if (!n.isColored)
                     {
                         foreach (var c in n.availableColors)
                         {
-                            if (v.availableColors.Contains(c)) return (n.coord, c);
+                            if (colors.Contains(c))
+                            {
+                                if (!n.isDangerous) return (n.coord, c);
+                                vertex = n;
+                                color = c;
+                                break;
+                            }
                         }
-
                     }
                 }
             }
+            if (vertex != null && color != null) return (vertex!.coord, (Color)color);
             return null;
         }
     }
