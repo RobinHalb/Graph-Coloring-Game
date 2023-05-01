@@ -52,7 +52,7 @@ namespace GraphColoringGame.Levels
         public ExplanationStep step1()
         {
             //var text = "When playing on trees with more than 13 vertices, Alice cannot win with only 3 colors. If Alice colors any vertex then Bob can color any vertex at distance 3 away (shown purple) with the same color to win.";
-            var text = "In this graph on 14 vertices Alice cannot win the 3-coloring game. \n\nThis is the smallest graph which requires 4 colors for Alice to have a winning strategy.";
+            var text = "In this graph on 14 vertices Alice cannot win the 3-coloring game. \n\nThis is the smallest graph which requires four colors for Alice to have a winning strategy.";
             var vertices = newVertices();
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
