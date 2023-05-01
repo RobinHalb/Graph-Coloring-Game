@@ -10,13 +10,13 @@ namespace GraphColoringGame.FreePlay
     /*
      *              0
      *              |
-     *  0 - 0 - 0 - 0 - 0 - 0
+     *  a - 0 - 0 - 0 - 0 - b
      *          |   |
      *      0 - 0   0
      *        /   \
-     *      0       0   
+     *      0       c  
     */
-    public class FreePlay4Graph1 : IFreePlay
+    public class FreePlay4Graph1c3 : IFreePlay
     {
         public Graph createGraph()
         {
@@ -58,7 +58,13 @@ namespace GraphColoringGame.FreePlay
             };
             builder.connectVerticesMany(connections);
 
-            return builder.build();
+            var graph = builder.build();
+
+            graph.colorVertex(coords[1], Color.Red);
+            graph.colorVertex(coords[6], Color.Blue);
+            graph.colorVertex(coords[11], Color.Green);
+
+            return graph;
         }
     }
 }

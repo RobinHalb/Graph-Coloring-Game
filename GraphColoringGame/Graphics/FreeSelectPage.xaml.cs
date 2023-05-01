@@ -62,6 +62,14 @@ namespace GraphColoringGame.Graphics
             new FreePlay4Graph2(),
             new FreePlay4Graph3(),
             new FreePlay4Graph4(),
+            new FreePlay4Graph5(),
+            // Partially colored
+            new FreePlay4Graph1c1(),
+            new FreePlay4Graph1c2(),
+            new FreePlay4Graph1c3(),
+            new FreePlay4Graph2c1(),
+            new FreePlay4Graph2c2(),
+            new FreePlay4Graph3c1(),
         };
 
         public FreeSelectPage()
