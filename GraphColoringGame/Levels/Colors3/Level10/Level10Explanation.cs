@@ -147,7 +147,7 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step8() 
         {
-            var text = "Bob can now use  this vertex to win.";
+            var text = "Bob can now use this vertex to win.";
             var vertices = newVertices();
 
             vertices[coords[2]].color = Color.Red;

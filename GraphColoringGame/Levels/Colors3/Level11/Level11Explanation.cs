@@ -106,7 +106,7 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step6()
         {
-            var text = "If Alice instead colors a vertex other than the middle, Bob may color a vertex at distance 3 away (shown green) with the same color.";
+            var text = "If Alice instead colors a vertex other than the middle, Bob may color a vertex at distance three away (shown green) with the same color.";
             var vertices = newVertices();
 
             vertices[coords[4]].color = Color.Red;

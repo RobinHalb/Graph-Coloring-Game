@@ -43,7 +43,7 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step1()
         {
-            var text = "In this subgraph on 8 vertices, Bob has a winning strategy for the 3-coloring game. \n\nThis graph contains two dangerous vertices (shown green).";
+            var text = "In this subgraph on eight vertices, Bob has a winning strategy for the 3-coloring game. \n\nThis graph contains two dangerous vertices (shown green).";
             var vertices = newVertices();
 
             vertices[coords[2]].color = Color.Red;

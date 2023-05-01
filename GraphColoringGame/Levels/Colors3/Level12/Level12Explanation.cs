@@ -60,7 +60,7 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step2()
         {
-            var text = "No matter which vertex Alice colors, there will exist some vertex at distance 3 away (shown purple).";
+            var text = "No matter which vertex Alice colors, there will exist some vertex at distance three away (shown purple).";
             var vertices = newVertices();
 
             vertices[coords[5]].color = Color.Red;
