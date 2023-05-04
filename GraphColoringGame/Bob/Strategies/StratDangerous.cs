@@ -1,4 +1,8 @@
 ﻿using GraphColoringGame.Graphs;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Input;
 
 namespace GraphColoringGame.Bob.Strategies
 {
@@ -9,8 +13,8 @@ namespace GraphColoringGame.Bob.Strategies
          */
         public (Coord, Color)? tryMove(Vertex v)
         {
-            Vertex? vertex = null;
-            Color? color = null;
+            List<(Coord,Color)> safe = new List<(Coord, Color)>();
+            List<(Coord, Color)> dangerous = new List<(Coord, Color)>();
 
             if (v.isDangerous)
             {
@@ -23,16 +27,26 @@ namespace GraphColoringGame.Bob.Strategies
                         {
                             if (colors.Contains(c))
                             {
-                                if (!n.isDangerous) return (n.coord, c);
-                                vertex = n;
-                                color = c;
+                                if (n.isDangerous) dangerous.Add((n.coord, c));
+                                else safe.Add((n.coord, c));
                                 break;
                             }
                         }
                     }
                 }
             }
-            if (vertex != null && color != null) return (vertex!.coord, (Color)color);
+            if (safe.Any())
+            {
+                Random rnd = new Random();
+                var i = rnd.Next(safe.Count);
+                return safe[i];
+            }
+            if (dangerous.Any())
+            {
+                Random rnd = new Random();
+                var i = rnd.Next(dangerous.Count);
+                return dangerous[i];
+            }
             return null;
         }
     }
