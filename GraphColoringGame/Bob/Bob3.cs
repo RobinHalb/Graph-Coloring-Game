@@ -28,6 +28,7 @@ namespace GraphColoringGame.Bob
                 new StratDouble(),
                 new Strat3B(),
                 new Strat3C(),
+                new Strat3D(),
             };
 
             foreach (var strat in strats)
