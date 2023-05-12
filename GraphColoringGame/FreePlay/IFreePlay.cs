@@ -1,12 +1,10 @@
 ﻿using GraphColoringGame.Graphs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GraphColoringGame.FreePlay
 {
+    /*
+     * A class to create a graph for use in free play.
+     */
     public interface IFreePlay
     {
         public Graph createGraph();
