@@ -38,7 +38,7 @@ namespace GraphColoringGame.Graphs
         }
         
         /*
-         * UpdateAvailable - checs the neighbors of the vertex to update the list of legel colors.
+         * UpdateAvailable - checks the neighbors of the vertex to update the list of legel colors.
          */
         private List<Color> UpdateAvailable()
         {
