@@ -6,6 +6,10 @@ using System;
 
 namespace GraphColoringGame.Bob
 {
+    /*
+     * The representation of Bob for the 4-coloring game.
+     * hasWinning - indicates whether a winning strategy for Bob has been found.
+     */
     public class Bob4 : IBob
     {
         public bool hasWinning { get; private set; }

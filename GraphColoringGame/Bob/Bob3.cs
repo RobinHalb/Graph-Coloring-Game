@@ -9,6 +9,10 @@ using System.Windows.Documents;
 
 namespace GraphColoringGame.Bob
 {
+    /*
+     * The representation of Bob for the 3-coloring game.
+     * hasWinning - indicates whether a winning strategy for Bob has been found.
+     */
     public class Bob3 : IBob
     {
         public bool hasWinning { get; private set; }

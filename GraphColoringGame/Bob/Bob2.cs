@@ -4,6 +4,10 @@ using System.Linq;
 
 namespace GraphColoringGame.Bob
 {
+    /*
+     * The representation of Bob for the 2-coloring game.
+     * hasWinning - indicates whether a winning strategy for Bob has been found.
+     */
     public class Bob2 : IBob
     {
         public bool hasWinning { get; private set; }
