@@ -1,8 +1,4 @@
-﻿using GraphColoringGame.Explanations;
-using GraphColoringGame.Graphics;
-using GraphColoringGame.Graphs;
-using GraphColoringGame.Levels;
-using System.Collections.Generic;
+﻿using GraphColoringGame.Levels;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -27,6 +23,9 @@ namespace GraphColoringGame
             setGraphFrame();
         }
 
+        /*
+         * setGraphFrame - creates the GraphPage in the GraphFrame and sets the winning player in the ExplanationTextPage.
+         */
         private void setGraphFrame()
         {
             _explanationTextPage.setWinning(_level.winning.ToString());

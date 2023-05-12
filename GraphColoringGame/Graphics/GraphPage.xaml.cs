@@ -77,9 +77,14 @@ namespace GraphColoringGame
             }
         }
 
-        // Opens a Messagebox, and returns the result of the messageBox (OK or Cancel)
+        /*
+         * confirmColor - opens a Messagebox to confirm coloring and returns result.
+         */
         private MessageBoxResult confirmColor() => MessageBox.Show($"Do you want to color this vertex {selectedColor}?", "Color Vertex", MessageBoxButton.OKCancel, MessageBoxImage.Question, MessageBoxResult.OK);
 
+        /*
+         * bobPlay - finds and plays Bob's move.
+         */
         private async void bobPlay()
         {
             await Task.Delay(1000);
@@ -93,6 +98,9 @@ namespace GraphColoringGame
             }
         }
 
+        /*
+         * colorVertex - colors the given vertex with the given color and disables the button for the vertex.
+         */
         private void colorVertex(Coord coord, Graphs.Color color)
         {
             _graph.colorVertex(coord, color);
@@ -101,6 +109,9 @@ namespace GraphColoringGame
             b.IsEnabled = false;
         }
         
+        /*
+         * endTurn - if the game on the graph is done, ends the game. Otherwise, updates the turn and calls for Bob's move if relevant.
+         */
         private void endTurn()
         {
             if (_graph.isDone)
@@ -122,6 +133,9 @@ namespace GraphColoringGame
             }
         }
 
+        /*
+         * endGame - highlights any uncolorable vertices and announces the winner.
+         */
         private void endGame()
         {
             foreach (var vertex in _graph.dangerousVertices)
