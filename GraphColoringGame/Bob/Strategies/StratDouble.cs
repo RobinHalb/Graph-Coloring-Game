@@ -17,9 +17,9 @@ namespace GraphColoringGame.Bob.Strategies
          *       
          * Vertex names:
          * 
-         *  v1a       v3a
+         *  v0a       v2a
          *   |         |
-         *   v1 - v2 - v3
+         *   v0 - v1 - v2
          *   |         |
          *   ?         ?
          *       
@@ -32,38 +32,38 @@ namespace GraphColoringGame.Bob.Strategies
         /*
          * tryMove - return move if the pattern can be matched.
          * 
-         * The given vertex is placed as v1 in the pattern.
+         * The given vertex is placed as v0 in the pattern.
          * For each possible vertex in each place in the pattern, it is checked whether the requirements are met.
-         * - v1 and v3 must each be dangerous and have exactly two available colors.
-         * - v1 and v3 must share an available color, and each have a neighbour different from v2, which can be colored with the other available color.
-         * - v2 must be uncolored and colorable with the shared available color.
+         * - v0 and v2 must each be dangerous and have exactly two available colors.
+         * - v0 and v2 must share an available color, and each have a neighbour different from v1, which can be colored with the other available color.
+         * - v1 must be uncolored and colorable with the shared available color.
          */
-        public (Coord, Color)? tryMove(Vertex v1)
+        public (Coord, Color)? tryMove(Vertex v0)
         {
-            var v1Colors = v1.availableColors;
-            if (!v1.isDangerous || v1Colors.Count != 2) return null;
+            var v0Colors = v0.availableColors;
+            if (!v0.isDangerous || v0Colors.Count != 2) return null;
 
-            foreach (var v2 in v1.neighbours.Values)
+            foreach (var v1 in v0.neighbours.Values)
             {
-                if (!v2.isColored)
+                if (!v1.isColored)
                 {
-                    var v2Colors = v2.availableColors;
-                    foreach (var v3 in v2.neighbours.Values)
+                    var v1Colors = v1.availableColors;
+                    foreach (var v2 in v1.neighbours.Values)
                     {
-                        var v3Colors = v3.availableColors;
-                        if (v3 != v1 && v3.isDangerous && v3Colors.Count == 2)
+                        var v2Colors = v2.availableColors;
+                        if (v2 != v0 && v2.isDangerous && v2Colors.Count == 2)
                         {
-                            foreach (var cShared in v1Colors)
+                            foreach (var cShared in v0Colors)
                             {
-                                if (v2Colors.Contains(cShared) && v3Colors.Contains(cShared))
+                                if (v1Colors.Contains(cShared) && v2Colors.Contains(cShared))
                                 {
-                                    var cv1 = v1Colors.First(c => c != cShared);
-                                    var cv3 = v3Colors.First(c => c != cShared);
+                                    var cv1 = v0Colors.First(c => c != cShared);
+                                    var cv3 = v2Colors.First(c => c != cShared);
 
-                                    if (v1.neighbours.Values.Any(n => n != v2 && !n.isColored && n.availableColors.Contains(cv1)) &&
-                                        v3.neighbours.Values.Any(n => n != v2 && !n.isColored && n.availableColors.Contains(cv3))) 
+                                    if (v0.neighbours.Values.Any(n => n != v1 && !n.isColored && n.availableColors.Contains(cv1)) &&
+                                        v2.neighbours.Values.Any(n => n != v1 && !n.isColored && n.availableColors.Contains(cv3))) 
                                     {
-                                        return (v2.coord, cShared);
+                                        return (v1.coord, cShared);
                                     }
                                 }
                             }
