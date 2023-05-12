@@ -1,9 +1,6 @@
 ﻿using GraphColoringGame.Graphs;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -11,12 +8,20 @@ using System.Windows.Shapes;
 
 namespace GraphColoringGame
 {
+    /*
+     * Builds the grid to display a graph.
+     * grid - the grid in which the graph is displayed.
+     * gridLength - the size of the squares in the grid as GridLength.
+     * squareSize - the size of the squares in the grid.
+     * vertexSize - the size of a vertex in the grid.
+     */
     public class GraphGridBuilder
     {
         private Grid grid;
         public GridLength gridLength { get; private set; }
         public double squareSize { get; private set; }
         public double vertexSize { get; private set; }
+        // The smallest distance from the edge of the square to the given point of a vertex.
         private double _middle, _sideDist, _cornerDist;
         private int _xMin, _yMin;
 
@@ -61,6 +66,9 @@ namespace GraphColoringGame
             grid.Children.Add(button);
         }
 
+        /*
+         * getLine - returns a line representing an edge in the given direction.
+         */
         private Line getLine(Direction dir, bool greyout)
         {
             var line = new Line() { Stroke = new SolidColorBrush() { Color = Colors.Black }, StrokeThickness = 1 };

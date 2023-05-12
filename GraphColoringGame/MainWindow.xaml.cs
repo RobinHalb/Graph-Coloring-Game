@@ -1,21 +1,7 @@
-﻿using GraphColoringGame.Graphs;
-using GraphColoringGame.Levels;
+﻿using GraphColoringGame.FreePlay;
 using GraphColoringGame.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using GraphColoringGame.Levels;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using GraphColoringGame.FreePlay;
 
 namespace GraphColoringGame
 {
@@ -32,16 +18,25 @@ namespace GraphColoringGame
             MainFrame.Content = _levelSelectPage;
         }
 
+        /*
+         * openLevel - opens the given level in the window.
+         */
         public void openLevel(Level level)
         {
             MainFrame.Content = new LevelPage(level);
         }
 
+        /*
+         * openLevelSelect - opens the LevelSelectPage in the window.
+         */
         public void openLevelSelect()
         {
             MainFrame.Content = _levelSelectPage;
         }
 
+        /*
+         * openFreePlay - opens the given free play graph in the window.
+         */
         public void openFreePlay(IFreePlay freePlay)
         {
             MainFrame.Content = new FreeGraphPage(freePlay);
