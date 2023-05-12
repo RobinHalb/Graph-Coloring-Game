@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 namespace GraphColoringGame.Levels
 {
     /*
-     * This graph will explain the three different cases with dangerous vertices on a subgraph with at most 7 vertices.
-     * Another graph will have to be constructed to illutrate a subcase in case 3 where the dangerous vertices are not neighbors.
      * 
      *      0   0
      *      |   |
@@ -27,11 +25,13 @@ namespace GraphColoringGame.Levels
         public Level7Explanation(Graph graph) : base(graph)
         {
             coords = new Coord[] {
-                new Coord(1,0), // coords[0]
-                new Coord(2, 0), // 1
-                new Coord(0, 1),//2
-                new Coord(1, 1),//3
-                new Coord(2, 1),//4
+                new Coord(1,0), //coords[0]
+                new Coord(2, 0), //1
+                // Row 2
+                new Coord(0, 1), //2
+                new Coord(1, 1), //3
+                new Coord(2, 1), //4
+                // Row 3
                 new Coord(1,2), //5
                 new Coord(2,2), //6
             };
@@ -48,7 +48,6 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step1()
         {
-            //var text = "In a trunk of at most 7 vertices, where two dangerous vertices are adjacent and each has exactly one colored neighbor, one dangerous vertex must have 3 neighbors in total (shown green).";
             var text = "This level demonstrates the third case, where Alice can win the 3-coloring game on a trunk of seven or less vertices with at most two colored vertices. \n\nIn this case, the two dangerous vertices (shown green) are adjacent, and each has exactly one colored neighbor.";
             var vertices = newVertices();
 
@@ -74,7 +73,6 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step3()
         {
-            //var text = "One of these neighbors (shown green) must be uncolored and not dangerous. \n\nBy coloring this neighbor with the same color as the previously colored neighbor, the dangerous vertex will have two available colors and only one uncolored neighbor, making it no longer dangerous.";
             var text = "By coloring this neighbor with the same color as the previously colored neighbor, the dangerous vertex will have two available colors and only one uncolored neighbor, making it no longer dangerous.";
             var vertices = newVertices();
 

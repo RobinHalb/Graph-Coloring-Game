@@ -23,14 +23,16 @@ namespace GraphColoringGame.Levels
             new Coord(1, 0), // coords[0]
             new Coord(2, 0), // 1
             new Coord(3, 0), //2
-            new Coord(0, 1),//3
-            new Coord(1, 1),//4
-            new Coord(2, 1),//5
-            new Coord(3, 1),//6
-            new Coord(4, 1),//7
-            new Coord(1, 2),
-            new Coord(2, 2),
-            new Coord(3, 2),
+            // Row 2
+            new Coord(0, 1), //3
+            new Coord(1, 1), //4
+            new Coord(2, 1), //5
+            new Coord(3, 1), //6
+            new Coord(4, 1), //7
+            // Row 3
+            new Coord(1, 2), //8
+            new Coord(2, 2), //9
+            new Coord(3, 2), //10
             };
 
 

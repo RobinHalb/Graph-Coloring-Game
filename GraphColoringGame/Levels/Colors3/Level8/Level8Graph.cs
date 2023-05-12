@@ -8,13 +8,6 @@ using System.Threading.Tasks;
 namespace GraphColoringGame.Levels
 {
     /* 
-     * This graph is supposed to show the Player the subcase in case 3 with dangerous vertices where x and y are not adjacent.
-     * 
-     *      0
-     *      |
-     *  0 - 0   0
-     *      |   |
-     *      0 - 0 - 0
      *      
      *      0       0
      *      |       |
@@ -26,12 +19,13 @@ namespace GraphColoringGame.Levels
         {
             var builder = new GraphBuilder(new List<Color>() { Color.Red, Color.Blue, Color.Green });
             Coord[] coords = {
-            new Coord(1,0), // coords[0]
+            new Coord(1,0), //coords[0]
             new Coord(3, 0), //1
-            new Coord(0, 1), // 2
-            new Coord(1, 1),//3
-            new Coord(2, 1),//4
-            new Coord(3, 1),//5
+            // Row 2
+            new Coord(0, 1), //2
+            new Coord(1, 1), //3
+            new Coord(2, 1), //4
+            new Coord(3, 1), //5
             new Coord(4, 1), //6
             
             };

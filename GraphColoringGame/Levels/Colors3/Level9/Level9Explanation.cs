@@ -17,14 +17,16 @@ namespace GraphColoringGame.Levels
         public Level9Explanation(Graph graph) : base(graph)
         {
             coords = new Coord[] {
-            new Coord(1, 0), // coords[0]
-            new Coord(2, 0), // 1
+            new Coord(1, 0), //coords[0]
+            new Coord(2, 0), //1
+            // Row 2
             new Coord(0, 1), //2
-            new Coord(1, 1),//3
-            new Coord(2, 1),//4
-            new Coord(3, 1),//5
-            new Coord(1, 2),
-            new Coord(2, 2)
+            new Coord(1, 1), //3
+            new Coord(2, 1), //4
+            new Coord(3, 1), //5
+            // Row 3
+            new Coord(1, 2), //6
+            new Coord(2, 2) //7
             };
         }
 

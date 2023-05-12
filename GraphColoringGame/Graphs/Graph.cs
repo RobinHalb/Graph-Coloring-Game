@@ -24,11 +24,6 @@ namespace GraphColoringGame.Graphs
         public Player? winner { get; private set; }
         public bool isDone => winner != null;
 
-
-        // Coords mapped to vertices
-
-        //private Dictionary<int, int[]> neighbours;
-
         public Graph(int xMin, int xMax, int yMin, int yMax, Dictionary<Coord, Vertex> vertices, List<Color> colors)
         {
             this.xMin = xMin;
@@ -48,7 +43,7 @@ namespace GraphColoringGame.Graphs
             if (res) return v.color;
             return Color.None;
         }
-
+        
         public bool canColor(Coord coord, Color color) => _vertices.TryGetValue(coord, out var v) && v.availableColors.Contains(color);
 
         public bool colorVertex(Coord coord, Color color)

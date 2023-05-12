@@ -66,31 +66,5 @@ namespace GraphColoringGame.Levels
 
             return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
         }
-
-        /*
-        public ExplanationStep step1()
-        {
-            var text = "When playing using two colors, Alice can win if there are no more than three vertices connected in a line. (shown green)";
-            var vertices = newVertices();
-
-            vertices[coords[0]].outline = green;
-            vertices[coords[1]].outline = green;
-            vertices[coords[2]].outline = green;
-
-            return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
-        }
-
-        public ExplanationStep step2() 
-        {
-            var text = "When only three vertices are in a line, the graph can have only one dangerous vertex, which Alice can win by coloring. \n\nAs Bob wins by surrounding a dangerous vertex with all of its available colors, Alice is certain to win, if no dangerous vertices are left in the graph.";
-            var vertices = newVertices();
-
-            vertices[coords[0]].outline = green;
-            vertices[coords[1]].color = Graphs.Color.Red;
-            vertices[coords[2]].outline = green;
-
-            return new ExplanationStep(text, vertices, colors, width, height, xMin, yMin);
-        }
-        */
     }
 }

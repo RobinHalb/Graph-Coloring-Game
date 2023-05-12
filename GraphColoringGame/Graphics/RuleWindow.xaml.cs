@@ -33,7 +33,7 @@ namespace GraphColoringGame
             addUncolorableVImage();
         }
 
-        private void TestButton_Click(object sender, RoutedEventArgs e)
+        private void Ok_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }

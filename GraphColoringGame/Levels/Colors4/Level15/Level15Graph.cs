@@ -22,16 +22,19 @@ namespace GraphColoringGame.Levels
         {
             var builder = new GraphBuilder(new List<Color>() { Color.Red, Color.Blue, Color.Green, Color.Yellow });
             Coord[] coords = {
-                new Coord(3,0), // coords[0]
-                new Coord(0, 1), // 1
-                new Coord(1, 1),//2
-                new Coord(2, 1),//3
-                new Coord(3, 1),//4
+                new Coord(3,0), //coords[0]
+                // Row 2
+                new Coord(0, 1), //1
+                new Coord(1, 1), //2
+                new Coord(2, 1), //3
+                new Coord(3, 1), //4
                 new Coord(4,1), //5
                 new Coord(5,1), //6
+                // Row 3
                 new Coord(1,2), //7
                 new Coord(2,2), //8
                 new Coord(3,2), //9
+                // Row 4
                 new Coord(1,3), //10
                 new Coord(3,3), //11
             };

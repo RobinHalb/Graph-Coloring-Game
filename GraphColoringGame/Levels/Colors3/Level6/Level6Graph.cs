@@ -8,8 +8,6 @@ using System.Threading.Tasks;
 namespace GraphColoringGame.Levels
 {
     /*
-     * This graph will explain the three different cases with dangerous vertices on a subgraph with at most 7 vertices.
-     * Another graph will have to be constructed to illutrate a subcase in case 3 where the dangerous vertices are not neighbors.
      * 
      *      0   0
      *      |   |
@@ -24,11 +22,13 @@ namespace GraphColoringGame.Levels
         {
             var builder = new GraphBuilder(new List<Color>() { Color.Red, Color.Blue, Color.Green });
             Coord[] coords = {
-                new Coord(1,0), // coords[0] v1a
-                new Coord(2, 0), // 1 v2a
+                new Coord(1,0), //coords[0] v1a
+                new Coord(2, 0), //1 v2a
+                // Row 2
                 new Coord(0, 1),//2 v0
                 new Coord(1, 1),//3 v1
                 new Coord(2, 1),//4 v2
+                // Row 3
                 new Coord(1,2), //5 v1b
                 new Coord(2,2), //6 v2b
             };

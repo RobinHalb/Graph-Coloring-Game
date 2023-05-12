@@ -24,17 +24,19 @@ namespace GraphColoringGame.Levels
         public Level11Explanation(Graph graph) : base(graph)
         {
             coords = new Coord[] {
-            new Coord(1, 0), // coords[0]
-            new Coord(2, 0), // 1
+            new Coord(1, 0), //coords[0]
+            new Coord(2, 0), //1
             new Coord(3, 0), //2
-            new Coord(0, 1),//3
-            new Coord(1, 1),//4
-            new Coord(2, 1),//5
-            new Coord(3, 1),//6
-            new Coord(4, 1),//7
-            new Coord(1, 2), // 8
-            new Coord(2, 2), // 9
-            new Coord(3, 2), // 10
+            // Row 2
+            new Coord(0, 1), //3
+            new Coord(1, 1), //4
+            new Coord(2, 1), //5
+            new Coord(3, 1), //6
+            new Coord(4, 1), //7
+            // Row 3
+            new Coord(1, 2), //8
+            new Coord(2, 2), //9
+            new Coord(3, 2), //10
             };
         }
 
@@ -69,7 +71,7 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step3()
         {
-            var text = " If Bob colors one of remaining the dangerous vertices, Alice can color the other dangerous vertex (shown green) to win.";
+            var text = "If Bob colors one of remaining the dangerous vertices, Alice can color the other dangerous vertex (shown green) to win.";
             var vertices = newVertices();
 
             vertices[coords[5]].color = Color.Red;

@@ -41,7 +41,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Button Name="TestButton" Grid.Column="0" Height="20" Width="40" Click="TestButton_Click" Content="Ok"/>
+            <Button Name="TestButton" Grid.Column="0" Height="20" Width="40" Click="Ok_Click" Content="Ok"/>
         </Grid>
     </Grid>
 </Window>

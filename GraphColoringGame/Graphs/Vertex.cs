@@ -8,13 +8,10 @@ namespace GraphColoringGame.Graphs
 {
     public class Vertex
     {
-        //public readonly int id;
         public readonly Coord coord;
         public Color color = Color.None;
         public bool isColored => color != Color.None;
         public Dictionary<Direction,Vertex> neighbours = new Dictionary<Direction,Vertex>();
-        //public Vertex[] neighbours = new Vertex[8];
-        //public IEnumerable<Direction> directions() => neighbours.Select<Vertex, int?>((v, i) => v != null ? i : null).Where(d => d != null).Cast<Direction>();
         public IEnumerable<Direction> directions => neighbours.Keys;
 
         private int uncoloredCount => neighbours.Count(n => !n.Value.isColored);
@@ -30,7 +27,7 @@ namespace GraphColoringGame.Graphs
             this.coord = coord;
             _availableColors = availableColors.ToList();
         }
-
+        
         private List<Color> UpdateAvailable()
         {
             _availableColors.RemoveAll(c => neighbours.Any(n => n.Value.color == c));

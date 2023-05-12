@@ -28,13 +28,15 @@ namespace GraphColoringGame.Levels
                 new Coord(1, 0), // 1
                 new Coord(2, 0), // 2
                 new Coord(3, 0), //3
-                new Coord(4, 0),//4
-                new Coord(0, 1),//5
-                new Coord(1, 1),//6
-                new Coord(2, 1),//7
-                new Coord(3, 1),//8
+                new Coord(4, 0), //4
+                // Row 2
+                new Coord(0, 1), //5
+                new Coord(1, 1), //6
+                new Coord(2, 1), //7
+                new Coord(3, 1), //8
                 new Coord(4, 1), // 9
-                new Coord(5, 1),// 10
+                new Coord(5, 1), // 10
+                // Row 3
                 new Coord(1, 2), //11
                 new Coord(2, 2), //12
                 new Coord(3, 2), //13
@@ -67,7 +69,6 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step1()
         {
-            //var text = "This level is a modification of the previous level. Alice cannot win in this graph with only 3 colors. \n\n If she colors any of the vertices at the side (shown green), Bob can play in middle of the graph near the dangerous vertices (shown purple) trying to make a vertex uncolorable.";
             var text = "This graph on 15 vertices contains the graph from level 12 as a subgraph (shown green). \n\nAlice cannot win the 3-coloring game when this subgraph exists in the graph.";
             var vertices = newVertices();
 
@@ -91,7 +92,6 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step2()
         {
-            //var text = "This level is a modification of the previous level. Alice cannot win in this graph with only 3 colors. \n\n If she colors any of the vertices at the side (shown green), Bob can play in middle of the graph near the dangerous vertices (shown purple) trying to make a vertex uncolorable.";
             var text = "In this version, the subgraph is connected by an outer vertex of the longest path in the subgraph (shown green).";
             var vertices = newVertices();
 
@@ -107,7 +107,6 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step3()
         {
-            //var text = "Bob's objective is to make a subgraph similar to Level 9 appear in the graph, possiblities of this shown purple.";
             var text = "If Alice colors any vertex inside the subgraph, Bob will follow the strategy from level 12 and color a vertex in the subgraph at distance three (shown purple), to create the subgraph from level 9.";
             var vertices = newVertices();
 

@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 namespace GraphColoringGame.Levels
 {
     /*
-     * This graph will explain the three different cases with dangerous vertices on a subgraph with at most 7 vertices.
-     * Another graph will have to be constructed to illutrate a subcase in case 3 where the dangerous vertices are not neighbors.
      * 
      *      0   0
      *      |   |
@@ -27,11 +25,13 @@ namespace GraphColoringGame.Levels
         public Level6Explanation(Graph graph) : base(graph)
         {
             coords = new Coord[] {
-                new Coord(1,0), // coords[0]
-                new Coord(2, 0), // 1
-                new Coord(0, 1),//2
-                new Coord(1, 1),//3
-                new Coord(2, 1),//4
+                new Coord(1,0), //coords[0]
+                new Coord(2, 0), //1
+                // Row 2
+                new Coord(0, 1), //2
+                new Coord(1, 1), //3
+                new Coord(2, 1), //4
+                // Row 3
                 new Coord(1,2), //5
                 new Coord(2,2), //6
             };
@@ -47,7 +47,6 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step1()
         {
-            //var text = "In a trunk of 7 vertices with two dangerous vertices and two colored vertices, where both colored vertices are neighbors to the same dangerous vertex (shown green), Alice has a winning strategy.";
             var text = "This level demonstrates the second case, where Alice can win the 3-coloring game on a trunk of seven or less vertices with at most two colored vertices. \n\nIn this case, one of the dangerous vertices (shown green), has exactly two colored neighbors.";
             var vertices = newVertices();
 

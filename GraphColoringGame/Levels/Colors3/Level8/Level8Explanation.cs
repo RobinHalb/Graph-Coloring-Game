@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 namespace GraphColoringGame.Levels
 {
     /* 
-     * This graph is supposed to show the Player the subcase in case 3 with dangerous vertices where x and y are not adjacent.
-     * 
      *      
      *      0       0
      *      |       |
@@ -23,11 +21,12 @@ namespace GraphColoringGame.Levels
         public Level8Explanation(Graph graph) : base(graph)
         {
             coords = new Coord[] {
-            new Coord(1,0), // coords[0]
-            new Coord(3, 0), // 1
-            new Coord(0, 1),//2
-            new Coord(1, 1),//3
-            new Coord(2, 1),//4
+            new Coord(1,0), //coords[0]
+            new Coord(3, 0), //1
+            // Row 2
+            new Coord(0, 1), //2
+            new Coord(1, 1), //3
+            new Coord(2, 1), //4
             new Coord(3, 1), //5
             new Coord(4, 1), //6
           };
@@ -42,7 +41,6 @@ namespace GraphColoringGame.Levels
 
         public ExplanationStep step1()
         {
-            //var text = "In a trunk of 7 vertices, where two dangerous vertices (shown purple) are not adjacent to each other and each has one colored neighbor, Alice may color any dangerous vertex with an available color.";
             var text = "This level demonstrates the fourth and final case, where Alice can win the 3-coloring game on a trunk of seven or less vertices with at most two colored vertices. \n\nIn this case, the two dangerous vertices (shown green) are not adjacent, and each has exactly one colored neighbor.";
             var vertices = newVertices();
 
