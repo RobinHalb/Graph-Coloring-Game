@@ -9,6 +9,13 @@ using System.Windows.Media;
 
 namespace GraphColoringGame.Explanations
 {
+    /*
+     * A representation of a vertex used in explanations.
+     * color - the color of the vertex.
+     * outline - the color of the vertex's outline.
+     * directions - the directions in which the vertex has an edge.
+     * opacity - the opacity of the vertex.
+     */
     public class ExplanationVertex
     {
         public Graphs.Color color = Graphs.Color.None;
