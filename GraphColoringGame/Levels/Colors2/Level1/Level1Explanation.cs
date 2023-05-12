@@ -7,6 +7,7 @@ using System.Collections.Generic;
 namespace GraphColoringGame.Levels.Level1Content
 {
     /*
+     * Graph with a P_3. Alice can both win and lose depending on whether she is following her winning strategy
      *  0 - 0 - 0 
      */
     class Level1Explanation : LevelExplanation

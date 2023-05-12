@@ -10,6 +10,11 @@ namespace GraphColoringGame.Levels
 {
     public class Level2 : Level
     {
+        /*
+         * Graph is a P_4. It shows Alice cannot win with only two colors on paths longer than 3.
+         * 
+         * 0 - 0 - 0 - 0
+         */
         public Level2(): base() 
         {
             level = 2;

@@ -8,14 +8,19 @@ using System.Threading.Tasks;
 namespace GraphColoringGame.Levels
 {
     /*
+     * Partial colored graph showing Alice's winning strategy with 4 colors using trunks.
+     * a: Red colored vertex
+     * b: Blue colored vertex
+     * c: Yellow colored vertex
+     * 
      *              0
      *              |
-     *  0 - 0 - 0 - 0 - 0 - 0
+     *  a - 0 - 0 - 0 - 0 - b
      *          |   |
      *      0 - 0   0
      *        /   \
-     *      0       0   
-    */
+     *      0       c
+     */
     public class Level15Graph
     {
         public Graph createGraph()
@@ -59,6 +64,9 @@ namespace GraphColoringGame.Levels
             return builder.build();
         }
 
+        /*
+            coloredGraph: Return the graph with pre-colored vertices
+         */
         public Graph coloredGraph()
         {
             var graph = createGraph();

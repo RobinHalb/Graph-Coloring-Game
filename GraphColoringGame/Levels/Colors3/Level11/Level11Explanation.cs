@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 namespace GraphColoringGame.Levels
 {
     /*
+     * Graph with 11 vertices, demonstrating Alice's winning strategy, and how Bob can create a subgraph similar to Level 9 if Alice does not follow her winnning strategy.
+     * 
      *      0   0   0
      *      |   |   |
      *  0 - 0 - 0 - 0 - 0

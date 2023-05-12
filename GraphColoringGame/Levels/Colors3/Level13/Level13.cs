@@ -10,6 +10,15 @@ namespace GraphColoringGame.Levels
 {
     public class Level13 : Level
     {
+        /*
+         * Graph with 14 vertices showing Alice cannot win on trees with more than 13 vertices.
+         * 
+         *      0   0   0   0   0
+         *      |   |   |   |   |
+         *      0 - 0 - 0 - 0 - 0 - 0
+         *          |   |   |   |
+         *          0   0   0   0
+         */
         public Level13() : base()
         {
             level = 13;

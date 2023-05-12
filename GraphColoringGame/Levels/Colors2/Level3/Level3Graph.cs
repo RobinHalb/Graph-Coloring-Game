@@ -8,6 +8,8 @@ using GraphColoringGame.Graphs;
 namespace GraphColoringGame.Levels
 {
     /*
+     * Graph is a P_3+ where Alice can win and lose depending on whether she is following her winning strategy.
+     * 
      *      0
      *      |
      *  0 - 0 - 0 

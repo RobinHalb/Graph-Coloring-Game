@@ -10,6 +10,17 @@ namespace GraphColoringGame.Levels
 {
     public class Level6 : Level
     {
+        /*
+         * Partial colored graph with 7 vertices showing Alice can win when one of two dangerous vertices has two colored neighbors.
+         * a: Red colored vertex
+         * b: Blue colored vertex
+         * 
+         *      0   0
+         *      |   |
+         *  a - 0 - 0
+         *      |   |
+         *      b   0
+         */
         public Level6() : base()
         {
             level = 6;

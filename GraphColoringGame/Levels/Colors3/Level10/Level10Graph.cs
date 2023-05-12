@@ -8,12 +8,16 @@ using System.Threading.Tasks;
 namespace GraphColoringGame.Levels
 {
     /*
+     * Partial colored graph with 11 vertices. Demonstrates that Alice may not win when there is a supgraph similar to Level 9 in the graph.
+     * a: Red colored vertex
+     * b: Blue colored vertex
+     * 
      *      0   0       a
      *      |   |       |
      *  a - 0 - 0 - b - 0
      *      |   |       |
      *      0   0       0
-     * */
+     */
     public class Level10Graph
     {
         public Graph createGraph()
@@ -56,6 +60,9 @@ namespace GraphColoringGame.Levels
             return builder.build();
         }
 
+        /*
+            coloredGraph: Returns the graph with pre-colored vertices
+         */
         public Graph coloredGraph() 
         {
             var graph = createGraph();

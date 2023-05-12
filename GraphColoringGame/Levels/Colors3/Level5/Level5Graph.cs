@@ -8,13 +8,14 @@ using System.Threading.Tasks;
 namespace GraphColoringGame.Levels
 {
     /*
+     * Partial colored graph with 7 vertices showing Alice can win with 3 colors when one of two dangerous vertices has one colored neighbor.
+     * a: Red colored vertex
      * 
      *      0   0
      *      |   |
      *  0 - 0 - 0
      *      |   |
      *      a   0
-     * 
      */
     public class Level5Graph {
         public Graph createGraph()
@@ -47,6 +48,9 @@ namespace GraphColoringGame.Levels
             return builder.build();
         }
 
+        /*
+            coloredGraph: Returns the graph with pre-colored vertices
+         */
         public Graph coloredGraph()
         {
             var graph = createGraph();

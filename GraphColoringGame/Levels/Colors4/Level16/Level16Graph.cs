@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 namespace GraphColoringGame.Levels
 {
     /*
+     * Graph showing Alice can use her 4 color winning strategy to win on any tree. 
+     * 
      *          0   0
      *          | /
      *      0   0 - 0   

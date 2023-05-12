@@ -5,6 +5,8 @@ using System.Collections.Generic;
 namespace GraphColoringGame.Levels
 {
     /*
+     * Graph is a P_4+, Alice cannot win with only 2 colors.
+     * 
      *          0
      *          |
      *  0 - 0 - 0 - 0 
@@ -16,8 +18,8 @@ namespace GraphColoringGame.Levels
         public Level4Explanation(Graph graph) : base(graph)
         {
             coords = new Coord[]{
-            new Coord(0,1),  // coords[0]
-            new Coord(1, 1), // 1
+            new Coord(0,1),  //coords[0]
+            new Coord(1, 1), //1
             new Coord(2, 1), //2
             new Coord(3, 1), //3
             new Coord(2, 0), //4

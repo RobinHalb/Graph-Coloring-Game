@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 namespace GraphColoringGame.Levels
 {
     /*
+     * Graph showing why Bob can win when a tree has more than 13 vertices. Graph has 14.
+     * 
      *      0   0   0   0
      *      |   |   |   |
      *  0 - 0 - 0 - 0 - 0 - 0

@@ -9,6 +9,16 @@ using System.Threading.Tasks;
 
 namespace GraphColoringGame.Levels
 {
+    /*
+     * This level uses a partial colored graph, where Alice cannot win with 3 colors.
+     * a: Red colored vertex
+     * 
+     *      0   0
+     *      |   |
+     *  a - 0 - 0 - a
+     *      |   |
+     *      0   0
+     */
     public class Level9 : Level
     {
         public Level9() : base() 

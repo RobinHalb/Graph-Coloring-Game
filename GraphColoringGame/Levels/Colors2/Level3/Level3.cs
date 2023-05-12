@@ -11,6 +11,13 @@ namespace GraphColoringGame.Levels
 {
     public class Level3 : Level
     {
+        /*
+         * Graph is a P_3+ where Alice can win and lose depending on whether she is following her winning strategy.
+         * 
+         *      0
+         *      |
+         *  0 - 0 - 0 
+         */
         public Level3() : base() 
         {
             level = 3;

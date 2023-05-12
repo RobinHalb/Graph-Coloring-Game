@@ -8,6 +8,8 @@ using GraphColoringGame.Graphs;
 namespace GraphColoringGame.Levels
 {
     /*
+     * Graph is a P_4+, Alice cannot win with only 2 colors.
+     * 
      *          0
      *          |
      *  0 - 0 - 0 - 0 
@@ -18,11 +20,11 @@ namespace GraphColoringGame.Levels
         {
             var builder = new GraphBuilder(new List<Color>() { Color.Red, Color.Blue });
             Coord[] coords = {
-            new Coord(0,1), // coords[0]
-            new Coord(1, 1), // 1
+            new Coord(0,1),  //coords[0]
+            new Coord(1, 1), //1
             new Coord(2, 1), //2
-            new Coord(3, 1),//3
-            new Coord(2, 0),//4
+            new Coord(3, 1), //3
+            new Coord(2, 0), //4
             };
 
 

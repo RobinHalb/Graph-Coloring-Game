@@ -11,6 +11,13 @@ namespace GraphColoringGame.Levels
 {
     public class Level4 : Level
     {
+       /*
+        * Graph is a P_4+, Alice cannot win with only 2 colors.
+        * 
+        *          0
+        *          |
+        *  0 - 0 - 0 - 0 
+        */
         public Level4() : base() 
         {
             level = 4;

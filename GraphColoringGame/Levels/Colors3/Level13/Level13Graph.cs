@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 namespace GraphColoringGame.Levels
 {
     /*
+     * Graph with 14 vertices showing Alice cannot win on trees with more than 13 vertices.
+     * 
      *      0   0   0   0   0
      *      |   |   |   |   |
      *      0 - 0 - 0 - 0 - 0 - 0
