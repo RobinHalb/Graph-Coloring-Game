@@ -1,13 +1,16 @@
 ﻿using GraphColoringGame.Explanations;
 using GraphColoringGame.Graphs;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GraphColoringGame.Levels
 {
+    /*
+     * A level with a graph and an explanation.
+     * graph - the graph belonging to the level.
+     * explanation - the list of ExplanationSteps explaining the level.
+     * level - the number of the level.
+     * winning - the player who has a winning strategy in the level.
+     */
     public abstract class Level
     {
         public Graph graph { get; protected set; }
@@ -22,9 +25,19 @@ namespace GraphColoringGame.Levels
             explanation = newExplanation();
         }
 
+        /*
+         * reset - creates a new graph to reset start over.
+         */
         public void reset() => graph = newGraph();
 
+        /*
+         * newGraph - returns a new instance of the graph belonging to the level.
+         */
         protected abstract Graph newGraph();
+
+        /*
+         * newExplanation - returns a new instance of the explanation belonging to the level.
+         */
         protected abstract List<ExplanationStep> newExplanation();
     }
 }

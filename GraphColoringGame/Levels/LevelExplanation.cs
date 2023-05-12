@@ -1,14 +1,20 @@
 ﻿using GraphColoringGame.Explanations;
 using GraphColoringGame.Graphs;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media;
 
 namespace GraphColoringGame.Levels
 {
+    /*
+     * A class used to create ExplanationSteps for a level.
+     * green, purple, black - the colors which may be used as outlines for vertices.
+     * greyout - the opacity used for greyed out vertices.
+     * connections - the list of directions containing edges for each coordinate.
+     * colors - the list of colors available in the level.
+     * width, height - the width and height of the graph as a grid.
+     * xMin, yMin - the coordinates of the point in the graph's grid closest to (0,0).
+     */
     public abstract class LevelExplanation
     {
         protected System.Windows.Media.Color green = Colors.ForestGreen;
@@ -30,6 +36,9 @@ namespace GraphColoringGame.Levels
             this.yMin = graph.yMin;
         }
 
+        /*
+         * newVertices - returns a new dictionary of ExplanationVertex from the vertices in the graph.
+         */
         protected Dictionary<Coord, ExplanationVertex> newVertices()
         {
             var vertices = new Dictionary<Coord, ExplanationVertex>();
