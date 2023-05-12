@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Tracing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media;
+﻿using System.Windows.Media;
 
 namespace GraphColoringGame.Graphs
 {
+    /*
+     * The colors which can be used on the game to color vertices.
+     */
     public enum Color
     {
         None,
@@ -19,6 +16,9 @@ namespace GraphColoringGame.Graphs
 
     public static class ColorExtensions
     {
+        /*
+         * asBrush - convert the Color to a SolidColorBrush.
+         */
         public static SolidColorBrush asBrush(this Color color) => color switch
         {
             Color.Red => new SolidColorBrush { Color = Colors.Red },
@@ -28,6 +28,9 @@ namespace GraphColoringGame.Graphs
             _ => new SolidColorBrush { Color = Colors.White },
         };
 
+        /*
+         * asBrush - convert a string to the corresponding Color.
+         */
         public static Color ConvertToColor(string color) => color switch
         {
             "Red" => Color.Red,

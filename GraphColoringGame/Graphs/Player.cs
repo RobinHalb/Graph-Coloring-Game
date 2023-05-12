@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GraphColoringGame.Graphs
+﻿namespace GraphColoringGame.Graphs
 {
+    /*
+     * The players of the game.
+     */
     public enum Player
     {
         Alice,

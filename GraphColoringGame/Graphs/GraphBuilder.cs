@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GraphColoringGame.Graphs
 {
+    /*
+     * The builder for a Graph.
+     */
     public class GraphBuilder
     {
         private List<Color> _colors = new List<Color>() { };
@@ -34,11 +34,14 @@ namespace GraphColoringGame.Graphs
          */
         public void addVertex(Coord coord) => _vertices.Add(coord, new Vertex(coord, _colors));
 
+        /*
+         * addVertex - adds new vertices at the given coordinates.
+         */
         public void addVertexMany(IEnumerable<Coord> coords) => coords.ForEach(addVertex);
 
         /*
          * connectVertices - connects the vertices at the given coordinates.
-         * Returns true if coordinates are nighbours and are successfully connected, otherwise returns false.
+         * Returns true if coordinates are neighbors and are successfully connected, otherwise returns false.
          */
         public bool connectVertices(Coord coord1, Coord coord2)
         {
@@ -53,6 +56,10 @@ namespace GraphColoringGame.Graphs
             return false;
         }
 
+        /*
+         * connectVertices - connects the vertices at the given coordinates.
+         * Returns a list of booleans indicating the success of the connections.
+         */
         public IEnumerable<bool> connectVerticesMany(IEnumerable<(Coord, Coord)> pairs)
         {
             var res = new List<bool>();

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GraphColoringGame.Graphs
+﻿namespace GraphColoringGame.Graphs
 {
+    /*
+     * The possible directions for a neighbor in a grid.
+     */
     public enum Direction : int
     {
         Left,
@@ -20,6 +17,9 @@ namespace GraphColoringGame.Graphs
 
     public static class DirectionExtension
     {
+        /*
+         * Opposite - returns the opposing direction.
+         */
         public static Direction Opposite(this Direction dir) => dir switch
         {
             Direction.Left => Direction.Right,
@@ -33,6 +33,9 @@ namespace GraphColoringGame.Graphs
             _ => dir
         };
 
+        /*
+         * MoveCoord - returns the coordinate neighboring the given coordinate in the direction.
+         */
         public static Coord MoveCoord(this Direction dir, Coord coords) => dir switch
         {
             Direction.Left => new Coord(coords.Item1 - 1, coords.Item2),

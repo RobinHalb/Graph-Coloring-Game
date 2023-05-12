@@ -1,16 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GraphColoringGame.Graphs
 {
+    /*
+     * Coordinates as a tuple.
+     */
     public class Coord : Tuple<int, int>
     {
 
         public Coord(int x, int y) : base(x, y) { }
 
+        /*
+         * neighbour - returns the coordinates of the neighbor in the given direction.
+         */
         public Coord neighbour(Direction dir) => dir switch
         {
             Direction.Left => new Coord(Item1 - 1, Item2),
@@ -24,6 +26,10 @@ namespace GraphColoringGame.Graphs
             _ => this
         };
 
+        /*
+         * direction - checks whether the given coordinate represents a neighbor.
+         * If the coordinate is a neighbor, out dir yields the direction in which it exists.
+         */
         public bool direction(Coord coord, out Direction dir)
         {
             dir = Direction.Left;

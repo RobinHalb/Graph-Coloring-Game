@@ -1,11 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GraphColoringGame.Graphs
 {
+    /*
+     * A vertex in the graph.
+     * coord - the coordinates of the vertex in the graph.
+     * color - the color of the vertex.
+     * isColored - whether the vertex is colored.
+     * neighbours - the neighbors of the vertex in the graph, indexed by the direction in which they are located.
+     * directions - the directions in which the vertex has edges.
+     * uncoloredCount - the number of uncolored neighbors.
+     * availableColors - the list of legal colors for the vertex.
+     * isDangerous - whether the vertex is dangerous.
+     * isUncolorable - whether the vertex is uncolorable..
+     */
     public class Vertex
     {
         public readonly Coord coord;
@@ -28,6 +37,9 @@ namespace GraphColoringGame.Graphs
             _availableColors = availableColors.ToList();
         }
         
+        /*
+         * UpdateAvailable - checs the neighbors of the vertex to update the list of legel colors.
+         */
         private List<Color> UpdateAvailable()
         {
             _availableColors.RemoveAll(c => neighbours.Any(n => n.Value.color == c));
